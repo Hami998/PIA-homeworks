@@ -13,3 +13,24 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-shadow: 3px 3px #999999;
 }
+
+.flex-container {
+    display: flex;
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 5px grey;
+    background-color: #EEEEEE;
+}
+.column-one{
+    flex: 75%;
+}
+.column-two{
+    flex: 25%;
+}
+footer{ 
+    flex: 100%;
+    padding: 0.5em;
+    background-color: #A2B964;
+}
