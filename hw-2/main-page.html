@@ -23,6 +23,7 @@
     <div id="Onama">
             <h1 class="display-4 text-white text-center text-capitalize md-4">O nama</h1>
         <arcticle>
+            <!--Namesti font size i da moze na svim uredjajima da se gleda ono sm -->
                 <p class="text-white text-justify p-4">
                         Nasa picerija je dobro poznata Kragujevčanima, 
                         ona je i jedna od najstarijih picerija u gradu sa 25 godina rada.
@@ -38,69 +39,19 @@
         </arcticle>
         
     </div>
-    <main id="Meni">
-        <table>
-            <thead>
-                <tr>
-                        <th>Slika pize</th>
-                        <th>Opcije za narucivanje</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><img src="images/margarita.png" alt="margarita" width="250" height="220"></td>
-                <td>
-                    <form action="/">
-                    <label for="number">Unesite zeljenu kolicinu:</label>
-                    <input type="text" id="velicina" name="velicina"><br><br>
-                    <label for="number">Unesite zeljenu kolicinu:</label>
-                    <input type="text" id="kolicina" name="kolicina"><br><br>
-                    <input type="submit" value="Potvrdi">
-                  </form>
-                  
-                  <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
-            </tr>
-            <tr>
-                    <td><img src="images/Quattro-formaggi-pizza.png" alt="quattro formaggi pizza" width="250" height="220"> </td>
-                    <td>
-                        <form action="/">
-                        <label for="number">Unesite zeljenu kolicinu:</label>
-                        <input type="text" id="velicina" name="velicina"><br><br>
-                        <label for="number">Unesite zeljenu kolicinu:</label>
-                        <input type="text" id="kolicina" name="kolicina"><br><br>
-                        <input type="submit" value="Potvrdi">
-                      </form>
-                      
-                      <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
-                </tr>
-                <tr>
-                        <td>  <img src="images/mihailo-special-pizza.png" alt="Special pizza" width="250" height="220"> </td>
-                        <td>
-                            <form action="/">
-                            <label for="number">Unesite zeljenu kolicinu:</label>
-                            <input type="text" id="velicina" name="velicina"><br><br>
-                            <label for="number">Unesite zeljenu kolicinu:</label>
-                            <input type="text" id="kolicina" name="kolicina"><br><br>
-                            <input type="submit" value="Potvrdi">
-                          </form>
-                          
-                          <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
-                    </tr> 
-                    <tr>
-                            <td> <img src="images/pepperoni-pizza.png" alt="pepperoni pizza" width="250" height="220"> </td>
-                            <td>
-                                <form action="/">
-                                <label for="number">Unesite zeljenu kolicinu:</label>
-                                <input type="text" id="velicina" name="velicina"><br><br>
-                                <label for="number">Unesite zeljenu kolicinu:</label>
-                                <input type="text" id="kolicina" name="kolicina"><br><br>
-                                <input type="submit" value="Potvrdi">
-                              </form>
-                              
-                              <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
-                        </tr>  
-                        <tr>
-                                <td> <img src="images/pizza_quattro_stagioni.png" alt="quattro stagioni" width="250" height="220">  </td>
+        <div id="Meni" class="text-center">
+            <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <caption><h2 class="display-5 text-white text-center">Nas meni</h2></caption>
+                            <thead class="thead-dark">
+                                <tr>
+                                        <th>Slika pize</th>
+                                        <th>Opcije za narucivanje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><img src="images/margarita.png" class="rounded-circle img-fluid"alt="margarita" width="250" height="220"></td>
                                 <td>
                                     <form action="/">
                                     <label for="number">Unesite zeljenu kolicinu:</label>
@@ -111,9 +62,9 @@
                                   </form>
                                   
                                   <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
-                            </tr>  
+                            </tr>
                             <tr>
-                                    <td><img src="images/sumadinka.png" alt="sumadinka" width="250" height="220"> </td>
+                                    <td><img src="images/Quattro-formaggi-pizza.png" class="rounded-circle img-fluid" alt="quattro formaggi pizza" width="250" height="220"> </td>
                                     <td>
                                         <form action="/">
                                         <label for="number">Unesite zeljenu kolicinu:</label>
@@ -124,11 +75,64 @@
                                       </form>
                                       
                                       <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
-                                </tr>   
-                            </tbody>
-        </table>
-        
-    </main>
+                                </tr>
+                                <tr>
+                                        <td>  <img src="images/mihailo-special-pizza.png" class="rounded-circle img-fluid" alt="Special pizza" width="250" height="220"> </td>
+                                        <td>
+                                            <form action="/">
+                                            <label for="number">Unesite zeljenu kolicinu:</label>
+                                            <input type="text" id="velicina" name="velicina"><br><br>
+                                            <label for="number">Unesite zeljenu kolicinu:</label>
+                                            <input type="text" id="kolicina" name="kolicina"><br><br>
+                                            <input type="submit" value="Potvrdi">
+                                          </form>
+                                          
+                                          <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
+                                    </tr> 
+                                    <tr>
+                                            <td> <img src="images/pepperoni-pizza.png" class="rounded-circle " alt="pepperoni pizza" width="250" height="220"> </td>
+                                            <td>
+                                                <form action="/">
+                                                <label for="number">Unesite zeljenu kolicinu:</label>
+                                                <input type="text" id="velicina" name="velicina"><br><br>
+                                                <label for="number">Unesite zeljenu kolicinu:</label>
+                                                <input type="text" id="kolicina" name="kolicina"><br><br>
+                                                <input type="submit" value="Potvrdi">
+                                              </form>
+                                              
+                                              <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
+                                        </tr>  
+                                        <tr>
+                                                <td> <img src="images/pizza_quattro_stagioni.png" class="rounded-circle img-fluid" alt="quattro stagioni" width="250" height="220">  </td>
+                                                <td>
+                                                    <form action="/">
+                                                    <label for="number">Unesite zeljenu kolicinu:</label>
+                                                    <input type="text" id="velicina" name="velicina"><br><br>
+                                                    <label for="number">Unesite zeljenu kolicinu:</label>
+                                                    <input type="text" id="kolicina" name="kolicina"><br><br>
+                                                    <input type="submit" value="Potvrdi">
+                                                  </form>
+                                                  
+                                                  <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
+                                            </tr>  
+                                            <tr>
+                                                    <td><img src="images/sumadinka.png" class="rounded-circle img-fluid" alt="sumadinka" width="250" height="220"> </td>
+                                                    <td>
+                                                        <form action="/">
+                                                        <label for="number">Unesite zeljenu kolicinu:</label>
+                                                        <input type="text" id="velicina" name="velicina"><br><br>
+                                                        <label for="number">Unesite zeljenu kolicinu:</label>
+                                                        <input type="text" id="kolicina" name="kolicina"><br><br>
+                                                        <input type="submit" value="Potvrdi">
+                                                      </form>
+                                                      
+                                                      <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
+                                                </tr>   
+                                            </tbody>
+                        </table>
+                        
+            </div>
+    </div>
     <footer id="Kontakt">
     <small>
         Ime i prezime: Mihailo Jacimovic </br>
