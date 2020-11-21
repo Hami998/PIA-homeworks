@@ -41,7 +41,7 @@
     </div>
         <div id="Meni" class="text-center">
             <div class="table-responsive">
-                    <table class="table table-striped table-hover table-bordered">
+                    <table class="table table-striped table-hover table-bordered table-primary">
                         <caption><h2 class="display-5 text-white text-center">Nas meni</h2></caption>
                             <thead class="thead-dark">
                                 <tr>
@@ -53,15 +53,24 @@
                             <tr>
                                 <td><img src="images/margarita.png" class="rounded-circle img-fluid"alt="margarita" width="250" height="220"></td>
                                 <td>
-                                    <form action="/">
-                                    <label for="number">Unesite zeljenu kolicinu:</label>
-                                    <input type="text" id="velicina" name="velicina"><br><br>
-                                    <label for="number">Unesite zeljenu kolicinu:</label>
-                                    <input type="text" id="kolicina" name="kolicina"><br><br>
-                                    <input type="submit" value="Potvrdi">
-                                  </form>
-                                  
-                                  <p>Klikom na dugme potvrdi kupili ste zeljenu pizu! :)</p></td>
+                                    <div class="row pl-5 pt-5">
+                                            <form >
+                                                    <div class="form-group row ">
+                                                            <div>
+                                                            <label for="velicina" class="col-sm-6 text-dark">Unesite zeljenu velicinu</label>
+                                                            <input type="text" id="velicina" name="velicina" class="col-sm-5 " placeholder="Velicina">
+                                                            </div>
+                                                        </div>
+                                                            <div class="form-group row">
+                                                            <div>
+                                                                    <label for="kolicina" class="col-sm-6 text-dark">Unesite zeljenu kolicinu</label>
+                                                                    <input type="text" id="kolicina" name="kolicina" class="col-sm-5" placeholder="Kolicina">
+                                                            </div>
+                                                        </div>                                
+                                                            <button type="submit" class="btn btn-primary">Potvrdi kupovinu</button>
+                                      </form>
+                                    
+                                    </div>
                             </tr>
                             <tr>
                                     <td><img src="images/Quattro-formaggi-pizza.png" class="rounded-circle img-fluid" alt="quattro formaggi pizza" width="250" height="220"> </td>
