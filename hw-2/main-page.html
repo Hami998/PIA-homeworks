@@ -18,8 +18,14 @@
         <header>
                 <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
                         <div class="container">
-                                <div class="collapse navbar-collapse" id="navbarCollape">
-                                        <ul class="nav navbar-nav mr-auto">
+                                
+                                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCol">
+                                                                <span class="navbar-toggler-icon"></span>
+                                                 </button>
+                                                            
+                                
+                                <div class="collapse navbar-collapse" id="navCol">
+                                        <ul class="nav  navbar-nav mr-auto">
                                                 <li class="nav-item active">
                                                         <a class="nav-link" href="#Onama"> O nama</a>
                                                 </li>
@@ -54,151 +60,157 @@
         </arcticle>
         
     </div>
-        <div id="Meni" class="text-center">
+        
+    <div class="container" id="Meni">
         <div class="row">
-        <div class="table-responsive">  
-                <table class="table table-striped table-hover table-bordered table-primary">
-                        <caption><h2 class="display-5 text-white text-center">Nas meni</h2></caption>
-                <thead class="thead-dark">
-                        <tr>
-                                <th>Slika pize</th>
-                                <th>Opcije za narucivanje</th>
-                        </tr>
-                </thead>
-                <tbody>
-                <tr>
-                        <td>
-                                <img src="images/margherita.png" alt="margarita" class="rounded-circle img-fluid m-3"alt="margarita" width="250" height="220">
-                                <p class="text-dark"><strong>Margarita</strong></p>
-                        </td>
-                        <td>
-                        <div class="row pl-5 pt-3 ">
+                <div class="col col-lg-6 col-md-4 col-sm-4">
+                    <p class="text-light text-center bg-dark border"> Pica</p>
+                </div>
+                <div class="col col-lg-6 col-md-4 col-sm-4">
+                    <p class="text-light text-center bg-dark border"> Opis pice i narudzbina</p>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-6 col-md-4 col-sm-4 border border-secondary">
+                    <img src="images/margherita.png" alt="margarita" class="rounded-circle img-fluid m-5" width="50%" height="auto">
+                
+            </div>
+            <div class="col col-lg-6 col-md-8 col-sm-8 border border-secondary">
+                    
+                            <p class="align-left text-light">Pica Margarita. Tipicna italijanska(napuljska) pica. Dodaci: sir, paradajz, maslinovo ulje</p>
+                            <form >
+                                    <div class="form-group form-row mt-1 ml-3">
+                                               
+                                            <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
+                                    </div>
+                                    <div class="form-group form-row my-4 ml-3">
+                                             
+                                            <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
+                                    </div>                                
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
+                            </form>
+
+             </div>
+        </div>
+        <div class="row">
+                <div class="col col-lg-6 col-md-4 col-sm-4 border border-secondary ">
+                        <img src="images/neopolitan.png" alt="neopolitan" class="rounded-circle img-fluid m-5" width="50%" height="auto">
+                        
+                </div>
+                <div class="col col-lg-6 col-md-8 col-sm-8 border border-secondary">
+                        
+                                <p class="align-left text-light">Pica Napolitan. Pica koju prave jos samo Napulju. Dodaci: San Marzano paradajz,
+                                    mocarela, origano
+                                </p>
                                 <form >
-                                        <div class="form-group form-row mt-1 ml-3">
-                                                <label for="velicina" class="col text-dark text-left">Unesite zeljenu velicinu</label>   
+                                        <div class="form-group form-row mt-1 ml-3 ">
+                                                   
                                                 <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
                                         </div>
                                         <div class="form-group form-row my-4 ml-3">
-                                                <label for="kolicina" class="col text-dark text-left">Unesite zeljenu kolicinu</label>   
+                                                 
                                                 <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
                                         </div>                                
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
                                 </form>
+    
+                 </div>
+            </div>
+            <div class="row">
+                    <div class="col col-lg-6 col-md-4 col-sm-4 border border-secondary">
+                            <img src="images/pizza_quattro_stagioni.png" alt="pizza_quattro_stagioni"  class="rounded-circle img-fluid m-5" width="50%" height="auto">
+                            
+                    </div>
+                    <div class="col col-lg-6 col-md-8 col-sm-8 border border-secondary">
+                            
+                                    <p class="align-left text-light">Pica Quattro stagioni. Pica poznatija kao cetiri godisnja doba. Dodaci:
+                                        mocarela, prsuta, slanina, jaja, paradajz
+                                    </p>
+                                    <form >
+                                            <div class="form-group form-row mt-1 ml-3">
+                                                       
+                                                    <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
+                                            </div>
+                                            <div class="form-group form-row my-4 ml-3">
+                                                     
+                                                    <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
+                                            </div>                                
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
+                                    </form>
+        
+                     </div>
+                </div>
+                <div class="row">
+                        <div class="col col-lg-6 col-md-4 col-sm-4 border border-secondary">
+                                <img src="images/sumadinka.png" alt="specijalitet kuce"  class="rounded-circle img-fluid m-5" width="50%" height="auto">
+                                
                         </div>
-                        </td>
-                </tr> 
-                <tr>
-                                <td>
-                                        <img src="images/neopolitan.png" alt="neopolitan" class="rounded-circle img-fluid m-3"alt="margarita" width="250" height="220">
-                                        <p class="text-dark"><strong>Neopolitan</strong></p>
-                                </td>
-                                <td>
-                                <div class="row pl-5 pt-3 ">
+                        <div class="col col-lg-6 col-md-8 col-sm-8 border border-secondary">
+                                
+                                        <p class="align-left text-light">Sumadinka, savršena i veoma ukusna. Specijalitet kuce. Dodaci:
+                                            jaja, dimljenja slanina, prsuta, pavlaka/kajmak, feferoni, cajna, sampinjoni,
+                                            pecenica, kulen, masline
+                                        </p>
                                         <form >
                                                 <div class="form-group form-row mt-1 ml-3">
-                                                        <label for="velicina" class="col text-dark text-left">Unesite zeljenu velicinu</label>   
+                                                           
                                                         <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
                                                 </div>
                                                 <div class="form-group form-row my-4 ml-3">
-                                                        <label for="kolicina" class="col text-dark text-left">Unesite zeljenu kolicinu</label>   
+                                                         
                                                         <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
                                                 </div>                                
                                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
                                         </form>
-                                </div>
-                                </td>
-                </tr>
-                <tr>
-                                <td>
-                                        <img src="images/pizza_quattro_stagioni.png" alt="pizza_quattro_stagioni" class="rounded-circle img-fluid m-3"alt="margarita" width="250" height="220">
-                                        <p class="text-dark"><strong>Quatrro stagioni</strong></p>
-                                </td>
-                                <td>
-                                <div class="row pl-5 pt-3 ">
-                                        <form >
-                                                <div class="form-group form-row mt-1 ml-3">
-                                                        <label for="velicina" class="col text-dark text-left">Unesite zeljenu velicinu</label>   
-                                                        <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
-                                                </div>
-                                                <div class="form-group form-row my-4 ml-3">
-                                                        <label for="kolicina" class="col text-dark text-left">Unesite zeljenu kolicinu</label>   
-                                                        <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
-                                                </div>                                
-                                                <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
-                                        </form>
-                                </div>
-                                </td>
-                </tr>
-                <tr>
-                                <td>
-                                        <img src="images/sumadinka.png" alt="specijalitet kuce" class="rounded-circle img-fluid m-3"alt="margarita" width="250" height="220">
-                                        <p class="text-dark"><strong>Sumadinka</strong></p>
-                                </td>
-                                <td>
-                                <div class="row pl-5 pt-3 ">
-                                        <form >
-                                                <div class="form-group form-row mt-1 ml-3">
-                                                        <label for="velicina" class="col text-dark text-left">Unesite zeljenu velicinu</label>   
-                                                        <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
-                                                </div>
-                                                <div class="form-group form-row my-4 ml-3">
-                                                        <label for="kolicina" class="col text-dark text-left">Unesite zeljenu kolicinu</label>   
-                                                        <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
-                                                </div>                                
-                                                <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
-                                        </form>
-                                </div>
-                                </td>
-                </tr>
-                <tr>
-                                <td>
-                                        <img src="images/quattro_formaggi.png" alt="quattro formaggi" class="rounded-circle img-fluid m-3"alt="margarita" width="250" height="220">
-                                        <p class="text-dark"><strong>Quattro formaggi</strong></p>
-                                </td>
-                                <td>
-                                <div class="row pl-5 pt-3 ">
-                                        <form >
-                                                <div class="form-group form-row mt-1 ml-3">
-                                                        <label for="velicina" class="col text-dark text-left">Unesite zeljenu velicinu</label>   
-                                                        <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
-                                                </div>
-                                                <div class="form-group form-row my-4 ml-3">
-                                                        <label for="kolicina" class="col text-dark text-left">Unesite zeljenu kolicinu</label>   
-                                                        <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
-                                                </div>                                
-                                                <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
-                                        </form>
-                                </div>
-                                </td>
-                </tr>
-                <tr>
-                                <td>
-                                        <img src="images/pepperonipizza.png" alt="pepperoni pizza" class="rounded-circle img-fluid m-3"alt="margarita" width="250" height="220">
-                                        <p class="text-dark"><strong>Feferoni</strong></p>
-                                </td>
-                                <td>
-                                <div class="row pl-5 pt-3 ">
-                                        <form >
-                                                <div class="form-group form-row mt-1 ml-3">
-                                                        <label for="velicina" class="col text-dark text-left">Unesite zeljenu velicinu</label>   
-                                                        <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
-                                                </div>
-                                                <div class="form-group form-row my-4 ml-3">
-                                                        <label for="kolicina" class="col text-dark text-left">Unesite zeljenu kolicinu</label>   
-                                                        <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
-                                                </div>                                
-                                                <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
-                                        </form>
-                                </div>
-                                </td>
-                </tr>     
-                                                                </tbody>
-                                            </table>
-                                            
-                              </div>
+            
+                         </div>
+                    </div>
+                    <div class="row">
+                            <div class="col col-lg-6 col-md-4 col-sm-4 border border-secondary">
+                                    <img src="images/pepperonipizza.png" alt="pepperoni pizza" class="rounded-circle img-fluid m-5" width="50%" height="auto">
+                                 
+                            </div>
+                            <div class="col col-lg-6 col-md-8 col-sm-8 border border-secondary">
+                                    
+                                            <p class="align-left text-light">Feferoni pica. Dodaci: feferoni, kackavalj, prsuta</p>
+                                            <form >
+                                                    <div class="form-group form-row mt-1 ml-3">
+                                                               
+                                                            <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
+                                                    </div>
+                                                    <div class="form-group form-row my-4 ml-3">
+                                                             
+                                                            <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
+                                                    </div>                                
+                                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
+                                            </form>
+                
+                             </div>
                         </div>
-        </div>
-         
+                        <div class="row">
+                                <div class="col col-lg-6 col-md-4 col-sm-4 border border-secondary">
+                                        <img src="images/quattro_formaggi.png" alt="quattro formaggi" class="rounded-circle img-fluid m-5" width="50%" height="auto">
+                                        
+                                </div>
+                                <div class="col col-lg-6 col-md-8 col-sm-8 border border-secondary">
+                                        
+                                                <p class="align-left text-light">Pica quattro formaggi. Cetiri vrste sira. Dodaci: kackavalj, gauda, mocarela, feta</p>
+                                                <form >
+                                                        <div class="form-group form-row mt-1 ml-3">
+                                                                   
+                                                                <input type="text" id="velicina" name="velicina" class=" form-control" placeholder="Velicina">          
+                                                        </div>
+                                                        <div class="form-group form-row my-4 ml-3">
+                                                                 
+                                                                <input type="text" id="kolicina" name="kolicina" class=" form-control" placeholder="Kolicina">
+                                                        </div>                                
+                                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Potvrdi kupovinu</button>
+                                                </form>
+                    
+                                 </div>
+                            </div>
+    </div>
+
     <footer id="Kontakt" class="text-white mt-4">
     <small>
         Ime i prezime: Mihailo Jacimovic </br>
