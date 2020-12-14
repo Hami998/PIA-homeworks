@@ -9,23 +9,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js" ></script>
 </head>
 <body>
         <div class="pozadina"> 
                 <div class="container">
                     <div class="Dugme">
-                        <button type="button" class="btn btn-lg btn-outline-light">Forma</button>
+                        <button type="button" class="btn btn-lg btn-outline-light" onclick="openForm()">Forma</button>
                     </div>
+                    <div class="form-popup" id="myForm">
+                                <form class="form-container">
+                                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                </form>
+                              </div>
                     <div class="Dugme">
                             <button type="button" class="btn btn-lg btn-outline-light">Pravila igre</button>
                     </div>
                     <div class="Dugme">
-                            <button type="button" class="btn btn-lg btn-outline-light">Zapocni igru</button>
+                            <button type="button" class="btn btn-lg btn-outline-light" onclick="zapocniKviz()">Zapocni igru</button>
                     </div>
                     <div class="Dugme">
                             <button type="button" class="btn btn-lg btn-outline-light">Najbolji rezultati</button>
                     </div>
-                </div>        
+                </div>                
         </div>
+        
 </body>
 </html>

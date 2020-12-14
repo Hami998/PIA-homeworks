@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    height: 100%; 
+}
+.pozadina_forma {
+    height: 100%; 
+    background-image: url("slike/pozadina_forma4.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
