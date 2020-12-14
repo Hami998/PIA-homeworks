@@ -35,9 +35,39 @@ body, html {
 .pravila {
     position: relative;
     left:15px;
-    top: -7.5px;
+    top: -10.5px;
     font-size: 17.5px;
-    font-family:serif;
+    font-family:sans-serif;
     color: white;
     line-height: 1.3;
 }
+.dugme_napred{
+  padding: 7px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  position: relative;
+  left: 450px;
+  top: 0px;
+}
+.dugme_nazad_forma{
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    position: relative;
+    left: -85px;
+    top: 0px;
+  }
+  .dugme_nazad_pocetna{
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    position: relative;
+    left: -133px;
+    top: 0px;
+  }

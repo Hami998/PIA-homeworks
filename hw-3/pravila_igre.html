@@ -14,11 +14,11 @@
 <body>
         <div class="pozadina_pravila_igre"> 
             <main>
-                <div class="Pravila_igre">
+                <div class="Pravila_igre text-capitalize">
                     Pravila igre
                 </div>
                 <div class="objasnjenje">
-                <p>
+                <p class="font-weight-bold">
                     Dobrodosli u kviz znanja. Kviz se bavi pitanjima iz oblasti geografije.
                     Pravila igre su sledeca:
                     <ol>
@@ -41,6 +41,9 @@
                         </li>
                     </ol>
                 </p>
+                <button class="dugme_napred btn btn-success" type="submit" name="Nastavi_dalje">Nastavi dalje</button>
+                <button class="dugme_nazad_pocetna btn btn-success" type="submit" name="Vrati_se_nazad_pocetna" onclick="vratiPocetna()">Vrati se na pocetnu</button>
+                <button class="dugme_nazad_forma btn btn-success" type="submit" name="Vrati_se_nazad_forma" onclick="vratiForma()">Vrati se na formu</button>
             </div>
             </main>
         </div>
