@@ -22,8 +22,35 @@ body, html {
     margin-bottom: 2rem;
     text-align: center;
 }
-.Forma{
-    padding-top: 125px;
-    padding-left: 500px; 
-    padding-right: 500px; 
+#Forma {
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 12px;
+    width:300px;
+}
+#Pravila_igre {
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 12px;
+    width:300px;
+}
+#Zapocni_igru {
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 12px;
+    width:300px;
+}
+#Rezultati { 
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 12px;
+    width:300px;
 }

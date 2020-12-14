@@ -9,19 +9,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="style_forma.css">
+        <script type="text/javascript" src="script.js" ></script>
 </head>
 <body>
         <div class="pozadina_forma"> 
                 <div class="Reg_forma"> Forma za registrovanje</div>
-                <form>
+                <form class="needs-validation">
                         <div id="imeIprezime">
-                                <input class="ime" type="text" name="ime" maxlength="12"><br>
+                                <input class="ime" type="text" name="ime" maxlength="12" id="ime" required><br>
                                 <label class="labela_ime">Ime</label>
-                                <input class="prezime" type="text" name="prezime" maxlength="15"><br>
+                                <input class="prezime" type="text" name="prezime" maxlength="15" required><br>
                                 <label class="labela_prezime">Prezime</label>
-                                <input class="nadimak" type="text" name="nadimak" maxlength="10"><br>
+                                <input class="nadimak" type="text" name="nadimak" maxlength="10" required><br>
                                 <label class="labela_nadimak">Nik</label>
-                                <button class="dugme btn btn-success" type="submit" name="dugme">Nastavi dalje</button>
+                                <button class="dugme_za_napred btn btn-success" type="submit" name="Nastavi_dalje">Nastavi dalje</button>
+                                <button class="dugme_za_nazad btn btn-success" type="submit" name="Vrati_se_nazad" onclick="vratiNazad()">Vrati se nazad</button>
                         </div>
                 </form>
         </div>
