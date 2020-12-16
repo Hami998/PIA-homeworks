@@ -1,3 +1,9 @@
+//function mihailo () {
+//  $.getJSON('pitanja.json', (data) => {         
+//    alert(data.pitanje1);
+//  });
+//}
+// funkcije za prelazak sa jedne strane na drugu
 function zapocniKviz() {
     location.replace("http://127.0.0.1:5500/stranica_sa_pitanjima.html");
 }
@@ -21,4 +27,4 @@ function otvoriPravilaIgre() {
 }
 function otvoriFormu() {
   location.replace("http://127.0.0.1:5500/forma.html");
-  }
+}
