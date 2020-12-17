@@ -28,10 +28,16 @@ function ucitajPitanje1() {
   //$(".tekst").remove();
   $.getJSON('pitanja.json', (data) => {         
     $(".tekst").text(data.pitanje_1);
-    $(".tekst").attr("id", "prvo_pitanje");
     $(".sledece_pitanje").css("display", "inline");
     $(".izadji_iz_kviza").css("display", "inline");
     $(".dugme").remove();
     $("#odgovor_prvi").html(data.odgovori_1[0]);
+    $("#odgovor_drugi").html(data.odgovori_1[1]);
+    $("#odgovor_treci").html(data.odgovori_1[2]);
+    $("#odgovor_cetvrti").html(data.odgovori_1[3]);
+    $("#odgovor_prvi").css("display", "inline");
+    $("#odgovor_drugi").css("display", "inline");
+    $("#odgovor_treci").css("display", "inline");
+    $("#odgovor_cetvrti").css("display", "inline");
   });
 }
