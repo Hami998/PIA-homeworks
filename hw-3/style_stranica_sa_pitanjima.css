@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body, html {
+    height: 100%; 
+}
+.pozadina_stranica_sa_pitanjima{
+    height: 100%;
+    background-image: url("slike/pozadina_pitanja2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 150px;
+}
+.pitanje{
+    width: 600px;
+    height: 225px;
+    color: #ffffff;
+    background-color: rgb(0,0,0,0.5);
+    margin: auto;
+    padding: 10px 10px;
+    font-family:sans-serif;
+}
+.dugme {
+  padding: 7px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  position: relative;
+  left: 220px;
+  top: 33px;
+ }
+#prvo_pitanje {
+    color: grey;
+ }
+.izadji_iz_kviza{
+  padding: 7px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  position: relative;
+  left: -5px;
+  top: 125px;
+  display: none;
+}
+.sledece_pitanje {
+  padding: 7px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  position: relative;
+  left: 305px;
+  top: 125px;
+  display: none;  
+}
+#odgovor_prvi{
+  padding: 7px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  position: relative;
+  left: 305px;
+  top: 125px;
+}
