@@ -39,5 +39,16 @@ function ucitajPitanje1() {
     $("#odgovor_drugi").css("display", "inline");
     $("#odgovor_treci").css("display", "inline");
     $("#odgovor_cetvrti").css("display", "inline");
+    $(".odgovor").click(function(){
+      $("#odgovor_prvi").attr("disabled", "disabled");
+      $("#odgovor_drugi").attr("disabled", "disabled");
+      $("#odgovor_treci").attr("disabled", "disabled");
+      $("#odgovor_cetvrti").attr("disabled", "disabled");
+      $("#odgovor_prvi").attr("class", "btn-danger");
+      $("#odgovor_drugi").attr("class", "btn-success");
+      $("#odgovor_treci").attr("class", "btn-danger");
+      $("#odgovor_cetvrti").attr("class", "btn-danger");
+    });
+    
   });
 }
