@@ -55,6 +55,9 @@ body, html {
   top: 125px;
   display: none;  
 }
+.brojac{
+  display: none; 
+}
 .tekst{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -62,16 +65,6 @@ body, html {
     text-decoration: none;
     word-spacing: 0.5px;
     text-shadow: 1px 1px black;
-}
-#odgovor_prvi{
-  padding: 7px 16px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
-  position: relative;
-  left: 305px;
-  top: 125px;
 }
 #odgovor_prvi{
     padding: 7px 16px;
