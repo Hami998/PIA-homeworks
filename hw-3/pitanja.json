@@ -10,8 +10,10 @@
     "odgovori_5" : ["Indonezija", "Pakistan", "Nigerija", "Japan"],
     "pitanje_6" : "U kom gradu se nalazi Crveni trg: ",
     "pitanje_7" : "Koja od sledecih zemalja se ne granici sa Srbijom: ",
-    "odgovori_8" : ["Rumunija", "Slovacka", "Madjarska", "Bugarska"],
-    "pitanje_9" : "Koja zemlja se granici sa najvise drugih zemalja: ",
-    "odgovori_9" : ["Kina", "Rusija", "SAD", "Brazil"],
+    "odgovori_7" : ["Rumunija", "Slovacka", "Madjarska", "Bugarska"],
+    "pitanje_8" : "Koja zemlja se granici sa najvise drugih zemalja: ",
+    "odgovori_8" : ["Kina", "Rusija", "SAD", "Brazil"],
+    "pitanje_9" : "Koja od ponudjenih zemalja je 'najmladja': ",
+    "odgovori_9" : ["Senegal", "Singapur", "Libija", "Katar"],
     "pitanje_10" : "Kroz koliko zemalja prolazi ekvator: "
 }

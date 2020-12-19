@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
         <title>PIA HW - JavaScript</title>
         <meta name="author" content="Mihailo Jacimovic!" />
@@ -11,23 +12,28 @@
         <link rel="stylesheet" href="style_stranica_sa_pitanjima.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="pitanja.json"></script>
-        <script type="text/javascript" src="script.js" ></script>
+        <script type="text/javascript" src="script.js"></script>
 </head>
+
 <body>
-        <div class="pozadina_stranica_sa_pitanjima"> 
+        <div class="pozadina_stranica_sa_pitanjima">
                 <div class="pitanje">
                         <p class="brojac">1</p>
                         <p class="tekst">Pritiskom na dugme Zapocni kviz, kviz ce zvanicno poceti. Srecno !!!</p>
-                        <button type="submit" class="btn btn-success dugme" onclick="ucitajPrvoPitanje()">Zapocni kviz</button>
-                        <button type="submit" class="btn btn-success izadji_iz_kviza" onclick="vratiPocetna()">Izadji iz kviza</button>
-                        <button type="submit" class="btn btn-success sledece_pitanje" onclick="ucitajNovoPitanje()">Sledece pitanje</button>
+                        <button type="submit" class="btn btn-success dugme" onclick="ucitajPrvoPitanje()">Zapocni
+                                kviz</button>
+                        <button type="submit" class="btn btn-success izadji_iz_kviza" onclick="vratiPocetna()">Izadji iz
+                                kviza</button>
+                        <button type="submit" class="btn btn-success sledece_pitanje"
+                                onclick="ucitajNovoPitanje()">Sledece pitanje</button>
                         <button type="submit" class="btn btn-success odgovor" id="odgovor_prvi">Tekst</button>
                         <button type="submit" class="btn btn-success odgovor" id="odgovor_drugi">Tekst</button>
                         <button type="submit" class="btn btn-success odgovor" id="odgovor_treci">Tekst</button>
                         <button type="submit" class="btn btn-success odgovor" id="odgovor_cetvrti">Tekst</button>
-                        
+
                 </div>
         </div>
-        
+
 </body>
+
 </html>
