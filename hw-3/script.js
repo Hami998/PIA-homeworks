@@ -279,4 +279,38 @@ function ucitajNovoPitanje() {
       });
     });
   }
+  if (brojac == 8) {
+    $.getJSON('pitanja.json', (data) => {
+      $(".tekst").text(data.pitanje_3);
+      $(".brojac").text("9");
+      $(".sledece_pitanje").css("display", "inline");
+      $(".izadji_iz_kviza").css("display", "inline");
+      $(".dugme").remove();
+      $("#odgovor_prvi").attr("disabled", false);
+      $("#odgovor_drugi").attr("disabled", false);
+      $("#odgovor_treci").attr("disabled", false);
+      $("#odgovor_cetvrti").attr("disabled", false);
+      $("#odgovor_prvi").attr("class", "btn-success");
+      $("#odgovor_drugi").attr("class", "btn-success");
+      $("#odgovor_treci").attr("class", "btn-success");
+      $("#odgovor_cetvrti").attr("class", "btn-success");
+      $("#odgovor_prvi").css("display", "none");
+      $("#odgovor_drugi").css("display", "none");
+      $("#odgovor_treci").css("display", "none");
+      $("#odgovor_cetvrti").css("display", "none");
+      $("#odgovor_na_dopunu").css("display", "inline");
+      $("#potvrdi_odgovor").css("display", "inline");
+      $("button").removeClass("odgovor_9");
+      $("button").addClass("odgovor_10");
+      $(".odgovor_10").click(function () {
+        $("#potvrdi_odgovor").css("display", "none");
+        $("#odgovor_na_dopunu").attr("disabled", true);
+        $("#tacan_odgovor").css("display", "inline");
+        $("#tacan_odgovor").attr("disabled", true);
+        $("#tacan_odgovor").attr("class", "btn-success");
+        $("#tacan_odgovor").text("Kazahstan");
+        alert(a);
+      });
+    });
+  }
 }
