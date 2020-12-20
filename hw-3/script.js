@@ -24,39 +24,60 @@ function otvoriFormu() {
   location.replace("http://127.0.0.1:5500/forma.html");
 }
 // funkcije za rad sa pitanjima
-//let brojac = 1;
-//function povecajBrojac(){
-//  brojac += 1;
-//}
-function ucitajPrvoPitanje() {
-  $.getJSON('pitanja.json', (data) => {
-    $(".tekst").text(data.pitanje_1);
-    $(".brojac").text("2");
-    $(".sledece_pitanje").css("display", "inline");
-    $(".izadji_iz_kviza").css("display", "inline");
-    $(".dugme").remove();
-    $("#odgovor_prvi").html(data.odgovori_1[0]);
-    $("#odgovor_drugi").html(data.odgovori_1[1]);
-    $("#odgovor_treci").html(data.odgovori_1[2]);
-    $("#odgovor_cetvrti").html(data.odgovori_1[3]);
-    $("#odgovor_prvi").css("display", "inline");
-    $("#odgovor_drugi").css("display", "inline");
-    $("#odgovor_treci").css("display", "inline");
-    $("#odgovor_cetvrti").css("display", "inline");
-    $(".odgovor").click(function () {
-      $("#odgovor_prvi").attr("disabled", "disabled");
-      $("#odgovor_drugi").attr("disabled", "disabled");
-      $("#odgovor_treci").attr("disabled", "disabled");
-      $("#odgovor_cetvrti").attr("disabled", "disabled");
-      $("#odgovor_prvi").attr("class", "btn-danger");
-      $("#odgovor_drugi").attr("class", "btn-success");
-      $("#odgovor_treci").attr("class", "btn-danger");
-      $("#odgovor_cetvrti").attr("class", "btn-danger");
-    });
-  });
-}
+let poeni=0;
+let poeni_1=1;
+let poeni_2=1;
+let poeni_3=1;
+let poeni_4=1;
+let poeni_5=1;
+let poeni_6=1;
+let poeni_7=1;
+let poeni_8=1;
+let poeni_9=1;
+let poeni_10=1;
 function ucitajNovoPitanje() {
   let brojac = $(".brojac").text();
+  if(brojac == 1) {
+    $.getJSON('pitanja.json', (data) => {
+      $(".tekst").text(data.pitanje_1);
+      $(".brojac").text("2");
+      $(".sledece_pitanje").css("display", "inline");
+      $(".izadji_iz_kviza").css("display", "inline");
+      $(".dugme").remove();
+      $("#odgovor_prvi").html(data.odgovori_1[0]);
+      $("#odgovor_drugi").html(data.odgovori_1[1]);
+      $("#odgovor_treci").html(data.odgovori_1[2]);
+      $("#odgovor_cetvrti").html(data.odgovori_1[3]);
+      $("#odgovor_prvi").css("display", "inline");
+      $("#odgovor_drugi").css("display", "inline");
+      $("#odgovor_treci").css("display", "inline");
+      $("#odgovor_cetvrti").css("display", "inline");
+      $(".odgovor").click(function () {
+        if (this.id == 'odgovor_drugi'){
+          $("#odgovor_prvi").attr("disabled", "disabled");
+          $("#odgovor_drugi").attr("disabled", "disabled");
+          $("#odgovor_treci").attr("disabled", "disabled");
+          $("#odgovor_cetvrti").attr("disabled", "disabled");
+          $("#odgovor_prvi").attr("class", "btn-danger");
+          $("#odgovor_drugi").attr("class", "btn-success");
+          $("#odgovor_treci").attr("class", "btn-danger");
+          $("#odgovor_cetvrti").attr("class", "btn-danger");
+          poeni = poeni + poeni_1;
+          poeni_1 = 0;
+        }
+        else {
+        $("#odgovor_prvi").attr("disabled", "disabled");
+        $("#odgovor_drugi").attr("disabled", "disabled");
+        $("#odgovor_treci").attr("disabled", "disabled");
+        $("#odgovor_cetvrti").attr("disabled", "disabled");
+        $("#odgovor_prvi").attr("class", "btn-danger");
+        $("#odgovor_drugi").attr("class", "btn-success");
+        $("#odgovor_treci").attr("class", "btn-danger");
+        $("#odgovor_cetvrti").attr("class", "btn-danger");
+        }
+      });
+    });
+  }
   if (brojac == 2) {
     $.getJSON('pitanja.json', (data) => {
       $(".tekst").text(data.pitanje_2);
@@ -83,6 +104,19 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor");
       $("button").addClass("odgovor_2");
       $(".odgovor_2").click(function () {
+        if(this.id == 'odgovor_prvi'){
+          $("#odgovor_prvi").attr("disabled", "disabled");
+        $("#odgovor_drugi").attr("disabled", "disabled");
+        $("#odgovor_treci").attr("disabled", "disabled");
+        $("#odgovor_cetvrti").attr("disabled", "disabled");
+        $("#odgovor_prvi").attr("class", "btn-success");
+        $("#odgovor_drugi").attr("class", "btn-danger");
+        $("#odgovor_treci").attr("class", "btn-danger");
+        $("#odgovor_cetvrti").attr("class", "btn-danger");
+        poeni = poeni + poeni_2;
+        poeni_2 = 0;
+        }
+        else{
         $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
         $("#odgovor_treci").attr("disabled", "disabled");
@@ -91,9 +125,11 @@ function ucitajNovoPitanje() {
         $("#odgovor_drugi").attr("class", "btn-danger");
         $("#odgovor_treci").attr("class", "btn-danger");
         $("#odgovor_cetvrti").attr("class", "btn-danger");
+        }
       });
     });
   }
+  alert(poeni);
   if (brojac == 3) {
     $.getJSON('pitanja.json', (data) => {
       $(".tekst").text(data.pitanje_4);
@@ -120,7 +156,20 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_2");
       $("button").addClass("odgovor_4");
       $(".odgovor_4").click(function () {
-        $("#odgovor_prvi").attr("disabled", "disabled");
+        if(this.id == 'odgovor_treci'){
+          $("#odgovor_prvi").attr("disabled", "disabled");
+          $("#odgovor_drugi").attr("disabled", "disabled");
+          $("#odgovor_treci").attr("disabled", "disabled");
+          $("#odgovor_cetvrti").attr("disabled", "disabled");
+          $("#odgovor_prvi").attr("class", "btn-danger");
+          $("#odgovor_drugi").attr("class", "btn-danger");
+          $("#odgovor_treci").attr("class", "btn-success");
+          $("#odgovor_cetvrti").attr("class", "btn-danger");
+          poeni = poeni + poeni_3;
+          poeni_3 = 0;
+        }
+        else{
+          $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
         $("#odgovor_treci").attr("disabled", "disabled");
         $("#odgovor_cetvrti").attr("disabled", "disabled");
@@ -128,6 +177,7 @@ function ucitajNovoPitanje() {
         $("#odgovor_drugi").attr("class", "btn-danger");
         $("#odgovor_treci").attr("class", "btn-success");
         $("#odgovor_cetvrti").attr("class", "btn-danger");
+        }
       });
     });
   }
@@ -157,6 +207,19 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_4");
       $("button").addClass("odgovor_5");
       $(".odgovor_5").click(function () {
+        if(this.id == 'odgovor_cetvrti'){
+          $("#odgovor_prvi").attr("disabled", "disabled");
+        $("#odgovor_drugi").attr("disabled", "disabled");
+        $("#odgovor_treci").attr("disabled", "disabled");
+        $("#odgovor_cetvrti").attr("disabled", "disabled");
+        $("#odgovor_prvi").attr("class", "btn-danger");
+        $("#odgovor_drugi").attr("class", "btn-danger");
+        $("#odgovor_treci").attr("class", "btn-danger");
+        $("#odgovor_cetvrti").attr("class", "btn-success");
+        poeni = poeni + poeni_4;
+        poeni_4 = 0;
+        }
+        else {
         $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
         $("#odgovor_treci").attr("disabled", "disabled");
@@ -165,6 +228,7 @@ function ucitajNovoPitanje() {
         $("#odgovor_drugi").attr("class", "btn-danger");
         $("#odgovor_treci").attr("class", "btn-danger");
         $("#odgovor_cetvrti").attr("class", "btn-success");
+        }
       });
     });
   }
@@ -194,7 +258,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_5");
       $("button").addClass("odgovor_7");
       $(".odgovor_7").click(function () {
-        $("#odgovor_prvi").attr("disabled", "disabled");
+        if(this.id == 'odgovor_drugi'){
+          $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
         $("#odgovor_treci").attr("disabled", "disabled");
         $("#odgovor_cetvrti").attr("disabled", "disabled");
@@ -202,6 +267,19 @@ function ucitajNovoPitanje() {
         $("#odgovor_drugi").attr("class", "btn-success");
         $("#odgovor_treci").attr("class", "btn-danger");
         $("#odgovor_cetvrti").attr("class", "btn-danger");
+        poeni = poeni + poeni_5;
+        poeni_5 = 0;
+        }
+        else{
+          $("#odgovor_prvi").attr("disabled", "disabled");
+        $("#odgovor_drugi").attr("disabled", "disabled");
+        $("#odgovor_treci").attr("disabled", "disabled");
+        $("#odgovor_cetvrti").attr("disabled", "disabled");
+        $("#odgovor_prvi").attr("class", "btn-danger");
+        $("#odgovor_drugi").attr("class", "btn-success");
+        $("#odgovor_treci").attr("class", "btn-danger");
+        $("#odgovor_cetvrti").attr("class", "btn-danger");
+        }
       });
     });
   }
@@ -231,7 +309,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_7");
       $("button").addClass("odgovor_8");
       $(".odgovor_8").click(function () {
-        $("#odgovor_prvi").attr("disabled", "disabled");
+        if(this.id == 'odgovor_prvi'){
+          $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
         $("#odgovor_treci").attr("disabled", "disabled");
         $("#odgovor_cetvrti").attr("disabled", "disabled");
@@ -239,6 +318,19 @@ function ucitajNovoPitanje() {
         $("#odgovor_drugi").attr("class", "btn-danger");
         $("#odgovor_treci").attr("class", "btn-danger");
         $("#odgovor_cetvrti").attr("class", "btn-danger");
+        poeni = poeni + poeni_6;
+        poeni_6 = 0;
+        }
+        else{
+          $("#odgovor_prvi").attr("disabled", "disabled");
+          $("#odgovor_drugi").attr("disabled", "disabled");
+          $("#odgovor_treci").attr("disabled", "disabled");
+          $("#odgovor_cetvrti").attr("disabled", "disabled");
+          $("#odgovor_prvi").attr("class", "btn-success");
+          $("#odgovor_drugi").attr("class", "btn-danger");
+          $("#odgovor_treci").attr("class", "btn-danger");
+          $("#odgovor_cetvrti").attr("class", "btn-danger");
+        }
       });
     });
   }
@@ -268,7 +360,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_8");
       $("button").addClass("odgovor_9");
       $(".odgovor_9").click(function () {
-        $("#odgovor_prvi").attr("disabled", "disabled");
+        if(this.id == 'odgovor_cetvrti'){
+          $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
         $("#odgovor_treci").attr("disabled", "disabled");
         $("#odgovor_cetvrti").attr("disabled", "disabled");
@@ -276,6 +369,19 @@ function ucitajNovoPitanje() {
         $("#odgovor_drugi").attr("class", "btn-danger");
         $("#odgovor_treci").attr("class", "btn-danger");
         $("#odgovor_cetvrti").attr("class", "btn-success");
+        poeni = poeni + poeni_7;
+        poeni_7 = 0;
+        }
+        else{
+          $("#odgovor_prvi").attr("disabled", "disabled");
+        $("#odgovor_drugi").attr("disabled", "disabled");
+        $("#odgovor_treci").attr("disabled", "disabled");
+        $("#odgovor_cetvrti").attr("disabled", "disabled");
+        $("#odgovor_prvi").attr("class", "btn-danger");
+        $("#odgovor_drugi").attr("class", "btn-danger");
+        $("#odgovor_treci").attr("class", "btn-danger");
+        $("#odgovor_cetvrti").attr("class", "btn-success");
+        }
       });
     });
   }
@@ -304,7 +410,7 @@ function ucitajNovoPitanje() {
       $("button").addClass("odgovor_10");
     });
   }
-    if (brojac == 9) {
+  if (brojac == 9) {
       $.getJSON('pitanja.json', (data) => {
         $(".tekst").text(data.pitanje_6);
         $(".brojac").text("10");
@@ -330,7 +436,7 @@ function ucitajNovoPitanje() {
         $("#potvrdi_odgovor").css("display", "inline");
       });
     }
-      if (brojac == 10) {
+  if (brojac == 10) {
         $.getJSON('pitanja.json', (data) => {
           $(".tekst").text(data.pitanje_10);
           $(".brojac").text("11");
@@ -367,6 +473,14 @@ function prikaziOdgovor() {
       $("#tacan_odgovor").attr("disabled", true);
       $("#tacan_odgovor").attr("class", "btn-success");
       $("#tacan_odgovor").text("Kazahstan");
+      $('#odgovor_na_dopunu').css('textTransform', 'capitalize');
+      let odgovor_8 = $("#odgovor_na_dopunu").val();
+      if(odgovor_8 === "Kazahstan"){
+        poeni = poeni + poeni_8;
+        poeni_8 = 0;
+      }
+      else{
+      }
   });
 }
 if(brojac1 == 10){
@@ -377,6 +491,14 @@ if(brojac1 == 10){
     $("#tacan_odgovor").attr("disabled", true);
     $("#tacan_odgovor").attr("class", "btn-success");
     $("#tacan_odgovor").text("Moskva");
+    $('#odgovor_na_dopunu').css('textTransform', 'capitalize');
+      let odgovor_9 = $("#odgovor_na_dopunu").val();
+      if(odgovor_9 === "Moskva"){
+        poeni = poeni + poeni_9;
+        poeni_9 = 0;
+      }
+      else{
+      }
 });
 }
 if(brojac1 == 11){
@@ -387,6 +509,13 @@ if(brojac1 == 11){
     $("#tacan_odgovor").attr("disabled", true);
     $("#tacan_odgovor").attr("class", "btn-success");
     $("#tacan_odgovor").text("13");
+    let odgovor_10 = $("#odgovor_na_dopunu").val();
+    if(odgovor_10 == "13"){
+      poeni = poeni + poeni_10;
+      poeni_10 = 0;
+    }
+    else{
+    }
 });
 }
 }
