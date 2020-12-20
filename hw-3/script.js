@@ -302,15 +302,92 @@ function ucitajNovoPitanje() {
       $("#potvrdi_odgovor").css("display", "inline");
       $("button").removeClass("odgovor_9");
       $("button").addClass("odgovor_10");
-      $(".odgovor_10").click(function () {
-        $("#potvrdi_odgovor").css("display", "none");
-        $("#odgovor_na_dopunu").attr("disabled", true);
-        $("#tacan_odgovor").css("display", "inline");
-        $("#tacan_odgovor").attr("disabled", true);
-        $("#tacan_odgovor").attr("class", "btn-success");
-        $("#tacan_odgovor").text("Kazahstan");
-        alert(a);
-      });
     });
   }
+    if (brojac == 9) {
+      $.getJSON('pitanja.json', (data) => {
+        $(".tekst").text(data.pitanje_6);
+        $(".brojac").text("10");
+        $(".sledece_pitanje").css("display", "inline");
+        $(".izadji_iz_kviza").css("display", "inline");
+        $(".dugme").remove();
+        $("#odgovor_prvi").attr("disabled", false);
+        $("#odgovor_drugi").attr("disabled", false);
+        $("#odgovor_treci").attr("disabled", false);
+        $("#odgovor_cetvrti").attr("disabled", false);
+        $("#odgovor_na_dopunu").attr("disabled", false);
+        $("#odgovor_prvi").attr("class", "btn-success");
+        $("#odgovor_drugi").attr("class", "btn-success");
+        $("#odgovor_treci").attr("class", "btn-success");
+        $("#odgovor_cetvrti").attr("class", "btn-success");
+        $("#odgovor_prvi").css("display", "none");
+        $("#odgovor_drugi").css("display", "none");
+        $("#odgovor_treci").css("display", "none");
+        $("#odgovor_cetvrti").css("display", "none");
+        $("#tacan_odgovor").css("display", "none");
+        $("#odgovor_na_dopunu").val('');
+        $("#odgovor_na_dopunu").css("display", "inline");
+        $("#potvrdi_odgovor").css("display", "inline");
+      });
+    }
+      if (brojac == 10) {
+        $.getJSON('pitanja.json', (data) => {
+          $(".tekst").text(data.pitanje_10);
+          $(".brojac").text("11");
+          $(".sledece_pitanje").css("display", "inline");
+          $(".izadji_iz_kviza").css("display", "inline");
+          $(".dugme").remove();
+          $("#odgovor_prvi").attr("disabled", false);
+          $("#odgovor_drugi").attr("disabled", false);
+          $("#odgovor_treci").attr("disabled", false);
+          $("#odgovor_cetvrti").attr("disabled", false);
+          $("#odgovor_na_dopunu").attr("disabled", false);
+          $("#odgovor_prvi").attr("class", "btn-success");
+          $("#odgovor_drugi").attr("class", "btn-success");
+          $("#odgovor_treci").attr("class", "btn-success");
+          $("#odgovor_cetvrti").attr("class", "btn-success");
+          $("#odgovor_prvi").css("display", "none");
+          $("#odgovor_drugi").css("display", "none");
+          $("#odgovor_treci").css("display", "none");
+          $("#odgovor_cetvrti").css("display", "none");
+          $("#tacan_odgovor").css("display", "none");
+          $("#odgovor_na_dopunu").val('');
+          $("#odgovor_na_dopunu").css("display", "inline");
+          $("#potvrdi_odgovor").css("display", "inline");
+        });
+  }
 }
+function prikaziOdgovor() {
+  let brojac1 = $(".brojac").text();
+  if(brojac1 == 9){
+    $.getJSON('pitanja.json', (data) => {
+      $("#potvrdi_odgovor").css("display", "none");
+      $("#odgovor_na_dopunu").attr("disabled", true);
+      $("#tacan_odgovor").css("display", "inline");
+      $("#tacan_odgovor").attr("disabled", true);
+      $("#tacan_odgovor").attr("class", "btn-success");
+      $("#tacan_odgovor").text("Kazahstan");
+  });
+}
+if(brojac1 == 10){
+  $.getJSON('pitanja.json', (data) => {
+    $("#potvrdi_odgovor").css("display", "none");
+    $("#odgovor_na_dopunu").attr("disabled", true);
+    $("#tacan_odgovor").css("display", "inline");
+    $("#tacan_odgovor").attr("disabled", true);
+    $("#tacan_odgovor").attr("class", "btn-success");
+    $("#tacan_odgovor").text("Moskva");
+});
+}
+if(brojac1 == 11){
+  $.getJSON('pitanja.json', (data) => {
+    $("#potvrdi_odgovor").css("display", "none");
+    $("#odgovor_na_dopunu").attr("disabled", true);
+    $("#tacan_odgovor").css("display", "inline");
+    $("#tacan_odgovor").attr("disabled", true);
+    $("#tacan_odgovor").attr("class", "btn-success");
+    $("#tacan_odgovor").text("13");
+});
+}
+}
+
