@@ -58,6 +58,12 @@ body, html {
 .brojac{
   display: none; 
 }
+.tajmer{
+  position: fixed;
+  left: 665px;
+  top: 335px;
+  display: none;
+}
 .tekst{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;

@@ -23,6 +23,49 @@ function otvoriPravilaIgre() {
 function otvoriFormu() {
   location.replace("http://127.0.0.1:5500/forma.html");
 }
+
+//funkcija za brojac
+// function pokreniTajmer(){
+//   let vreme = 20;
+//     $(".tajmer").css("display", "inline");
+//     let interval = setInterval(odbrojavanje, 1000);
+//   function odbrojavanje() {
+//     $(".tajmer").text("00:" + --vreme);
+//     trenutnoVreme = vreme;
+//     if(vreme==0){
+//         clearInterval(interval);
+//     }
+//   }
+// }
+// function zaustaviTajmer(){
+//   alert(trenutnoVreme);
+//     $(".tajmer").css("display", "inline");
+//     $(".tajmer").text("00:" + trenutnoVreme);
+//   }
+let vreme = 20;
+let interval = null;
+let stanje = "pokreni";
+function pokreniTajmer(){
+    $(".tajmer").css("display", "inline");
+    $(".tajmer").text("00:" + vreme);
+    vreme--;
+if(vreme == -1){
+  zaustaviTajmer();
+  ucitajNovoPitanje();
+}
+}
+function zaustaviTajmer(){
+  if(stanje ==="pokreni"){
+    interval = setInterval(pokreniTajmer, 1000);
+    stanje = "zaustavi";
+  }
+  else{
+    clearInterval(interval);
+    stanje = "pokreni";
+    vreme = 20;
+  }
+  }
+
 // funkcije za rad sa pitanjima
 let poeni=0;
 let poeni_1=1;
@@ -36,6 +79,7 @@ let poeni_8=1;
 let poeni_9=1;
 let poeni_10=1;
 function ucitajNovoPitanje() {
+  zaustaviTajmer();
   let brojac = $(".brojac").text();
   if(brojac == 1) {
     $.getJSON('pitanja.json', (data) => {
@@ -53,7 +97,9 @@ function ucitajNovoPitanje() {
       $("#odgovor_treci").css("display", "inline");
       $("#odgovor_cetvrti").css("display", "inline");
       $(".odgovor").click(function () {
+       zaustaviTajmer();
         if (this.id == 'odgovor_drugi'){
+          setTimeout(ucitajNovoPitanje(), 3000);
           $("#odgovor_prvi").attr("disabled", "disabled");
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
@@ -66,6 +112,7 @@ function ucitajNovoPitanje() {
           poeni_1 = 0;
         }
         else {
+          setTimeout(ucitajNovoPitanje(), 3000);
         $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
         $("#odgovor_treci").attr("disabled", "disabled");
@@ -104,6 +151,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor");
       $("button").addClass("odgovor_2");
       $(".odgovor_2").click(function () {
+        zaustaviTajmer();
+        setTimeout(ucitajNovoPitanje(), 3000);
         if(this.id == 'odgovor_prvi'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -129,7 +178,6 @@ function ucitajNovoPitanje() {
       });
     });
   }
-  alert(poeni);
   if (brojac == 3) {
     $.getJSON('pitanja.json', (data) => {
       $(".tekst").text(data.pitanje_4);
@@ -157,6 +205,8 @@ function ucitajNovoPitanje() {
       $("button").addClass("odgovor_4");
       $(".odgovor_4").click(function () {
         if(this.id == 'odgovor_treci'){
+          zaustaviTajmer();
+          setTimeout(ucitajNovoPitanje(), 3000);
           $("#odgovor_prvi").attr("disabled", "disabled");
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
@@ -207,6 +257,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_4");
       $("button").addClass("odgovor_5");
       $(".odgovor_5").click(function () {
+        zaustaviTajmer();
+        setTimeout(ucitajNovoPitanje(), 3000);
         if(this.id == 'odgovor_cetvrti'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -258,6 +310,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_5");
       $("button").addClass("odgovor_7");
       $(".odgovor_7").click(function () {
+        zaustaviTajmer();
+        setTimeout(ucitajNovoPitanje(), 3000);
         if(this.id == 'odgovor_drugi'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -309,6 +363,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_7");
       $("button").addClass("odgovor_8");
       $(".odgovor_8").click(function () {
+        zaustaviTajmer();
+        setTimeout(ucitajNovoPitanje(), 3000);
         if(this.id == 'odgovor_prvi'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -360,6 +416,8 @@ function ucitajNovoPitanje() {
       $("button").removeClass("odgovor_8");
       $("button").addClass("odgovor_9");
       $(".odgovor_9").click(function () {
+        zaustaviTajmer();
+        setTimeout(ucitajNovoPitanje(), 3000);
         if(this.id == 'odgovor_cetvrti'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
