@@ -39,17 +39,18 @@ form{
 }
 .ime{
     position: relative;
-    left:183px;
+    left:205px;
     top: 10px;
     border-radius: 8px;
     padding: 0px 22px;
     font-size: 14px;
+    width:150px;
     color: #000000;
     cursor: pointer;
 }
 .labela_ime{
     position: relative;
-    left:273px;
+    left:253px;
     top: 15px;
     text-transform: capitalize;
     font-size: 14px;
@@ -57,36 +58,19 @@ form{
 }
 .prezime{
     position: relative;
-    left:155px;
-    top: 50px;
+    left:205px;
+    top: -25px;
     border-radius: 8px;
     padding: 0px 22px;
     font-size: 14px;
+    width:150px;
     columns: #000000;
     cursor: pointer;
 }
 .labela_prezime{
     position: relative;
-    left:273px;
-    top: 50px;
-    text-transform: capitalize;
-    font-size: 14px;
-    color: white;
-}
-.nadimak{
-    position: relative;
-    left:127px;
-    top: 80px;
-    border-radius: 8px;
-    padding: 0px 22px;
-    font-size: 14px;
-    color: #000000;
-    cursor: pointer;
-}
-.labela_nadimak{
-    position: relative;
-    left:273px;
-    top: 80px;
+    left:253px;
+    top: -20px;
     text-transform: capitalize;
     font-size: 14px;
     color: white;
@@ -98,8 +82,8 @@ form{
   font-size: 16px;
   border-radius: 12px;
   position: relative;
-  left: 435px;
-  top: 80px;
+  left: 840px;
+  top: -295px;
 }
 .dugme_za_nazad {
     padding: 7px 16px;
@@ -108,6 +92,6 @@ form{
     font-size: 16px;
     border-radius: 12px;
     position: relative;
-    left: -160px;
-    top: 80px;
+    left: 255px;
+    top: -293px;
   }

@@ -1,47 +1,47 @@
 // funkcije za prelazak sa jedne strane na drugu
+let imeIgraca = "";
+let prezimeIgraca = "";
+// function sacuvajPodatke() {
+//     imeIgraca = $("#ime").val();
+//     prezimeIgraca = $("#prezime").val();
+// }
 function zapocniKviz() {
-  location.replace("http://127.0.0.1:5500/stranica_sa_pitanjima.html");
+  imeIgraca = document.querySelector('#ime').value;
+  prezimeIgraca = document.querySelector('#prezime').value;
+  localStorage.setItem("ime", imeIgraca);
+  localStorage.setItem("prezime", prezimeIgraca);
+  if (imeIgraca && prezimeIgraca) {
+    location.replace("http://127.0.0.1:5501/stranica_sa_pitanjima.html");
+  }
+  else {
+    alert("Potrebno je uneti ime i prezime ");
+  }
 }
 function vratiNazad() {
   let provera = document.getElementById("ime");
   if (!provera.checkValidity()) {
-    location.replace("http://127.0.0.1:5500/glavna_stranica.html");
+    location.replace("http://127.0.0.1:5501/glavna_stranica.html");
   }
   else {
-    location.replace("http://127.0.0.1:5500/glavna_stranica.html");
+    location.replace("http://127.0.0.1:5501/glavna_stranica.html");
   }
 }
 function vratiForma() {
-  location.replace("http://127.0.0.1:5500/forma.html");
+  location.replace("http://127.0.0.1:5501/forma.html");
 }
 function vratiPocetna() {
-  location.replace("http://127.0.0.1:5500/glavna_stranica.html");
+  location.replace("http://127.0.0.1:5501/glavna_stranica.html");
 }
 function otvoriPravilaIgre() {
-  location.replace("http://127.0.0.1:5500/pravila_igre.html");
+  location.replace("http://127.0.0.1:5501/pravila_igre.html");
 }
 function otvoriFormu() {
-  location.replace("http://127.0.0.1:5500/forma.html");
+  location.replace("http://127.0.0.1:5501/forma.html");
 }
-
+function otvoriRezultate() {
+  location.replace("http://127.0.0.1:5501/tabela.html"); 
+}
 //funkcija za brojac
-// function pokreniTajmer(){
-//   let vreme = 20;
-//     $(".tajmer").css("display", "inline");
-//     let interval = setInterval(odbrojavanje, 1000);
-//   function odbrojavanje() {
-//     $(".tajmer").text("00:" + --vreme);
-//     trenutnoVreme = vreme;
-//     if(vreme==0){
-//         clearInterval(interval);
-//     }
-//   }
-// }
-// function zaustaviTajmer(){
-//   alert(trenutnoVreme);
-//     $(".tajmer").css("display", "inline");
-//     $(".tajmer").text("00:" + trenutnoVreme);
-//   }
 let vreme = 20;
 let interval = null;
 let stanje = "pokreni";
@@ -65,6 +65,7 @@ function zaustaviTajmer(){
     vreme = 20;
   }
   }
+//funkcije za cuvanje imena i prezimena
 
 // funkcije za rad sa pitanjima
 let poeni=0;
@@ -97,34 +98,34 @@ function ucitajNovoPitanje() {
       $("#odgovor_treci").css("display", "inline");
       $("#odgovor_cetvrti").css("display", "inline");
       $(".odgovor").click(function () {
-       zaustaviTajmer();
-        if (this.id == 'odgovor_drugi'){
-          setTimeout(ucitajNovoPitanje(), 3000);
-          $("#odgovor_prvi").attr("disabled", "disabled");
-          $("#odgovor_drugi").attr("disabled", "disabled");
-          $("#odgovor_treci").attr("disabled", "disabled");
-          $("#odgovor_cetvrti").attr("disabled", "disabled");
-          $("#odgovor_prvi").attr("class", "btn-danger");
-          $("#odgovor_drugi").attr("class", "btn-success");
-          $("#odgovor_treci").attr("class", "btn-danger");
-          $("#odgovor_cetvrti").attr("class", "btn-danger");
-          poeni = poeni + poeni_1;
-          poeni_1 = 0;
+        zaustaviTajmer();
+         if (this.id == 'odgovor_drugi'){
+           setTimeout(ucitajNovoPitanje(), 100);
+           $("#odgovor_prvi").attr("disabled", "disabled");
+           $("#odgovor_drugi").attr("disabled", "disabled");
+           $("#odgovor_treci").attr("disabled", "disabled");
+           $("#odgovor_cetvrti").attr("disabled", "disabled");
+           $("#odgovor_prvi").attr("class", "btn-danger");
+           $("#odgovor_drugi").attr("class", "btn-success");
+           $("#odgovor_treci").attr("class", "btn-danger");
+           $("#odgovor_cetvrti").attr("class", "btn-danger");
+           poeni = poeni + poeni_1;
+           poeni_1 = 0;
+         }
+         else {
+           setTimeout(ucitajNovoPitanje(), 100);
+         $("#odgovor_prvi").attr("disabled", "disabled");
+         $("#odgovor_drugi").attr("disabled", "disabled");
+         $("#odgovor_treci").attr("disabled", "disabled");
+         $("#odgovor_cetvrti").attr("disabled", "disabled");
+         $("#odgovor_prvi").attr("class", "btn-danger");
+         $("#odgovor_drugi").attr("class", "btn-success");
+         $("#odgovor_treci").attr("class", "btn-danger");
+         $("#odgovor_cetvrti").attr("class", "btn-danger");
         }
-        else {
-          setTimeout(ucitajNovoPitanje(), 3000);
-        $("#odgovor_prvi").attr("disabled", "disabled");
-        $("#odgovor_drugi").attr("disabled", "disabled");
-        $("#odgovor_treci").attr("disabled", "disabled");
-        $("#odgovor_cetvrti").attr("disabled", "disabled");
-        $("#odgovor_prvi").attr("class", "btn-danger");
-        $("#odgovor_drugi").attr("class", "btn-success");
-        $("#odgovor_treci").attr("class", "btn-danger");
-        $("#odgovor_cetvrti").attr("class", "btn-danger");
-        }
-      });
-    });
-  }
+  });
+});
+}
   if (brojac == 2) {
     $.getJSON('pitanja.json', (data) => {
       $(".tekst").text(data.pitanje_2);
@@ -574,7 +575,16 @@ if(brojac1 == 11){
     }
     else{
     }
+    ime = localStorage.getItem("ime");
+    alert(ime);
+    prezime = localStorage.getItem("prezime");
+    alert(prezime);
+    localStorage.setItem("poeni", poeni);
+    alert(poeni);
+    vratiPocetna();
 });
 }
 }
+// funkcija koja stampa podatke
+
 
