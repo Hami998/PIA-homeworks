@@ -6,10 +6,12 @@ let prezimeIgraca = "";
 //     prezimeIgraca = $("#prezime").val();
 // }
 function zapocniKviz() {
-  imeIgraca = document.querySelector('#ime').value;
-  prezimeIgraca = document.querySelector('#prezime').value;
-  localStorage.setItem("ime", imeIgraca);
-  localStorage.setItem("prezime", prezimeIgraca);
+  // imeIgraca = document.querySelector('#ime').value;
+  // prezimeIgraca = document.querySelector('#prezime').value;
+  // localStorage.setItem("ime", imeIgraca);
+  // localStorage.setItem("prezime", prezimeIgraca);
+    imeIgraca = localStorage.getItem("ime");
+    prezimeIgraca = localStorage.getItem("prezime");
   if (imeIgraca && prezimeIgraca) {
     location.replace("http://127.0.0.1:5501/stranica_sa_pitanjima.html");
   }
@@ -33,6 +35,10 @@ function vratiPocetna() {
   location.replace("http://127.0.0.1:5501/glavna_stranica.html");
 }
 function otvoriPravilaIgre() {
+  imeIgraca = document.querySelector('#ime').value;
+  prezimeIgraca = document.querySelector('#prezime').value;
+  localStorage.setItem("ime", imeIgraca);
+  localStorage.setItem("prezime", prezimeIgraca);
   location.replace("http://127.0.0.1:5501/pravila_igre.html");
 }
 function otvoriFormu() {
@@ -64,7 +70,7 @@ function zaustaviTajmer(){
     stanje = "pokreni";
     vreme = 20;
   }
-  }
+}
 //funkcije za cuvanje imena i prezimena
 
 // funkcije za rad sa pitanjima
@@ -99,8 +105,8 @@ function ucitajNovoPitanje() {
       $("#odgovor_cetvrti").css("display", "inline");
       $(".odgovor").click(function () {
         zaustaviTajmer();
+        setTimeout(function(){ucitajNovoPitanje()}, 3000);
          if (this.id == 'odgovor_drugi'){
-           setTimeout(ucitajNovoPitanje(), 100);
            $("#odgovor_prvi").attr("disabled", "disabled");
            $("#odgovor_drugi").attr("disabled", "disabled");
            $("#odgovor_treci").attr("disabled", "disabled");
@@ -113,7 +119,6 @@ function ucitajNovoPitanje() {
            poeni_1 = 0;
          }
          else {
-           setTimeout(ucitajNovoPitanje(), 100);
          $("#odgovor_prvi").attr("disabled", "disabled");
          $("#odgovor_drugi").attr("disabled", "disabled");
          $("#odgovor_treci").attr("disabled", "disabled");
@@ -153,7 +158,7 @@ function ucitajNovoPitanje() {
       $("button").addClass("odgovor_2");
       $(".odgovor_2").click(function () {
         zaustaviTajmer();
-        setTimeout(ucitajNovoPitanje(), 3000);
+        setTimeout(function(){ucitajNovoPitanje()}, 3000);
         if(this.id == 'odgovor_prvi'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -207,7 +212,7 @@ function ucitajNovoPitanje() {
       $(".odgovor_4").click(function () {
         if(this.id == 'odgovor_treci'){
           zaustaviTajmer();
-          setTimeout(ucitajNovoPitanje(), 3000);
+          setTimeout(function(){ucitajNovoPitanje()}, 3000);
           $("#odgovor_prvi").attr("disabled", "disabled");
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
@@ -259,7 +264,7 @@ function ucitajNovoPitanje() {
       $("button").addClass("odgovor_5");
       $(".odgovor_5").click(function () {
         zaustaviTajmer();
-        setTimeout(ucitajNovoPitanje(), 3000);
+        setTimeout(function(){ucitajNovoPitanje()}, 3000);
         if(this.id == 'odgovor_cetvrti'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -312,7 +317,7 @@ function ucitajNovoPitanje() {
       $("button").addClass("odgovor_7");
       $(".odgovor_7").click(function () {
         zaustaviTajmer();
-        setTimeout(ucitajNovoPitanje(), 3000);
+        setTimeout(function(){ucitajNovoPitanje()}, 3000);
         if(this.id == 'odgovor_drugi'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -365,7 +370,7 @@ function ucitajNovoPitanje() {
       $("button").addClass("odgovor_8");
       $(".odgovor_8").click(function () {
         zaustaviTajmer();
-        setTimeout(ucitajNovoPitanje(), 3000);
+        setTimeout(function(){ucitajNovoPitanje()}, 3000);
         if(this.id == 'odgovor_prvi'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -418,7 +423,7 @@ function ucitajNovoPitanje() {
       $("button").addClass("odgovor_9");
       $(".odgovor_9").click(function () {
         zaustaviTajmer();
-        setTimeout(ucitajNovoPitanje(), 3000);
+        setTimeout(function(){ucitajNovoPitanje()}, 3000);
         if(this.id == 'odgovor_cetvrti'){
           $("#odgovor_prvi").attr("disabled", "disabled");
         $("#odgovor_drugi").attr("disabled", "disabled");
@@ -521,6 +526,9 @@ function ucitajNovoPitanje() {
           $("#potvrdi_odgovor").css("display", "inline");
         });
   }
+  if(brojac== 11){
+    otvoriRezultate()
+  }
 }
 function prikaziOdgovor() {
   let brojac1 = $(".brojac").text();
@@ -575,16 +583,21 @@ if(brojac1 == 11){
     }
     else{
     }
-    ime = localStorage.getItem("ime");
-    alert(ime);
-    prezime = localStorage.getItem("prezime");
-    alert(prezime);
-    localStorage.setItem("poeni", poeni);
-    alert(poeni);
-    vratiPocetna();
+    // ime = localStorage.getItem("ime");
+    // alert(ime);
+    // prezime = localStorage.getItem("prezime");
+    // alert(prezime);
+    // localStorage.setItem("poeni", poeni);
+    // alert(poeni);
+    // vratiPocetna();
 });
 }
 }
-// funkcija koja stampa podatke
+// funkcije koje odredjuju da li je igrac u tabeli
+
+// function provera(){
+//   let brojPoena = localStorage.getItem("poeni");
+
+// }
 
 
