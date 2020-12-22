@@ -604,13 +604,11 @@ if(brojac1 == 11){
 // funkcije koje odredjuju da li je igrac u tabeli
 function provera(){
     //poeni = localStorage.getItem("poeni");
-   p = 10; //ovo sve ide iz localStarage
-   pi = "Mihailo";
-   pp = "Jacimovic";
-   if (p == $(".poeni_1").text()){
-    let ime1 = $(".ime_1").text();
-    let proveraRedosleda = pi.localeCompare(ime1);
-    if(proveraRedosleda<0){
+   p = 5; //ovo sve ide iz localStarage
+   pi = "Bojan";
+   pp = "Ana";
+   if (p >= $(".poeni_1").text()){
+     if(p > $(".poeni_1").text()){
       let ime9 =  $(".ime_9").text();
       $(".ime_10").text(ime9);
       let ime8 =  $(".ime_8").text();
@@ -630,34 +628,1093 @@ function provera(){
       let ime1 =  $(".ime_1").text();
       $(".ime_2").text(ime1);
       $(".ime_1").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      let prezime2 =  $(".prezime_2").text();
+      $(".prezime_3").text(prezime2);
+      let prezime1 =  $(".prezime_1").text();
+      $(".prezime_2").text(prezime1);
+      $(".prezime_1").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      let poeni2 =  $(".poeni_2").text();
+      $(".poeni_3").text(poeni2);
+      let poeni1 =  $(".poeni_1").text();
+      $(".poeni_2").text(poeni1);
+      $(".poeni_1").text(p);
       alert("desila se  promena");
+      return;
+     }
+    let ime1 = $(".ime_1").text();
+    let proveraRedosleda = pi.localeCompare(ime1);
+    if(proveraRedosleda < 0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      let ime2 =  $(".ime_2").text();
+      $(".ime_3").text(ime2);
+      let ime1 =  $(".ime_1").text();
+      $(".ime_2").text(ime1);
+      $(".ime_1").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      let prezime2 =  $(".prezime_2").text();
+      $(".prezime_3").text(prezime2);
+      let prezime1 =  $(".prezime_1").text();
+      $(".prezime_2").text(prezime1);
+      $(".prezime_1").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      let poeni2 =  $(".poeni_2").text();
+      $(".poeni_3").text(poeni2);
+      let poeni1 =  $(".poeni_1").text();
+      $(".poeni_2").text(poeni1);
+      $(".poeni_1").text(p);
+      alert("desila se  promena");
+      return;
+    }
+    else if(proveraRedosleda==0){
+      alert("Ovde sam");
+      let prezime1 = $(".prezime_1").text();
+      let proveraRedosledaP = pp.localeCompare(prezime1);
+      if(proveraRedosledaP<=0){
+        let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      let ime2 =  $(".ime_2").text();
+      $(".ime_3").text(ime2);
+      let ime1 =  $(".ime_1").text();
+      $(".ime_2").text(ime1);
+      $(".ime_1").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      let prezime2 =  $(".prezime_2").text();
+      $(".prezime_3").text(prezime2);
+      let prezime1 =  $(".prezime_1").text();
+      $(".prezime_2").text(prezime1);
+      $(".prezime_1").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      let poeni2 =  $(".poeni_2").text();
+      $(".poeni_3").text(poeni2);
+      let poeni1 =  $(".poeni_1").text();
+      $(".poeni_2").text(poeni1);
+      $(".poeni_1").text(p);
+      alert("desila se  promena");
+      return;
+      }
     }
    }
-   if(p == $(".poeni_2").text()){
+   if(p >= $(".poeni_2").text()){
+     if(p > $(".poeni_2").text()){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      let ime2 =  $(".ime_2").text();
+      $(".ime_3").text(ime2);
+      $(".ime_2").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      let prezime2 =  $(".prezime_2").text();
+      $(".prezime_3").text(prezime2);
+      $(".prezime_2").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      let poeni2 =  $(".poeni_2").text();
+      $(".poeni_3").text(poeni2);
+      $(".poeni_2").text(p);
+      alert("desila se  promena");
+      return;
+     }
+    let ime2 = $(".ime_2").text();
+    let proveraRedosleda = pi.localeCompare(ime2);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      let ime2 =  $(".ime_2").text();
+      $(".ime_3").text(ime2);
+      $(".ime_2").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      let prezime2 =  $(".prezime_2").text();
+      $(".prezime_3").text(prezime2);
+      $(".prezime_2").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      let poeni2 =  $(".poeni_2").text();
+      $(".poeni_3").text(poeni2);
+      $(".poeni_2").text(p);
+      alert("desila se  promena");
+      return;
    }
-   if(p == $(".poeni_3").text()){
-
-  }
-  if(p == $(".poeni_4").text()){
-
-  }
-  if(p == $(".poeni_5").text()){
-
-  }
- if(p == $(".poeni_6").text()){
-    alert("imam 6 poena")
-  }
-  if(p == $(".poeni_7").text()){
-
-  }
-  if(p == $(".poeni_8").text()){
-
-  }
-  if(p == $(".poeni_9").text()){
-
-  }
-  if(p == $(".poeni_10").text()){
-
+   else if(proveraRedosleda==0){
+    alert("Ovde sam");
+    let prezime2 = $(".prezime_2").text();
+    let proveraRedosledaP = pp.localeCompare(prezime2);
+    if(proveraRedosledaP<=0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      let ime2 =  $(".ime_2").text();
+      $(".ime_3").text(ime2);
+      $(".ime_2").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      let prezime2 =  $(".prezime_2").text();
+      $(".prezime_3").text(prezime2);
+      $(".prezime_2").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      let poeni2 =  $(".poeni_2").text();
+      $(".poeni_3").text(poeni2);
+      $(".poeni_2").text(p);
+      alert("desila se  promena");
+      return;
+    }
   }
 }
-
+   if(p >= $(".poeni_3").text()){
+     if(p > $(".poeni_3").text()){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      $(".ime_3").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      $(".prezime_3").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      $(".poeni_3").text(p);
+      alert("desila se  promena");
+      return;
+     }
+    let ime3 = $(".ime_3").text();
+    let proveraRedosleda = pi.localeCompare(ime3);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      $(".ime_3").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      $(".prezime_3").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      $(".poeni_3").text(p);
+      alert("desila se  promena");
+      return;
+   }
+   else if(proveraRedosleda==0){
+    alert("Ovde sam");
+    let prezime3 = $(".prezime_3").text();
+    let proveraRedosledaP = pp.localeCompare(prezime3);
+    if(proveraRedosledaP<=0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      $(".ime_3").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      let prezime3 =  $(".prezime_3").text();
+      $(".prezime_4").text(prezime3);
+      $(".prezime_3").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      let poeni3 =  $(".poeni_3").text();
+      $(".poeni_4").text(poeni3);
+      $(".poeni_3").text(p);
+      alert("desila se  promena");
+      return;
+    }
+  }
+}
+  if(p >= $(".poeni_4").text()){
+    if(p > $(".poeni_4").text()){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      $(".ime_4").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      $(".prezime_4").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      $(".poeni_4").text(p);
+      alert("desila se  promena");
+      return;
+    }
+    let ime4 = $(".ime_4").text();
+    let proveraRedosleda = pi.localeCompare(ime4);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      $(".ime_4").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      $(".prezime_4").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      $(".poeni_4").text(p);
+      alert("desila se  promena");
+      return;
+   }
+   else if(proveraRedosleda==0){
+    alert("Ovde sam");
+    let prezime4 = $(".prezime_4").text();
+    let proveraRedosledaP = pp.localeCompare(prezime4);
+    if(proveraRedosledaP<=0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      $(".ime_4").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      let prezime4 =  $(".prezime_4").text();
+      $(".prezime_5").text(prezime4);
+      $(".prezime_4").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      let poeni4 =  $(".poeni_4").text();
+      $(".poeni_5").text(poeni4);
+      $(".poeni_4").text(p);
+      alert("desila se  promena");
+      return;
+    }
+  }
+}
+  if(p >= $(".poeni_5").text()){
+    if(p > $(".poeni_5").text()){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      $(".ime_5").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      $(".prezime_5").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      $(".poeni_5").text(p);
+      alert("desila se  promena");
+      return;
+    }
+    let ime5 = $(".ime_5").text();
+    let proveraRedosleda = pi.localeCompare(ime5);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      $(".ime_5").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      let prezime6 =  $(".prezime_6").text();
+      $(".prezime_7").text(prezime6);
+      let prezime5 =  $(".prezime_5").text();
+      $(".prezime_6").text(prezime5);
+      $(".prezime_5").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      let poeni6 =  $(".poeni_6").text();
+      $(".poeni_7").text(poeni6);
+      let poeni5 =  $(".poeni_5").text();
+      $(".poeni_6").text(poeni5);
+      $(".poeni_5").text(p);
+      alert("desila se  promena");
+      return;
+   }
+   else if(proveraRedosleda==0){
+    alert("Ovde sam");
+    let prezime5 = $(".prezime_5").text();
+    let proveraRedosledaP = pp.localeCompare(prezime5);
+    if(proveraRedosledaP<=0){     
+    let ime9 =  $(".ime_9").text();
+    $(".ime_10").text(ime9);
+    let ime8 =  $(".ime_8").text();
+    $(".ime_9").text(ime8);
+    let ime7 =  $(".ime_7").text();
+    $(".ime_8").text(ime7);
+    let ime6 =  $(".ime_6").text();
+    $(".ime_7").text(ime6);
+    let ime5 =  $(".ime_5").text();
+    $(".ime_6").text(ime5);
+    $(".ime_5").text(pi);
+    let prezime9 =  $(".prezime_9").text();
+    $(".ime_10").text(prezime9);
+    let prezime8 =  $(".prezime_8").text();
+    $(".prezime_9").text(prezime8);
+    let prezime7 =  $(".prezime_7").text();
+    $(".prezime_8").text(prezime7);
+    let prezime6 =  $(".prezime_6").text();
+    $(".prezime_7").text(prezime6);
+    let prezime5 =  $(".prezime_5").text();
+    $(".prezime_6").text(prezime5);
+    $(".prezime_5").text(pp);
+    let poeni9 =  $(".poeni_9").text();
+    $(".poeni_10").text(poeni9);
+    let poeni8 =  $(".poeni_8").text();
+    $(".poeni_9").text(poeni8);
+    let poeni7 =  $(".poeni_7").text();
+    $(".poeni_8").text(poeni7);
+    let poeni6 =  $(".poeni_6").text();
+    $(".poeni_7").text(poeni6);
+    let poeni5 =  $(".poeni_5").text();
+    $(".poeni_6").text(poeni5);
+    $(".poeni_5").text(p);
+    alert("desila se  promena");
+    return;
+  }
+  }
+  }
+ if(p >= $(".poeni_6").text()){
+   if(p > $(".poeni_6").text()){
+    let ime9 =  $(".ime_9").text();
+    $(".ime_10").text(ime9);
+    let ime8 =  $(".ime_8").text();
+    $(".ime_9").text(ime8);
+    let ime7 =  $(".ime_7").text();
+    $(".ime_8").text(ime7);
+    let ime6 =  $(".ime_6").text();
+    $(".ime_7").text(ime6);
+    $(".ime_6").text(pi);
+    let prezime9 =  $(".prezime_9").text();
+    $(".ime_10").text(prezime9);
+    let prezime8 =  $(".prezime_8").text();
+    $(".prezime_9").text(prezime8);
+    let prezime7 =  $(".prezime_7").text();
+    $(".prezime_8").text(prezime7);
+    let prezime6 =  $(".prezime_6").text();
+    $(".prezime_7").text(prezime6);
+    $(".prezime_6").text(pp);
+    let poeni9 =  $(".poeni_9").text();
+    $(".poeni_10").text(poeni9);
+    let poeni8 =  $(".poeni_8").text();
+    $(".poeni_9").text(poeni8);
+    let poeni7 =  $(".poeni_7").text();
+    $(".poeni_8").text(poeni7);
+    let poeni6 =  $(".poeni_6").text();
+    $(".poeni_7").text(poeni6);
+    $(".poeni_6").text(p);
+    alert("desila se  promena");
+    return;
+   }
+  let ime6 = $(".ime_6").text();
+  let proveraRedosleda = pi.localeCompare(ime6);
+  if(proveraRedosleda<0){
+    let ime9 =  $(".ime_9").text();
+    $(".ime_10").text(ime9);
+    let ime8 =  $(".ime_8").text();
+    $(".ime_9").text(ime8);
+    let ime7 =  $(".ime_7").text();
+    $(".ime_8").text(ime7);
+    let ime6 =  $(".ime_6").text();
+    $(".ime_7").text(ime6);
+    $(".ime_6").text(pi);
+    let prezime9 =  $(".prezime_9").text();
+    $(".ime_10").text(prezime9);
+    let prezime8 =  $(".prezime_8").text();
+    $(".prezime_9").text(prezime8);
+    let prezime7 =  $(".prezime_7").text();
+    $(".prezime_8").text(prezime7);
+    let prezime6 =  $(".prezime_6").text();
+    $(".prezime_7").text(prezime6);
+    $(".prezime_6").text(pp);
+    let poeni9 =  $(".poeni_9").text();
+    $(".poeni_10").text(poeni9);
+    let poeni8 =  $(".poeni_8").text();
+    $(".poeni_9").text(poeni8);
+    let poeni7 =  $(".poeni_7").text();
+    $(".poeni_8").text(poeni7);
+    let poeni6 =  $(".poeni_6").text();
+    $(".poeni_7").text(poeni6);
+    $(".poeni_6").text(p);
+    alert("desila se  promena");
+    return;
+ }
+ else if(proveraRedosleda==0){
+  alert("Ovde sam");
+  let prezime6 = $(".prezime_6").text();
+  let proveraRedosledaP = pp.localeCompare(prezime6);
+  if(proveraRedosledaP<=0){
+    let ime9 =  $(".ime_9").text();
+    $(".ime_10").text(ime9);
+    let ime8 =  $(".ime_8").text();
+    $(".ime_9").text(ime8);
+    let ime7 =  $(".ime_7").text();
+    $(".ime_8").text(ime7);
+    let ime6 =  $(".ime_6").text();
+    $(".ime_7").text(ime6);
+    $(".ime_6").text(pi);
+    let prezime9 =  $(".prezime_9").text();
+    $(".ime_10").text(prezime9);
+    let prezime8 =  $(".prezime_8").text();
+    $(".prezime_9").text(prezime8);
+    let prezime7 =  $(".prezime_7").text();
+    $(".prezime_8").text(prezime7);
+    let prezime6 =  $(".prezime_6").text();
+    $(".prezime_7").text(prezime6);
+    $(".prezime_6").text(pp);
+    let poeni9 =  $(".poeni_9").text();
+    $(".poeni_10").text(poeni9);
+    let poeni8 =  $(".poeni_8").text();
+    $(".poeni_9").text(poeni8);
+    let poeni7 =  $(".poeni_7").text();
+    $(".poeni_8").text(poeni7);
+    let poeni6 =  $(".poeni_6").text();
+    $(".poeni_7").text(poeni6);
+    $(".poeni_6").text(p);
+    alert("desila se  promena");
+    return;
+  }
+}
+}
+  if(p >= $(".poeni_7").text()){
+    if(p > $(".poeni_7").text()){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      $(".ime_7").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      $(".prezime_7").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      $(".poeni_7").text(p);
+      alert("desila se  promena");
+      return;
+    }
+    let ime7 = $(".ime_7").text();
+    let proveraRedosleda = pi.localeCompare(ime7);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      $(".ime_7").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      $(".prezime_7").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      $(".poeni_7").text(p);
+      alert("desila se  promena");
+      return;
+   }
+   else if(proveraRedosleda==0){
+    alert("Ovde sam");
+    let prezime7 = $(".prezime_7").text();
+    let proveraRedosledaP = pp.localeCompare(prezime7);
+    if(proveraRedosledaP<=0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      $(".ime_7").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      let prezime7 =  $(".prezime_7").text();
+      $(".prezime_8").text(prezime7);
+      $(".prezime_7").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      let poeni7 =  $(".poeni_7").text();
+      $(".poeni_8").text(poeni7);
+      $(".poeni_7").text(p);
+      alert("desila se  promena");
+      return;
+    }
+  }
+  }
+  if(p >= $(".poeni_8").text()){
+    if(p > $(".poeni_8").text()){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      $(".ime_8").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      $(".prezime_8").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      $(".poeni_8").text(p);
+      alert("desila se  promena");
+      return;
+    }
+    let ime8 = $(".ime_8").text();
+    let proveraRedosleda = pi.localeCompare(ime8);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      $(".ime_8").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      $(".prezime_8").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      $(".poeni_8").text(p);
+      alert("desila se  promena");
+      return;
+   }
+   else if(proveraRedosleda==0){
+    alert("Ovde sam");
+    let prezime8 = $(".prezime_8").text();
+    let proveraRedosledaP = pp.localeCompare(prezime8);
+    if(proveraRedosledaP<=0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      $(".ime_8").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      let prezime8 =  $(".prezime_8").text();
+      $(".prezime_9").text(prezime8);
+      $(".prezime_8").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      let poeni8 =  $(".poeni_8").text();
+      $(".poeni_9").text(poeni8);
+      $(".poeni_8").text(p);
+      alert("desila se  promena");
+      return;
+    }
+  }
+  }
+  if(p >= $(".poeni_9").text()){
+    if(p > $(".poeni_9").text()){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      $(".ime_9").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      $(".prezime_9").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      $(".poeni_9").text(p);
+      alert("desila se  promena");
+      return;
+    }
+    let ime9 = $(".ime_9").text();
+    let proveraRedosleda = pi.localeCompare(ime9);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      $(".ime_9").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      $(".prezime_9").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      $(".poeni_9").text(p);
+      alert("desila se  promena");
+      return;
+   }
+   else if(proveraRedosleda==0){
+    alert("Ovde sam");
+    let prezime9 = $(".prezime_9").text();
+    let proveraRedosledaP = pp.localeCompare(prezime9);
+    if(proveraRedosledaP<=0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      $(".ime_9").text(pi);
+      let prezime9 =  $(".prezime_9").text();
+      $(".ime_10").text(prezime9);
+      $(".prezime_9").text(pp);
+      let poeni9 =  $(".poeni_9").text();
+      $(".poeni_10").text(poeni9);
+      $(".poeni_9").text(p);
+      alert("desila se  promena");
+      return;
+    }
+  }
+  }
+  if(p >= $(".poeni_10").text()){
+    if(p > $(".poeni_10").text()){
+      $(".ime_10").text(pi);
+      $(".prezime_10").text(pp);
+      $(".poeni_10").text(p);
+      alert("desila se  promena");
+      return;
+    }
+    let ime10 = $(".ime_10").text();
+    let proveraRedosleda = pi.localeCompare(ime10);
+    if(proveraRedosleda<0){
+      $(".ime_10").text(pi);
+      $(".prezime_10").text(pp);
+      $(".poeni_10").text(p);
+      alert("desila se  promena");
+      return;
+   }
+   else if(proveraRedosleda==0){
+    alert("Ovde sam 10");
+    let prezime10 = $(".prezime_10").text();
+    let proveraRedosledaP = pp.localeCompare(prezime10);
+    if(proveraRedosledaP<=0){
+        $(".ime_10").text(pi);
+        $(".prezime_10").text(pp);
+        $(".poeni_10").text(p);
+        alert("desila se  promena");
+        return;
+  }
+}
+}
+}
