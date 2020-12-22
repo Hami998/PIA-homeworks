@@ -39,4 +39,7 @@ body, html {
   left: 590px;
   top: 15px;
 }
+.kolona:hover{
+    background-color: black;
+  }
 

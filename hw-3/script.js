@@ -35,10 +35,6 @@ function vratiPocetna() {
   location.replace("http://127.0.0.1:5501/glavna_stranica.html");
 }
 function otvoriPravilaIgre() {
-  imeIgraca = document.querySelector('#ime').value;
-  prezimeIgraca = document.querySelector('#prezime').value;
-  localStorage.setItem("ime", imeIgraca);
-  localStorage.setItem("prezime", prezimeIgraca);
   location.replace("http://127.0.0.1:5501/pravila_igre.html");
 }
 function otvoriFormu() {
@@ -46,6 +42,13 @@ function otvoriFormu() {
 }
 function otvoriRezultate() {
   location.replace("http://127.0.0.1:5501/tabela.html"); 
+}
+//funkcija za cuvanje podataka
+function sacuvaj(){
+  imeIgraca = document.querySelector('#ime').value;
+  prezimeIgraca = document.querySelector('#prezime').value;
+  localStorage.setItem("ime", imeIgraca);
+  localStorage.setItem("prezime", prezimeIgraca);
 }
 //funkcija za brojac
 let vreme = 20;
@@ -580,6 +583,7 @@ if(brojac1 == 11){
     if(odgovor_10 == "13"){
       poeni = poeni + poeni_10;
       poeni_10 = 0;
+      localStorage.setItem("poeni", poeni);
     }
     else{
     }
@@ -593,11 +597,67 @@ if(brojac1 == 11){
 });
 }
 }
+// localStorage.removeItem("ime");
+// localStorage.removeItem("prezime");
+// localStorage.removeItem("poeni");
+// localStorage.removeItem("textvalues");
 // funkcije koje odredjuju da li je igrac u tabeli
+function provera(){
+    //poeni = localStorage.getItem("poeni");
+   p = 10; //ovo sve ide iz localStarage
+   pi = "Mihailo";
+   pp = "Jacimovic";
+   if (p == $(".poeni_1").text()){
+    let ime1 = $(".ime_1").text();
+    let proveraRedosleda = pi.localeCompare(ime1);
+    if(proveraRedosleda<0){
+      let ime9 =  $(".ime_9").text();
+      $(".ime_10").text(ime9);
+      let ime8 =  $(".ime_8").text();
+      $(".ime_9").text(ime8);
+      let ime7 =  $(".ime_7").text();
+      $(".ime_8").text(ime7);
+      let ime6 =  $(".ime_6").text();
+      $(".ime_7").text(ime6);
+      let ime5 =  $(".ime_5").text();
+      $(".ime_6").text(ime5);
+      let ime4 =  $(".ime_4").text();
+      $(".ime_5").text(ime4);
+      let ime3 =  $(".ime_3").text();
+      $(".ime_4").text(ime3);
+      let ime2 =  $(".ime_2").text();
+      $(".ime_3").text(ime2);
+      let ime1 =  $(".ime_1").text();
+      $(".ime_2").text(ime1);
+      $(".ime_1").text(pi);
+      alert("desila se  promena");
+    }
+   }
+   if(p == $(".poeni_2").text()){
+   }
+   if(p == $(".poeni_3").text()){
 
-// function provera(){
-//   let brojPoena = localStorage.getItem("poeni");
+  }
+  if(p == $(".poeni_4").text()){
 
-// }
+  }
+  if(p == $(".poeni_5").text()){
 
+  }
+ if(p == $(".poeni_6").text()){
+    alert("imam 6 poena")
+  }
+  if(p == $(".poeni_7").text()){
+
+  }
+  if(p == $(".poeni_8").text()){
+
+  }
+  if(p == $(".poeni_9").text()){
+
+  }
+  if(p == $(".poeni_10").text()){
+
+  }
+}
 
