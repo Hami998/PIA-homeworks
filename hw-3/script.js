@@ -1,4 +1,53 @@
-// funkcije za prelazak sa jedne strane na drugu
+// funkcije za cuvanje podataka
+  function ucitaj(){
+      let ime1 =  $(".ime_1").text();
+      let prezime1 = $(".prezime_1").text();  
+      let brojPoena1 = $(".poeni_1").text();
+      let ime2 =  $(".ime_2").text();
+      let prezime2 = $(".prezime_2").text();  
+      let brojPoena2 = $(".poeni_2").text();
+      let ime3 =  $(".ime_3").text();
+      let prezime3 = $(".prezime_3").text();  
+      let brojPoena3 = $(".poeni_3").text();
+      let ime4 =  $(".ime_4").text();
+      let prezime4 = $(".prezime_4").text();  
+      let brojPoena4 = $(".poeni_4").text();
+      let ime5 =  $(".ime_5").text();
+      let prezime5 = $(".prezime_5").text();  
+      let brojPoena5 = $(".poeni_5").text();
+      let ime6 =  $(".ime_6").text();
+      let prezime6 = $(".prezime_6").text();  
+      let brojPoena6 = $(".poeni_6").text();
+      let ime7 =  $(".ime_7").text();
+      let prezime7 = $(".prezime_7").text();  
+      let brojPoena7 = $(".poeni_7").text();
+      let ime8 =  $(".ime_8").text();
+      let prezime8 = $(".prezime_8").text();  
+      let brojPoena8 = $(".poeni_8").text();
+      let ime9 =  $(".ime_9").text();
+      let prezime9 = $(".prezime_9").text();  
+      let brojPoena9 = $(".poeni_9").text();
+      let ime10 =  $(".ime_10").text();
+      let prezime10 = $(".prezime_10").text();  
+      let brojPoena10 = $(".poeni_10").text();
+      let podaci = {
+        "prvi_igrac" : [ime1, prezime1, brojPoena1],
+        "drugi_igrac" : [ime2, prezime2, brojPoena2],
+        "treci_igrac" : [ime3, prezime3, brojPoena3],
+        "cetvrti_igrac" : [ime4, prezime4, brojPoena4],
+        "peti_igrac" : [ime5, prezime5, brojPoena5],
+        "sesti_igrac" : [ime6, prezime6, brojPoena6],
+        "sedmi_igrac" : [ime7, prezime7, brojPoena7],
+        "osmi_igrac" : [ime8, prezime8, brojPoena8],
+        "deveti_igrac" : [ime9, prezime9, brojPoena9],
+        "deseti_igrac" : [ime10, prezime10, brojPoena10]
+      }
+      localStorage.setItem("rezultati_iz_tabele", JSON.stringify(podaci));
+  }
+function postaviPodatke(){
+  
+}
+ //funkcije za prelazak sa jedne strane na drugu
 let imeIgraca = "";
 let prezimeIgraca = "";
 // function sacuvajPodatke() {
@@ -597,16 +646,19 @@ if(brojac1 == 11){
 });
 }
 }
-// localStorage.removeItem("ime");
-// localStorage.removeItem("prezime");
-// localStorage.removeItem("poeni");
-// localStorage.removeItem("textvalues");
 // funkcije koje odredjuju da li je igrac u tabeli
 function provera(){
     //poeni = localStorage.getItem("poeni");
-   p = 5; //ovo sve ide iz localStarage
-   pi = "Bojan";
-   pp = "Ana";
+   p = 6; //ovo sve ide iz localStarage
+   pi = "Mihailo";
+   pp = "Jacimovic";
+   if ($(".poeni_1").is(':empty')) { 
+    $(".ime_1").text(pi);
+    $(".prezime_1").text(pp);
+    $(".poeni_1").text(p);
+    ucitaj();
+    return;
+}
    if (p >= $(".poeni_1").text()){
      if(p > $(".poeni_1").text()){
       let ime9 =  $(".ime_9").text();
@@ -666,7 +718,7 @@ function provera(){
       let poeni1 =  $(".poeni_1").text();
       $(".poeni_2").text(poeni1);
       $(".poeni_1").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
      }
     let ime1 = $(".ime_1").text();
@@ -729,11 +781,10 @@ function provera(){
       let poeni1 =  $(".poeni_1").text();
       $(".poeni_2").text(poeni1);
       $(".poeni_1").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
     else if(proveraRedosleda==0){
-      alert("Ovde sam");
       let prezime1 = $(".prezime_1").text();
       let proveraRedosledaP = pp.localeCompare(prezime1);
       if(proveraRedosledaP<=0){
@@ -794,11 +845,18 @@ function provera(){
       let poeni1 =  $(".poeni_1").text();
       $(".poeni_2").text(poeni1);
       $(".poeni_1").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
       }
     }
    }
+   if ($(".poeni_2").is(':empty')) { 
+    $(".ime_2").text(pi);
+    $(".prezime_2").text(pp);
+    $(".poeni_2").text(p);
+    ucitaj();
+    return;
+}
    if(p >= $(".poeni_2").text()){
      if(p > $(".poeni_2").text()){
       let ime9 =  $(".ime_9").text();
@@ -852,7 +910,7 @@ function provera(){
       let poeni2 =  $(".poeni_2").text();
       $(".poeni_3").text(poeni2);
       $(".poeni_2").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
      }
     let ime2 = $(".ime_2").text();
@@ -909,11 +967,10 @@ function provera(){
       let poeni2 =  $(".poeni_2").text();
       $(".poeni_3").text(poeni2);
       $(".poeni_2").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam");
     let prezime2 = $(".prezime_2").text();
     let proveraRedosledaP = pp.localeCompare(prezime2);
     if(proveraRedosledaP<=0){
@@ -968,10 +1025,17 @@ function provera(){
       let poeni2 =  $(".poeni_2").text();
       $(".poeni_3").text(poeni2);
       $(".poeni_2").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
   }
+}
+if ($(".poeni_3").is(':empty')) { 
+  $(".ime_3").text(pi);
+  $(".prezime_3").text(pp);
+  $(".poeni_3").text(p);
+  ucitaj();
+  return;
 }
    if(p >= $(".poeni_3").text()){
      if(p > $(".poeni_3").text()){
@@ -1020,7 +1084,7 @@ function provera(){
       let poeni3 =  $(".poeni_3").text();
       $(".poeni_4").text(poeni3);
       $(".poeni_3").text(p);
-      alert("desila se  promena");
+     ucitaj();
       return;
      }
     let ime3 = $(".ime_3").text();
@@ -1071,11 +1135,10 @@ function provera(){
       let poeni3 =  $(".poeni_3").text();
       $(".poeni_4").text(poeni3);
       $(".poeni_3").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam");
     let prezime3 = $(".prezime_3").text();
     let proveraRedosledaP = pp.localeCompare(prezime3);
     if(proveraRedosledaP<=0){
@@ -1124,10 +1187,17 @@ function provera(){
       let poeni3 =  $(".poeni_3").text();
       $(".poeni_4").text(poeni3);
       $(".poeni_3").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
   }
+}
+if ($(".poeni_4").is(':empty')) { 
+  $(".ime_4").text(pi);
+  $(".prezime_4").text(pp);
+  $(".poeni_4").text(p);
+  ucitaj();
+  return;
 }
   if(p >= $(".poeni_4").text()){
     if(p > $(".poeni_4").text()){
@@ -1170,7 +1240,7 @@ function provera(){
       let poeni4 =  $(".poeni_4").text();
       $(".poeni_5").text(poeni4);
       $(".poeni_4").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
     let ime4 = $(".ime_4").text();
@@ -1215,11 +1285,10 @@ function provera(){
       let poeni4 =  $(".poeni_4").text();
       $(".poeni_5").text(poeni4);
       $(".poeni_4").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam");
     let prezime4 = $(".prezime_4").text();
     let proveraRedosledaP = pp.localeCompare(prezime4);
     if(proveraRedosledaP<=0){
@@ -1262,10 +1331,18 @@ function provera(){
       let poeni4 =  $(".poeni_4").text();
       $(".poeni_5").text(poeni4);
       $(".poeni_4").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
   }
+}
+if ($(".poeni_5").is(':empty')) { 
+  localStorage.clear();
+  $(".ime_5").text(pi);
+  $(".prezime_5").text(pp);
+  $(".poeni_5").text(p);
+  ucitaj();
+  return;
 }
   if(p >= $(".poeni_5").text()){
     if(p > $(".poeni_5").text()){
@@ -1302,7 +1379,7 @@ function provera(){
       let poeni5 =  $(".poeni_5").text();
       $(".poeni_6").text(poeni5);
       $(".poeni_5").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
     let ime5 = $(".ime_5").text();
@@ -1341,11 +1418,10 @@ function provera(){
       let poeni5 =  $(".poeni_5").text();
       $(".poeni_6").text(poeni5);
       $(".poeni_5").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam");
     let prezime5 = $(".prezime_5").text();
     let proveraRedosledaP = pp.localeCompare(prezime5);
     if(proveraRedosledaP<=0){     
@@ -1382,11 +1458,18 @@ function provera(){
     let poeni5 =  $(".poeni_5").text();
     $(".poeni_6").text(poeni5);
     $(".poeni_5").text(p);
-    alert("desila se  promena");
+    ucitaj();
     return;
   }
   }
   }
+  if ($(".poeni_6").is(':empty')) { 
+    $(".ime_6").text(pi);
+    $(".prezime_6").text(pp);
+    $(".poeni_6").text(p);
+    ucitaj();
+    return;
+}
  if(p >= $(".poeni_6").text()){
    if(p > $(".poeni_6").text()){
     let ime9 =  $(".ime_9").text();
@@ -1416,7 +1499,7 @@ function provera(){
     let poeni6 =  $(".poeni_6").text();
     $(".poeni_7").text(poeni6);
     $(".poeni_6").text(p);
-    alert("desila se  promena");
+    ucitaj();
     return;
    }
   let ime6 = $(".ime_6").text();
@@ -1449,11 +1532,10 @@ function provera(){
     let poeni6 =  $(".poeni_6").text();
     $(".poeni_7").text(poeni6);
     $(".poeni_6").text(p);
-    alert("desila se  promena");
+    ucitaj();
     return;
  }
  else if(proveraRedosleda==0){
-  alert("Ovde sam");
   let prezime6 = $(".prezime_6").text();
   let proveraRedosledaP = pp.localeCompare(prezime6);
   if(proveraRedosledaP<=0){
@@ -1484,10 +1566,18 @@ function provera(){
     let poeni6 =  $(".poeni_6").text();
     $(".poeni_7").text(poeni6);
     $(".poeni_6").text(p);
-    alert("desila se  promena");
+    ucitaj();
     return;
   }
 }
+}
+if ($(".poeni_7").is(':empty')) { 
+  localStorage.clear();
+  $(".ime_7").text(pi);
+  $(".prezime_7").text(pp);
+  $(".poeni_7").text(p);
+  ucitaj();
+  return;
 }
   if(p >= $(".poeni_7").text()){
     if(p > $(".poeni_7").text()){
@@ -1512,7 +1602,7 @@ function provera(){
       let poeni7 =  $(".poeni_7").text();
       $(".poeni_8").text(poeni7);
       $(".poeni_7").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
     let ime7 = $(".ime_7").text();
@@ -1539,11 +1629,10 @@ function provera(){
       let poeni7 =  $(".poeni_7").text();
       $(".poeni_8").text(poeni7);
       $(".poeni_7").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam");
     let prezime7 = $(".prezime_7").text();
     let proveraRedosledaP = pp.localeCompare(prezime7);
     if(proveraRedosledaP<=0){
@@ -1568,11 +1657,19 @@ function provera(){
       let poeni7 =  $(".poeni_7").text();
       $(".poeni_8").text(poeni7);
       $(".poeni_7").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
   }
   }
+  if ($(".poeni_8").is(':empty')) { 
+    localStorage.clear();
+    $(".ime_8").text(pi);
+    $(".prezime_8").text(pp);
+    $(".poeni_8").text(p);
+    ucitaj();
+    return;
+}
   if(p >= $(".poeni_8").text()){
     if(p > $(".poeni_8").text()){
       let ime9 =  $(".ime_9").text();
@@ -1590,7 +1687,7 @@ function provera(){
       let poeni8 =  $(".poeni_8").text();
       $(".poeni_9").text(poeni8);
       $(".poeni_8").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
     let ime8 = $(".ime_8").text();
@@ -1611,11 +1708,10 @@ function provera(){
       let poeni8 =  $(".poeni_8").text();
       $(".poeni_9").text(poeni8);
       $(".poeni_8").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam");
     let prezime8 = $(".prezime_8").text();
     let proveraRedosledaP = pp.localeCompare(prezime8);
     if(proveraRedosledaP<=0){
@@ -1634,7 +1730,7 @@ function provera(){
       let poeni8 =  $(".poeni_8").text();
       $(".poeni_9").text(poeni8);
       $(".poeni_8").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
   }
@@ -1650,7 +1746,7 @@ function provera(){
       let poeni9 =  $(".poeni_9").text();
       $(".poeni_10").text(poeni9);
       $(".poeni_9").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
     let ime9 = $(".ime_9").text();
@@ -1665,11 +1761,10 @@ function provera(){
       let poeni9 =  $(".poeni_9").text();
       $(".poeni_10").text(poeni9);
       $(".poeni_9").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam");
     let prezime9 = $(".prezime_9").text();
     let proveraRedosledaP = pp.localeCompare(prezime9);
     if(proveraRedosledaP<=0){
@@ -1682,17 +1777,25 @@ function provera(){
       let poeni9 =  $(".poeni_9").text();
       $(".poeni_10").text(poeni9);
       $(".poeni_9").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
   }
   }
+  if ($(".poeni_10").is(':empty')) { 
+    localStorage.clear();
+    $(".ime_10").text(pi);
+    $(".prezime_10").text(pp);
+    $(".poeni_10").text(p);
+    ucitaj();
+    return;
+}
   if(p >= $(".poeni_10").text()){
     if(p > $(".poeni_10").text()){
       $(".ime_10").text(pi);
       $(".prezime_10").text(pp);
       $(".poeni_10").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
     }
     let ime10 = $(".ime_10").text();
@@ -1701,18 +1804,17 @@ function provera(){
       $(".ime_10").text(pi);
       $(".prezime_10").text(pp);
       $(".poeni_10").text(p);
-      alert("desila se  promena");
+      ucitaj();
       return;
    }
    else if(proveraRedosleda==0){
-    alert("Ovde sam 10");
     let prezime10 = $(".prezime_10").text();
     let proveraRedosledaP = pp.localeCompare(prezime10);
     if(proveraRedosledaP<=0){
         $(".ime_10").text(pi);
         $(".prezime_10").text(pp);
         $(".poeni_10").text(p);
-        alert("desila se  promena");
+        ucitaj();
         return;
   }
 }
