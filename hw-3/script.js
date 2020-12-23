@@ -82,13 +82,14 @@ function postaviPodatke(){
 let imeIgraca = "";
 let prezimeIgraca = "";
 function sacuvajPodatak(){
-  
+  imeIgraca = $("#ime").text();
+  prezimeIgraca = $("#prezime").text();
+  localStorage.setItem("ime", imeIgraca);
+  localStorage.setItem("prezime", prezimeIgraca);
 }
 function zapocniKviz() {
-   imeIgraca = $('#ime').value();
-   prezimeIgraca = $('#prezime').value();
-  // localStorage.setItem("ime", imeIgraca);
-  // localStorage.setItem("prezime", prezimeIgraca);
+   imeIgraca = localStorage.getItem("ime");
+   prezimeIgraca = localStorage.getItem("prezime");
   if (imeIgraca && prezimeIgraca) {
     location.replace("http://127.0.0.1:5501/stranica_sa_pitanjima.html");
   }
