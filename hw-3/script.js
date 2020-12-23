@@ -45,22 +45,50 @@
       localStorage.setItem("rezultati_iz_tabele", JSON.stringify(podaci));
   }
 function postaviPodatke(){
-  
+    let tekst = localStorage.getItem("rezultati_iz_tabele");
+    let tabelaRezultata = JSON.parse(tekst);
+    $(".ime_1").text(tabelaRezultata.prvi_igrac[0]);
+    $(".prezime_1").text(tabelaRezultata.prvi_igrac[1]);
+    $(".poeni_1").text(tabelaRezultata.prvi_igrac[2]);
+    $(".ime_2").text(tabelaRezultata.drugi_igrac[0]);
+    $(".prezime_2").text(tabelaRezultata.drugi_igrac[1]);
+    $(".poeni_2").text(tabelaRezultata.drugi_igrac[2]);
+    $(".ime_3").text(tabelaRezultata.treci_igrac[0]);
+    $(".prezime_3").text(tabelaRezultata.treci_igrac[1]);
+    $(".poeni_3").text(tabelaRezultata.treci_igrac[2]);
+    $(".ime_4").text(tabelaRezultata.cetvrti_igrac[0]);
+    $(".prezime_4").text(tabelaRezultata.cetvrti_igrac[1]);
+    $(".poeni_4").text(tabelaRezultata.cetvrti_igrac[2]);
+    $(".ime_5").text(tabelaRezultata.peti_igrac[0]);
+    $(".prezime_5").text(tabelaRezultata.peti_igrac[1]);
+    $(".poeni_5").text(tabelaRezultata.peti_igrac[2]);
+    $(".ime_6").text(tabelaRezultata.sesti_igrac[0]);
+    $(".prezime_6").text(tabelaRezultata.sesti_igrac[1]);
+    $(".poeni_6").text(tabelaRezultata.sesti_igrac[2]);
+    $(".ime_7").text(tabelaRezultata.sedmi_igrac[0]);
+    $(".prezime_7").text(tabelaRezultata.sedmi_igrac[1]);
+    $(".poeni_7").text(tabelaRezultata.sedmi_igrac[2]);
+    $(".ime_8").text(tabelaRezultata.osmi_igrac[0]);
+    $(".prezime_8").text(tabelaRezultata.osmi_igrac[1]);
+    $(".poeni_8").text(tabelaRezultata.osmi_igrac[2]);
+    $(".ime_9").text(tabelaRezultata.deveti_igrac[0]);
+    $(".prezime_9").text(tabelaRezultata.deveti_igrac[1]);
+    $(".poeni_9").text(tabelaRezultata.deveti_igrac[2]);
+    $(".ime_10").text(tabelaRezultata.deseti_igrac[0]);
+    $(".prezime_10").text(tabelaRezultata.deseti_igrac[1]);
+    $(".poeni_10").text(tabelaRezultata.deseti_igrac[2]);
 }
  //funkcije za prelazak sa jedne strane na drugu
 let imeIgraca = "";
 let prezimeIgraca = "";
-// function sacuvajPodatke() {
-//     imeIgraca = $("#ime").val();
-//     prezimeIgraca = $("#prezime").val();
-// }
+function sacuvajPodatak(){
+  
+}
 function zapocniKviz() {
-  // imeIgraca = document.querySelector('#ime').value;
-  // prezimeIgraca = document.querySelector('#prezime').value;
+   imeIgraca = $('#ime').value();
+   prezimeIgraca = $('#prezime').value();
   // localStorage.setItem("ime", imeIgraca);
   // localStorage.setItem("prezime", prezimeIgraca);
-    imeIgraca = localStorage.getItem("ime");
-    prezimeIgraca = localStorage.getItem("prezime");
   if (imeIgraca && prezimeIgraca) {
     location.replace("http://127.0.0.1:5501/stranica_sa_pitanjima.html");
   }
