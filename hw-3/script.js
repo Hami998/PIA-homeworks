@@ -129,9 +129,22 @@ let vreme = 20;
 let interval = null;
 //let stanje = "pokreni";
 function pokreniTajmer(){
+  if(vreme<=9){
+    $(".tajmer").css("display", "inline");
+    $(".tajmer").text("00:0" + vreme);
+    vreme--;
+  }
+  else{
     $(".tajmer").css("display", "inline");
     $(".tajmer").text("00:" + vreme);
     vreme--;
+  }
+  if(vreme>4){
+    $(".tajmer").css("background-color", "black");
+  }
+  else{
+    $(".tajmer").css("background-color", "red");
+  }
 if(vreme == -1){
   zaustaviTajmer("zaustavi");
   sledecePitanje1();

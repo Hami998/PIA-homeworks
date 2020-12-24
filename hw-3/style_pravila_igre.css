@@ -71,87 +71,75 @@ body, html {
     left: -133px;
     top: 0px;
   }
-  @media (max-width: 700px) {
+@media (max-width: 700px) {
     body, html {
         height: 100%; 
     }
 .Pravila_igre{
-    width: 300px;
+    width: 460px;
     }
 .objasnjenje{
-    width: 300px;
-    height: 410px;
+    width: 460px;
+    height: 370px;
     }
 .dugme_napred{
-font-size: 12px;
+font-size: 14px;
 border-radius: 12px;
-position: absolute;
-top: 620px;
-left:50px;
+position: relative;
+top: 0px;
+left:320px;
 }
 .dugme_nazad_forma{
     padding: 7px 16px;
     text-align: center;
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 12px;
-    position: absolute;
-    top: 620px;
-    left:175px;
+    position: relative;
+    top: 0px;
+    left: -115px;
 }
 .dugme_nazad_pocetna{
     padding: 7px 16px;
     text-align: center;
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 12px;
-    position: absolute;
-    top: 620px;
-    left:320px;
+    position: relative;
+    top: 0px;
+    left: -125px;
 }
     }
-@media (max-width: 360px) {
+@media (max-width: 465px) {
     body, html {
         height: 100%; 
     }
-.Pravila_igre{
-    position:absolute;
-    top: 20px;
-    left: 35px;
-    width: 300px;
-    }
-.objasnjenje{
-    position:absolute;
-    top: 60px;
-    left: 35px;
-    width: 300px;
-    height: 410px;
-    }
-.dugme_napred{
-font-size: 13px;
-border-radius: 12px;
-position: absolute;
-left: 105px;
-top: 420px;
-    }
-.dugme_nazad_forma{
-    padding: 7px 16px;
-    text-align: center;
-    display: inline-block;
-    font-size: 13px;
-    border-radius: 12px;
-    position: absolute;
-    left: 90px;
-    top: 520px;
-}
-.dugme_nazad_pocetna{
-    padding: 7px 16px;
-    text-align: center;
-    display: inline-block;
-    font-size: 13px;
-    border-radius: 12px;
-    position: absolute;
-    left: 85px;
-    top: 470px;
-}
+    .Pravila_igre{
+        width: 335px;
         }
+    .objasnjenje{
+        width: 335px;
+        height: 450px;
+    }
+    .dugme_napred{
+        font-size: 14px;
+        border-radius: 12px;
+        position: relative;
+        left: 170px;
+        top: 4.5px;
+        }
+    .dugme_nazad_forma{
+        font-size: 14px;
+        border-radius: 12px;
+        position: relative;
+        left: 0px;
+        top: -32px;
+    }
+    .dugme_nazad_pocetna{
+        font-size: 14px;
+        border-radius: 12px;
+        position: relative;
+        left: 30px;
+        top: -42px;
+    }
+}

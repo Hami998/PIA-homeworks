@@ -29,9 +29,10 @@ body, html {
   display: inline-block;
   font-size: 16px;
   border-radius: 12px;
-  position: relative;
-  left: 220px;
-  top: 33px;
+  position:absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
  }
 .izadji_iz_kviza{
   padding: 7px 16px;
@@ -59,10 +60,17 @@ body, html {
   display: none; 
 }
 .tajmer{
-  position: fixed;
-  left: 665px;
-  top: 335px;
+  width:100px;
+  text-align:center;
+  position:absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
   display: none;
+  border-style: solid;
+  border-width: thin;
+  border-color: #FFFFFF;
+  background-color: black;
 }
 .tekst{
     text-align: center;
@@ -129,7 +137,7 @@ body, html {
     width:120px;
     position: relative;
     top:10px;
-    left:-55px;
+    left:-45px;
     display: none;
 }
 #potvrdi_odgovor{
@@ -141,7 +149,7 @@ body, html {
     width:120px;
     position: relative;
     top:60px;
-    left:-178px;
+    left:-168px;
     display:none;
 }
 #tacan_odgovor{
@@ -157,4 +165,183 @@ body, html {
     top: 63px;
     left: -180px;
     display:none;
+}
+@media (max-width: 700px) {
+    .pitanje{
+        width: 450px;
+        height: 250px;
+    }
+    #odgovor_prvi{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: -210px;
+        top: 20px;
+        display: none;
+    }
+    #odgovor_drugi{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: 270px;
+        top: -20px;
+        display: none;
+    }
+    #odgovor_treci{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: -35px;
+        top: 37px;
+        display: none;
+    }
+    #odgovor_cetvrti{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: 60px;
+        top: 37px;
+        display: none;
+    }
+    .izadji_iz_kviza{
+        font-size: 16px;
+        border-radius: 12px;
+        position: relative;
+        left: -5px;
+        top: 145px;
+        display: none;
+      }
+      .sledece_pitanje {
+        padding: 7px 16px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+        position: relative;
+        left: 155px;
+        top: 145px;
+        display: none;  
+      }
+      #odgovor_na_dopunu{
+        font-size: 16px;
+        border-radius: 12px;
+        width:120px;
+        position: relative;
+        top:10px;
+        left:-125px;
+        display: none;
+    }
+      #potvrdi_odgovor{
+        font-size: 16px;
+        border-radius: 12px;
+        width:120px;
+        position: relative;
+        top:25px;
+        left:157px;
+        display:none;
+    }
+    #tacan_odgovor{
+        font-size: 16px;
+        border-radius: 12px;
+        width:120px;
+        position: relative;
+        top: 25px;
+        left: 157px;
+        display:none;
+    }
+    }
+@media (max-width: 465px) {
+    body, html {
+        height: 100%; 
+    }
+    .pitanje{
+        width: 320px;
+        height: 350px;
+    }
+    #odgovor_prvi{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: 35px;
+        top: -30px;
+        display: none;
+    }
+    #odgovor_drugi{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: 75px;
+        top: -30px;
+        display: none;
+    }
+    #odgovor_treci{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: 35px;
+        top: -15px;
+        display: none;
+    }
+    #odgovor_cetvrti{
+        font-size: 16px;
+        border-radius: 12px;
+        width:100px;
+        position: relative;
+        left: 75px;
+        top: -15px;
+        display: none;
+    }
+    .izadji_iz_kviza{
+        font-size: 16px;
+        border-radius: 12px;
+        position: relative;
+        left: 86px;
+        top: 170px;
+        display: none;
+      }
+      .sledece_pitanje {
+        padding: 7px 16px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+        position: relative;
+        left: -57px;
+        top: 220px;
+        display: none;  
+      }
+      #odgovor_na_dopunu{
+        font-size: 16px;
+        border-radius: 12px;
+        width:120px;
+        position: relative;
+        top:-45px;
+        left:90px;
+        display: none;
+    }
+      #potvrdi_odgovor{
+        font-size: 16px;
+        border-radius: 12px;
+        width:120px;
+        position: relative;
+        top:5px;
+        left:-35px;
+        display:none;
+    }
+    #tacan_odgovor{
+        font-size: 16px;
+        border-radius: 12px;
+        width:120px;
+        position: relative;
+        top: 5px;
+        left: -33px;
+        display:none;
+    }
 }
