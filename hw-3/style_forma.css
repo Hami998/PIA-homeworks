@@ -24,7 +24,6 @@ body, html {
     text-align: center;
     border-radius: 15px 15px 0px 0px;
 }
-
 form{
     width: 600px;
     color: #ffffff;
@@ -38,9 +37,9 @@ form{
     height: 200px;
 }
 .ime{
-    position: relative;
-    left:205px;
-    top: 10px;
+    margin-left:225px;
+    margin-top: 5px;
+    margin-bottom: 0px;
     border-radius: 8px;
     padding: 0px 22px;
     font-size: 14px;
@@ -49,17 +48,15 @@ form{
     cursor: pointer;
 }
 .labela_ime{
-    position: relative;
-    left:253px;
-    top: 15px;
+    margin-left:285px;
+    margin-top: 0px;
     text-transform: capitalize;
     font-size: 14px;
     color: white;
 }
 .prezime{
-    position: relative;
-    left:205px;
-    top: -25px;
+    margin-left:225px;
+    margin-top: 0px;
     border-radius: 8px;
     padding: 0px 22px;
     font-size: 14px;
@@ -68,30 +65,55 @@ form{
     cursor: pointer;
 }
 .labela_prezime{
-    position: relative;
-    left:253px;
-    top: -20px;
+    margin-left:270px;
+    margin-top: 0px;
     text-transform: capitalize;
     font-size: 14px;
     color: white;
 }
 .dugme_za_napred {
+    margin-top: 5px;
   padding: 7px 16px;
   text-align: center;
   display: inline-block;
   font-size: 16px;
   border-radius: 12px;
-  position: relative;
-  left: 840px;
-  top: -295px;
+  margin-left: 350px;
+
 }
 .dugme_za_nazad {
+    margin-left: 260px;
+    margin-top: 5px;
     padding: 7px 16px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
     border-radius: 12px;
-    position: relative;
-    left: 255px;
-    top: -293px;
-  }
+    margin-right: 200px;
+}
+@media (max-width: 700px) {
+.Reg_forma{
+    width: 300px;
+    }
+form{
+    width: 300px;
+    height: 375px;
+    }
+.ime{
+    margin-left:68px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.labela_ime{
+    margin-left:125px;
+    margin-top: 0px;
+}
+.prezime{
+    margin-left:68px;
+    margin-top: 0px;
+}
+.labela_prezime{
+    margin-left:112px;
+    margin-top: 0px;
+}
+}

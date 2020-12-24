@@ -18,19 +18,24 @@
                 <div class="Reg_forma"> Forma za registrovanje</div>
                 <form class="forma">
                         <div id="imeIprezime">
-                                <div class="form-group">
+                                <div class="form-group ">
                                                 <label class="labela_ime" for="ime">Ime</label>
-                                                <input class="ime form-control" type="text" name="ime" maxlength="12" id="ime"><br>
+                                                <input class="ime form-control" type="text" name="ime" id="ime"><br>
                                 </div>
-                                <div>
+                                <div class="form-group">
                                                 <label class="labela_prezime" for="prezime">Prezime</label>
-                                                <input class="prezime form-control" type="text" name="prezime" maxlength="15" id="prezime"><br>
+                                                <input class="prezime form-control" type="text" name="prezime" id="prezime"><br>
                                 </div>
                         </div>
+                
                 </form>
-                </div>
-                <button class="dugme_za_napred btn btn-success" type="submit" name="Nastavi_dalje"  onclick="otvoriPravilaIgre(); sacuvajPodatke()">Nastavi dalje</button>
-                <button class="dugme_za_nazad btn btn-success" type="submit" name="Vrati_se_nazad" onclick="vratiPocetna()">Vrati se nazad</button>
+                
+                                <button class="dugme_za_nazad btn btn-success" type="submit" name="Vrati_se_nazad" onclick="vratiPocetna()">Vrati se nazad</button>
+                
+                
+                                <button class="dugme_za_napred btn btn-success" type="submit" name="Nastavi_dalje"  onclick="otvoriPravilaIgre(); sacuvajPodatke()">Nastavi dalje</button>
+                
+        </div>
         </div>
 </body>
 </html>

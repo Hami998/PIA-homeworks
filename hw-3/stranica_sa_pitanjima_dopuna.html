@@ -15,22 +15,16 @@
         <script type="text/javascript" src="script.js"></script>
 </head>
 
-<body>
+<body onload="prikaziOdgovor()">
         <div class="pozadina_stranica_sa_pitanjima">
                 <div class="pitanje">
-                        <p class="brojac">1</p>
+                        <p class="brojac">8</p>
                         <p class="tajmer">00:20</p>
                         <p class="tekst">Pritiskom na dugme Zapocni kviz, kviz ce zvanicno poceti. Srecno !!!</p>
-                        <button type="submit" class="btn btn-success dugme" onclick="sledecePitanje()">Zapocni
-                                kviz</button>
                         <button type="submit" class="btn btn-success izadji_iz_kviza" onclick="vratiPocetna()">Izadji iz
                                 kviza</button>
                         <button type="submit" class="btn btn-success sledece_pitanje odgovor" id="sledeci"
                                 >Sledece pitanje</button>
-                        <button type="submit" class="btn btn-success odgovor odgovor_prvi" id="odgovor_prvi">Tekst</button>
-                        <button type="submit" class="btn btn-success odgovor odgovor_drugi" id="odgovor_drugi">Tekst</button>
-                        <button type="submit" class="btn btn-success odgovor odgovor_treci" id="odgovor_treci">Tekst</button>
-                        <button type="submit" class="btn btn-success odgovor odgovor_cetvrti" id="odgovor_cetvrti">Tekst</button>
                         <input type="text" class="input" id="odgovor_na_dopunu">
                         <button type="submit" class="btn btn-success odgovor potvrdi_odgovor" id="potvrdi_odgovor">Potvrdi</button>
                         <button type="submit" class="btn btn-success odgovor" id="tacan_odgovor">Tekst</button>
