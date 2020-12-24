@@ -18,8 +18,10 @@ body, html {
 .rezultat{
     width: 500px;
     border: black 2px solid;
-    margin-left: 30%;
-    margin-right: 25%;
+    position:absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color:white;
@@ -35,11 +37,27 @@ body, html {
   display: inline-block;
   font-size: 16px;
   border-radius: 12px;
-  position: relative;
-  left: 590px;
-  top: 15px;
+  position:absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .kolona:hover{
     background-color: black;
 }
-
+@media (max-width: 535px) {
+    body, html {
+        height: 100%; 
+    }
+    .rezultat{
+        width: 350px;
+    }
+}
+@media (max-width: 365px) {
+    body, html {
+        height: 100%; 
+    }
+    .rezultat{
+        width: 250px;
+    }
+}
