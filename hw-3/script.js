@@ -180,7 +180,15 @@ function otvoriNovaPitanja(){
   location.replace("stranica_sa_pitanjima_dopuna.html"); 
 }
 function otvoriMojRezultat(){
-  location.replace("rezultat.html"); 
+  brojac = $(".brojac").text();
+  if(brojac == 2){
+    poeni = 0;
+    localStorage.setItem("poeni", poeni);
+    location.replace("rezultat.html"); 
+  }
+  else {
+    location.replace("rezultat.html"); 
+  }
 }
 function vratiNaPocetnu(){
   localStorage.removeItem("poeni");
@@ -223,9 +231,25 @@ function pokreniTajmer(){
   else{
     $(".tajmer").css("background-color", "red");
   }
+  let brojac = $(".brojac").text();
   if(vreme == -1){
-    zaustaviTajmer("zaustavi");
-    sledecePitanje1();
+    if(brojac == 11){
+      otvoriMojRezultat();
+    }
+    else if(brojac == 9){
+      zaustaviTajmer("zaustavi");
+      prikaziOdgovor();
+      zaustaviTajmer("pokreni");
+    }
+    else if(brojac == 10){
+      zaustaviTajmer("zaustavi");
+      prikaziOdgovor();
+      zaustaviTajmer("pokreni");
+    }
+    else{
+      zaustaviTajmer("zaustavi");
+      sledecePitanje1();
+    }
   }
 }
 function zaustaviTajmer(stanje){
@@ -316,7 +340,7 @@ function ucitajNovoPitanje() {
       localStorage.setItem("poeni", poeni);
       setTimeout(() => {
       ucitajNovoPitanje();
-      }, 500);
+      }, 1000);
       zaustaviTajmer("pokreni");
       return;
     }
@@ -394,7 +418,7 @@ function ucitajNovoPitanje() {
           localStorage.setItem("poeni", poeni);
           setTimeout(() => {
             ucitajNovoPitanje();
-          }, 500);
+          }, 1000);
           zaustaviTajmer("pokreni");
           return;
         }
@@ -413,7 +437,7 @@ function ucitajNovoPitanje() {
             ucitajNovoPitanje();
           }, 1000);
           zaustaviTajmer("pokreni");
-            return;
+          return;
         }
       });
     });
@@ -472,7 +496,7 @@ function ucitajNovoPitanje() {
           localStorage.setItem("poeni", poeni);
           setTimeout(() => {
             ucitajNovoPitanje();
-          }, 500);
+          }, 1000);
           zaustaviTajmer("pokreni");
           return;
         }
@@ -550,7 +574,7 @@ function ucitajNovoPitanje() {
           localStorage.setItem("poeni", poeni);
           setTimeout(() => {
             ucitajNovoPitanje();
-          }, 500);
+          }, 1000);
           zaustaviTajmer("pokreni");
           return;
         }
@@ -628,7 +652,7 @@ function ucitajNovoPitanje() {
           localStorage.setItem("poeni", poeni);
           setTimeout(() => {
             ucitajNovoPitanje();
-          }, 500);
+          }, 1000);
           zaustaviTajmer("pokreni");
           return;
         }
@@ -791,7 +815,7 @@ function ucitajNovoPitanje() {
           localStorage.setItem("poeni", poeni);
           setTimeout(() => {
             otvoriNovaPitanja();
-          }, 500);
+          }, 1000);
           zaustaviTajmer("pokreni");
           return;
         }
@@ -843,7 +867,7 @@ function prikaziOdgovor(){
             if(odgovor_8 === "Kazahstan"){
               poeni1 = poeni1 + poeni_8;
               poeni_8 = 0;
-              localStorage.setItem("poeni1", poeni);
+              localStorage.setItem("poeni1", poeni1);
             }
             setTimeout(() => {
               prikaziOdgovor();
@@ -853,7 +877,7 @@ function prikaziOdgovor(){
             }
           else if(this.id == 'sledeci'){
             zaustaviTajmer("zaustavi");
-            localStorage.setItem("poeni1", poeni);
+            localStorage.setItem("poeni1", poeni1);
             setTimeout(() => {
               prikaziOdgovor();
             }, 1000);
@@ -861,7 +885,7 @@ function prikaziOdgovor(){
             return;
           }
           else {
-            localStorage.setItem("poeni1", poeni);
+            localStorage.setItem("poeni1", poeni1);
             setTimeout(() => {
               prikaziOdgovor();
             }, 1000);
@@ -900,7 +924,7 @@ function prikaziOdgovor(){
               if(odgovor_9 === "Moskva"){
                 poeni1 = poeni1 + poeni_9;
                 poeni_9 = 0;
-                localStorage.setItem("poeni1", poeni);
+                localStorage.setItem("poeni1", poeni1);
                 setTimeout(() => {
                   prikaziOdgovor();
                 }, 1000);
@@ -909,7 +933,7 @@ function prikaziOdgovor(){
               }
               else if(this.id =="sledeci"){
                 zapocniTajmer("zaustavi");
-                localStorage.setItem("poeni1", poeni);
+                localStorage.setItem("poeni1", poeni1);
                 setTimeout(() => {
                   prikaziOdgovor();
                 }, 1000);
@@ -917,7 +941,7 @@ function prikaziOdgovor(){
                 return;
               }
               else{
-                localStorage.setItem("poeni1", poeni);
+                localStorage.setItem("poeni1", poeni1);
                 setTimeout(() => {
                   prikaziOdgovor();
                 }, 1000);
