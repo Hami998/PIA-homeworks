@@ -160,11 +160,12 @@ body, html {
     border-radius: 12px;
     width:120px;
     position: relative;
-    top:0px;
-    left: 210px;
-    top: 63px;
-    left: -180px;
+    top:65px;
+    left:-169px;
     display:none;
+}
+.sledeca_strana{
+    display: none;
 }
 @media (max-width: 700px) {
     .pitanje{

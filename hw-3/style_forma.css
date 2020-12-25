@@ -24,96 +24,83 @@ body, html {
     text-align: center;
     border-radius: 15px 15px 0px 0px;
 }
-form{
+.imeIprezime{
+    width: 80%;
+    height: 200px;
     width: 600px;
     color: #ffffff;
     background-color: rgb(0,0,0,0.5);
     margin: auto;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
-}
-#imeIprezime{
-    width: 80%;
-    height: 200px;
-}
-.ime{
-    margin-left:225px;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    border-radius: 8px;
-    padding: 0px 22px;
-    font-size: 14px;
-    width:150px;
-    color: #000000;
-    cursor: pointer;
-}
-.labela_ime{
-    margin-left:285px;
-    margin-top: 0px;
-    text-transform: capitalize;
-    font-size: 14px;
-    color: white;
-}
-.prezime{
-    margin-left:225px;
-    margin-top: 0px;
-    border-radius: 8px;
-    padding: 0px 22px;
-    font-size: 14px;
-    width:150px;
-    columns: #000000;
-    cursor: pointer;
-}
-.labela_prezime{
-    margin-left:270px;
-    margin-top: 0px;
-    text-transform: capitalize;
-    font-size: 14px;
-    color: white;
-}
-.dugme_za_napred {
-    margin-top: 5px;
-  padding: 7px 16px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
-  margin-left: 350px;
-
-}
-.dugme_za_nazad {
-    margin-left: 260px;
-    margin-top: 5px;
-    padding: 7px 16px;
+    display: block;
     text-align: center;
-    display: inline-block;
+}
+#ime{
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 2px 2px black;
+    text-transform:capitalize;
+    text-align: center;
+    text-decoration: none;
+    font-size:16px;
+    cursor: pointer;
+}
+#prezime{
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 2px 2px black;
+    text-transform:capitalize;
+    text-align: center;
+    text-decoration: none;
+    font-size:16px;
+    cursor: pointer;
+}
+#ime_labela{
     font-size: 16px;
-    border-radius: 12px;
-    margin-right: 200px;
 }
-@media (max-width: 700px) {
-.Reg_forma{
-    width: 300px;
+#ime_prezime{
+    font-size: 16px;
+}
+.dugme{
+    font-size: 16px;
+}
+.dugme_nazad{
+    margin-left: 555px;
+}
+@media (max-width: 800px) {
+    .dugme_nazad{
+        margin-left: 260px;
     }
-form{
-    width: 300px;
-    height: 375px;
+}
+@media (max-width: 620px) {
+    .Reg_forma{
+        width: 350px;
+    }  
+    .imeIprezime{
+        width: 80%;
+        height: 250px;
+        width: 350px;
     }
-.ime{
-    margin-left:68px;
-    margin-top: 5px;
-    margin-bottom: 0px;
+    .dugme_nazad{
+        margin-left: 180px;
+    }
 }
-.labela_ime{
-    margin-left:125px;
-    margin-top: 0px;
+@media (max-width: 450px) {
+    .dugme_nazad{
+        margin-left: 100px;
+    }
 }
-.prezime{
-    margin-left:68px;
-    margin-top: 0px;
-}
-.labela_prezime{
-    margin-left:112px;
-    margin-top: 0px;
-}
+@media (max-width: 360px) {
+    .Reg_forma{
+        width: 250px;
+    }  
+    .imeIprezime{
+        width: 80%;
+        height: 300px;
+        width: 250px;
+    }
+    .dugme_nazad{
+        margin-left: 59px;
+    }
 }

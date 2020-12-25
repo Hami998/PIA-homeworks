@@ -81,11 +81,19 @@ function postaviPodatke(){
  //funkcije za prelazak sa jedne strane na drugu
 let imeIgraca = "";
 let prezimeIgraca = "";
-function sacuvajPodatak(){
-  imeIgraca = $("#ime").text();
-  prezimeIgraca = $("#prezime").text();
-  localStorage.setItem("ime", imeIgraca);
-  localStorage.setItem("prezime", prezimeIgraca);
+function sacuvajPodatke(){
+  imeIgraca = $("#ime").val();
+  prezimeIgraca = $("#prezime").val();
+  let pattern = /^[A-Z]+[a-z]*$/;
+  let proveraIme = pattern.exec(imeIgraca);
+  let proveraPrezime = pattern.exec(prezimeIgraca);
+  if(proveraIme && proveraPrezime){
+    localStorage.setItem("ime", imeIgraca);
+    localStorage.setItem("prezime", prezimeIgraca);
+    alert("Uspesno ste se prijavili");
+    return;
+  }
+  alert("Uneti podaci nisu validni");
 }
 function zapocniKviz() {
    imeIgraca = localStorage.getItem("ime");
@@ -145,10 +153,10 @@ function pokreniTajmer(){
   else{
     $(".tajmer").css("background-color", "red");
   }
-if(vreme == -1){
-  zaustaviTajmer("zaustavi");
-  sledecePitanje1();
-}
+    if(vreme == -1){
+      zaustaviTajmer("zaustavi");
+      sledecePitanje1();
+    }
 }
   function zaustaviTajmer(stanje){
   if(stanje ==="pokreni"){
@@ -166,9 +174,16 @@ if(vreme == -1){
 // funkcije za rad sa pitanjima
 function sledecePitanje1(){
   let brojac = $(".brojac").text();
+  let strana = $(".sledeca_strana").text();
   if(brojac<=10){
-    ucitajNovoPitanje();
-    zaustaviTajmer("pokreni");
+    if(strana == 1){
+      ucitajNovoPitanje();
+      zaustaviTajmer("pokreni");
+    }
+    else if(strana == 2){
+      prikaziOdgovor();
+      zaustaviTajmer("pokreni");
+    }
   }
   if(brojac==11){
     //prikaziBrojPoena()
@@ -188,8 +203,6 @@ let poeni_9=1;
 let poeni_10=1;
 function sledecePitanje(){
  let brojac = $(".brojac").text();
- // brojac1 = parseInt(brojac);
- // brojac1;
   if(brojac<=10){
       zaustaviTajmer("zaustavi");
       ucitajNovoPitanje();
@@ -197,80 +210,6 @@ function sledecePitanje(){
       return;
     }
   }
-  //if(brojac==11){
-    //prikaziBrojPoena()
-    //kad se klikne na ok, predje se na stranicu sa rezultatima
- //}
-// function sledecePitanje2(){
-//   let brojac = $(".brojac").text();
-//   if(brojac<=10){
-//     zaustaviTajmer("zaustavi");
-//     ucitajNovoPitanje();
-//     zaustaviTajmer("pokreni");
-//     alert(poeni);
-//   }
-//   if(brojac==11){
-//     //prikaziBrojPoena()
-//     //kad se klikne na ok, predje se na stranicu sa rezultatima
-//   }
-// }
-// let ppp = setTimeout(() => {
-//   ucitajNovoPitanje();
-// }, 1000);
-// function prikaziOdgovor() {
-//   let brojac1 = $(".brojac").text();
-//   if(brojac1 == 9){
-//     $.getJSON('pitanja.json', (data) => {
-//       $("#potvrdi_odgovor").css("display", "none");
-//       $("#odgovor_na_dopunu").attr("disabled", true);
-//       $("#tacan_odgovor").css("display", "inline");
-//       $("#tacan_odgovor").attr("disabled", true);
-//       $("#tacan_odgovor").attr("class", "btn-success");
-//       $("#tacan_odgovor").text("Kazahstan");
-//       $('#odgovor_na_dopunu').css('textTransform', 'capitalize');
-//       let odgovor_8 = $("#odgovor_na_dopunu").val();
-//       if(odgovor_8 === "Kazahstan"){
-//         poeni = poeni + poeni_8;
-//         poeni_8 = 0;
-//         setTimeout(() => {
-//           ucitajNovoPitanje();
-//         }, 1000);
-//         zaustaviTajmer("pokreni");
-//         return;
-//       }
-//       else{
-//         setTimeout(() => {
-//           ucitajNovoPitanje();
-//         }, 1000);
-//         zaustaviTajmer("pokreni");
-//         return;
-//       }
-//   });
-// }
-// if(brojac1 == 10){
-//   $.getJSON('pitanja.json', (data) => {
-//     $("#potvrdi_odgovor").css("display", "none");
-//     $("#odgovor_na_dopunu").attr("disabled", true);
-//     $("#tacan_odgovor").css("display", "inline");
-//     $("#tacan_odgovor").attr("disabled", true);
-//     $("#tacan_odgovor").attr("class", "btn-success");
-//     $("#tacan_odgovor").text("Moskva");
-//     $('#odgovor_na_dopunu').css('textTransform', 'capitalize');
-//       let odgovor_9 = $("#odgovor_na_dopunu").val();
-//       if(odgovor_9 === "Moskva"){
-//         poeni = poeni + poeni_9;
-//         poeni_9 = 0;
-//         setTimeout(() => {
-//           ucitajNovoPitanje();
-//         }, 1000);
-//         zaustaviTajmer("pokreni");
-//         return;
-//       }
-//       else{
-//         return;
-//       }
-// });
-// }
 function ucitajNovoPitanje() {
   let brojac = $(".brojac").text();
   if(brojac == 1) {
@@ -953,8 +892,6 @@ function prikaziOdgovor(){
 }
 // funkcije koje odredjuju da li je igrac u tabeli
 function provera(){
-    //poeni = localStorage.getItem("poeni");
-   //poeni = localStorage.getItem("poeni"); //ovo sve ide iz localStarage
    poeni2 = localStorage.getItem("poeni");
    poeni3 = localStorage.getItem("poeni1");
    poeni4 = parseInt(poeni2);
