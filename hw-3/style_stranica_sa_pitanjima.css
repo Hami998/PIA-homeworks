@@ -80,6 +80,14 @@ body, html {
     word-spacing: 0.5px;
     text-shadow: 1px 1px black;
 }
+.tekst_opis{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: none;
+    word-spacing: 0.5px;
+    text-shadow: 1px 1px black;
+}
 #odgovor_prvi{
     padding: 7px 16px;
     text-align: center;
@@ -166,6 +174,16 @@ body, html {
 }
 .sledeca_strana{
     display: none;
+}
+.dugme_rezultati{
+    padding: 7px 16px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    position: relative;
+    top: 15px;
+    left: 225px;
 }
 @media (max-width: 700px) {
     .pitanje{
@@ -254,7 +272,30 @@ body, html {
         left: 157px;
         display:none;
     }
+    .dugme_rezultati{
+        padding: 7px 16px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+        width:120px;
+        position: relative;
+        top: 15px;
+        left: 225px;
     }
+    .dugme_rezultati{
+        padding: 7px 16px;
+        text-align: center;
+        display: inline-block;
+        font-size: 13px;
+        border-radius: 12px;
+        width: 120px; 
+        position: relative;
+        top: 5px;
+        left: 160px;
+    }
+    }
+
 @media (max-width: 465px) {
     body, html {
         height: 100%; 
@@ -344,5 +385,16 @@ body, html {
         top: 5px;
         left: -33px;
         display:none;
+    }
+    .dugme_rezultati{
+        padding: 7px 16px;
+        text-align: center;
+        display: inline-block;
+        font-size: 13px;
+        border-radius: 12px;
+        width: 120px; 
+        position: relative;
+        top: 30px;
+        left: 85px;
     }
 }
