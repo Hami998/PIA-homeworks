@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
         <title>PIA HW - JavaScript</title>
         <meta name="author" content="Mihailo Jacimovic!" />
@@ -11,22 +12,23 @@
         <link rel="stylesheet" href="style_forma.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="pitanja.json"></script>
-        <script type="text/javascript" src="script.js" ></script>
+        <script type="text/javascript" src="script.js"></script>
 </head>
 <body">
         <div class="pozadina_forma">
                 <div class="Reg_forma">Registraciona forma</div>
                 <form class="forma">
-                <div class="imeIprezime">
+                        <div class="imeIprezime">
                                 <label for="ime" id="ime_labela">Ime:</label><br>
-                                <input type="text"id="ime"><br>
+                                <input type="text" id="ime"><br>
                                 <label for="prezime" id="prezime_labela">Prezime:</label><br>
                                 <input type="text" id="prezime"><br><br>
                                 <button class="dugme btn btn-success" onclick="sacuvajPodatke()">Prijavi me</button>
-                </div>
-        </form>
-        <button class="dugme_nazad btn btn-success" onclick="vratiNazad()">Vrati se nazad</button>
-        <button class="dugme_napred btn btn-success" onclick="otvoriPravilaIgre()">Pravila igre</button> 
+                        </div>
+                </form>
+                <button class="dugme_nazad btn btn-success" onclick="vratiNazad()">Vrati se nazad</button>
+                <button class="dugme_napred btn btn-success" onclick="otvoriPravilaIgre()">Pravila igre</button>
         </div>
-</body>
+        </body>
+
 </html>

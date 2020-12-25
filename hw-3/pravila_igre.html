@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-        <title>PIA HW - JavaScript</title>
-        <meta name="author" content="Mihailo Jacimovic!" />
-        <meta charset="utf-8" />
-        <meta name="description" content="Mini kviz" />
-        <meta name="keywords" content="pia, web programming, js" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="style_pravila_igre.css">
-        <script type="text/javascript" src="script.js" ></script>
+    <title>PIA HW - JavaScript</title>
+    <meta name="author" content="Mihailo Jacimovic!" />
+    <meta charset="utf-8" />
+    <meta name="description" content="Mini kviz" />
+    <meta name="keywords" content="pia, web programming, js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style_pravila_igre.css">
+    <script type="text/javascript" src="script.js"></script>
 </head>
+
 <body>
-        <div class="pozadina_pravila_igre"> 
-            <main>
-                <div class="Pravila_igre text-capitalize">
-                    Pravila igre
-                </div>
-                <div class="objasnjenje">
+    <div class="pozadina_pravila_igre">
+        <main>
+            <div class="Pravila_igre text-capitalize">
+                Pravila igre
+            </div>
+            <div class="objasnjenje">
                 <p class="font-weight-bold">
                     Dobrodošli u kviz znanja. Kviz se bavi pitanjima iz oblasti geografije.
                     Pravila igre su sledeća:
@@ -32,7 +34,7 @@
                             Svako pitanje nosi 1 poen.
                         </li>
                         <li class="pravila">
-                            Pitanje moze da se preskoči, ali u tom slučaju igrač ne može da 
+                            Pitanje moze da se preskoči, ali u tom slučaju igrač ne može da
                             se vrati na njega.
                         </li>
                         <li class="pravila">
@@ -41,11 +43,15 @@
                         </li>
                     </ol>
                 </p>
-                <button class="dugme_napred btn btn-success" type="submit" name="Nastavi_dalje" onclick="zapocniKviz()">Započni kviz</button>
-                <button class="dugme_nazad_pocetna btn btn-success" type="submit" name="Vrati_se_nazad_pocetna" onclick="vratiPocetna()">Vrati se na početnu</button>
-                <button class="dugme_nazad_forma btn btn-success" type="submit" name="Vrati_se_nazad_forma" onclick="vratiForma()">Vrati se na formu</button>
+                <button class="dugme_napred btn btn-success" type="submit" name="Nastavi_dalje"
+                    onclick="zapocniKviz()">Započni kviz</button>
+                <button class="dugme_nazad_pocetna btn btn-success" type="submit" name="Vrati_se_nazad_pocetna"
+                    onclick="vratiPocetna()">Vrati se na početnu</button>
+                <button class="dugme_nazad_forma btn btn-success" type="submit" name="Vrati_se_nazad_forma"
+                    onclick="vratiForma()">Vrati se na formu</button>
             </div>
-            </main>
-        </div>
+        </main>
+    </div>
 </body>
+
 </html>
