@@ -15,7 +15,7 @@
     <script type="text/javascript" src="script.js"></script>
 </head>
 
-<body onload="ucitaj(); postaviPodatke()">
+<body onload="postaviPodatke(); ucitaj(); provera()">
     <div class="pozadina_tabela">
         <table class="rezultat" id="tabela">
             <thead>
@@ -28,61 +28,61 @@
             </thead>
             <tbody>
                 <tr class="red">
-                    <td class="kolona rd">1.</td>
+                    <td class="kolona rd_1">1.</td>
                     <td class="kolona ime_1">Nikola</td>
                     <td class="kolona prezime_1">Nikolić</td>
                     <td class="kolona poeni_1">10</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">2.</td>
+                    <td class="kolona rd_2">2.</td>
                     <td class="kolona ime_2">Petar</td>
                     <td class="kolona prezime_2">Petrović</td>
                     <td class="kolona poeni_2">10</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">3.</td>
+                    <td class="kolona rd_3">3.</td>
                     <td class="kolona ime_3">Marko</td>
                     <td class="kolona prezime_3">Marković</td>
                     <td class="kolona poeni_3">9</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">4.</td>
+                    <td class="kolona rd_4">4.</td>
                     <td class="kolona ime_4">Mihailo</td>
                     <td class="kolona prezime_4">Jacimović</td>
                     <td class="kolona poeni_4">8</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">5.</td>
+                    <td class="kolona rd_5">5.</td>
                     <td class="kolona ime_5">Bogdan</td>
                     <td class="kolona prezime_5">Bogdanović</td>
                     <td class="kolona poeni_5">7</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">6.</td>
+                    <td class="kolona rd_6">6.</td>
                     <td class="kolona ime_6">Marija</td>
                     <td class="kolona prezime_6">Marković</td>
                     <td class="kolona poeni_6">7</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">7.</td>
+                    <td class="kolona rd_7">7.</td>
                     <td class="kolona ime_7">Ivana</td>
                     <td class="kolona prezime_7">Ivanović</td>
                     <td class="kolona poeni_7">6</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">8.</td>
+                    <td class="kolona rd_8">8.</td>
                     <td class="kolona ime_8">Jelena</td>
                     <td class="kolona prezime_8">Jovanović</td>
                     <td class="kolona poeni_8">6</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">9.</td>
+                    <td class="kolona rd_9">9.</td>
                     <td class="kolona ime_9">Petar</td>
                     <td class="kolona prezime_9">Bogdanović</td>
                     <td class="kolona poeni_9">5</td>
                 </tr>
                 <tr class="red">
-                    <td class="kolona rd">10.</td>
+                    <td class="kolona rd_10">10.</td>
                     <td class="kolona ime_10">Bojana</td>
                     <td class="kolona prezime_10">Bojović
                     </td>
@@ -90,7 +90,7 @@
                 </tr>
             </tbody>
         </table>
-        <button class="dugme_vrati_nazad btn btn-success" type="submit" name="Vrati_se_nazad"  onclick="/*vratiPocetna()*/ provera()">Vrati se nazad</button>
+        <button class="dugme_vrati_nazad btn btn-success" type="submit" name="Vrati_se_nazad"  onclick="vratiNaPocetnu()">Vrati se nazad</button>
     </div>
 </body>
 

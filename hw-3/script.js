@@ -90,7 +90,7 @@ function sacuvajPodatke(){
   if(proveraIme && proveraPrezime){
     localStorage.setItem("ime", imeIgraca);
     localStorage.setItem("prezime", prezimeIgraca);
-    alert("Uspesno ste se prijavili");
+    alert("Uspešno ste se prijavili, da nastavite dalje, pritisnite dugme: Pravila igre");
     return;
   }
   alert("Uneti podaci nisu validni");
@@ -135,6 +135,13 @@ function otvoriNovaPitanja(){
 function otvoriMojRezultat(){
   location.replace("http://127.0.0.1:5501/rezultat.html"); 
 }
+function vratiNaPocetnu(){
+  localStorage.removeItem("poeni");
+  localStorage.removeItem("poeni1");
+  localStorage.removeItem("ime");
+  localStorage.removeItem("prezime");
+  location.replace("http://127.0.0.1:5501/glavna_stranica.html");
+}
 function prikaziMojRezultat(){
   poeni1 = localStorage.getItem("poeni");
   poeni2 = localStorage.getItem("poeni1");
@@ -145,7 +152,7 @@ function prikaziMojRezultat(){
     $(".tekst").text(ime + " " + prezime + " : " + poeni);
   }
   else{
-    poeni = poeni1 + poeni2;
+    poeni = parseInt(poeni1) + parseInt(poeni2);
     $(".tekst").text(ime + " " + prezime + " : " + poeni);
   }
 }
@@ -373,7 +380,7 @@ function ucitajNovoPitanje() {
   }
  else if (brojac == 3) {
     $.getJSON('pitanja.json', (data) => {
-      $(".tekst").text(data.pitanje_4);
+      $(".tekst").text(data.pitanje_3);
       $(".brojac").text("4");
       $(".sledece_pitanje").css("display", "inline");
       $(".izadji_iz_kviza").css("display", "inline");
@@ -386,17 +393,17 @@ function ucitajNovoPitanje() {
       $("#odgovor_drugi").attr("class", "btn-success");
       $("#odgovor_treci").attr("class", "btn-success");
       $("#odgovor_cetvrti").attr("class", "btn-success");
-      $("#odgovor_prvi").html(data.odgovori_4[0]);
-      $("#odgovor_drugi").html(data.odgovori_4[1]);
-      $("#odgovor_treci").html(data.odgovori_4[2]);
-      $("#odgovor_cetvrti").html(data.odgovori_4[3]);
+      $("#odgovor_prvi").html(data.odgovori_3[0]);
+      $("#odgovor_drugi").html(data.odgovori_3[1]);
+      $("#odgovor_treci").html(data.odgovori_3[2]);
+      $("#odgovor_cetvrti").html(data.odgovori_3[3]);
       $("#odgovor_prvi").css("display", "inline");
       $("#odgovor_drugi").css("display", "inline");
       $("#odgovor_treci").css("display", "inline");
       $("#odgovor_cetvrti").css("display", "inline");
       $("button").removeClass("odgovor_2");
-      $("button").addClass("odgovor_4");
-      $(".odgovor_4").click(function () {
+      $("button").addClass("odgovor_3");
+      $(".odgovor_3").click(function () {
         if(this.id == 'odgovor_treci'){
           zaustaviTajmer("zaustavi");
           $("#odgovor_prvi").attr("disabled", "disabled");
@@ -451,7 +458,7 @@ function ucitajNovoPitanje() {
   }
  else if (brojac == 4) {
     $.getJSON('pitanja.json', (data) => {
-      $(".tekst").text(data.pitanje_5);
+      $(".tekst").text(data.pitanje_4);
       $(".brojac").text("5");
       $(".sledece_pitanje").css("display", "inline");
       $(".izadji_iz_kviza").css("display", "inline");
@@ -464,17 +471,17 @@ function ucitajNovoPitanje() {
       $("#odgovor_drugi").attr("class", "btn-success");
       $("#odgovor_treci").attr("class", "btn-success");
       $("#odgovor_cetvrti").attr("class", "btn-success");
-      $("#odgovor_prvi").html(data.odgovori_5[0]);
-      $("#odgovor_drugi").html(data.odgovori_5[1]);
-      $("#odgovor_treci").html(data.odgovori_5[2]);
-      $("#odgovor_cetvrti").html(data.odgovori_5[3]);
+      $("#odgovor_prvi").html(data.odgovori_4[0]);
+      $("#odgovor_drugi").html(data.odgovori_4[1]);
+      $("#odgovor_treci").html(data.odgovori_4[2]);
+      $("#odgovor_cetvrti").html(data.odgovori_4[3]);
       $("#odgovor_prvi").css("display", "inline");
       $("#odgovor_drugi").css("display", "inline");
       $("#odgovor_treci").css("display", "inline");
       $("#odgovor_cetvrti").css("display", "inline");
-      $("button").removeClass("odgovor_4");
-      $("button").addClass("odgovor_5");
-      $(".odgovor_5").click(function () {
+      $("button").removeClass("odgovor_3");
+      $("button").addClass("odgovor_4");
+      $(".odgovor_4").click(function () {
         if(this.id == 'odgovor_cetvrti'){
           zaustaviTajmer("zaustavi");
           $("#odgovor_prvi").attr("disabled", "disabled");
@@ -529,7 +536,7 @@ function ucitajNovoPitanje() {
   }
  else if (brojac == 5) {
     $.getJSON('pitanja.json', (data) => {
-      $(".tekst").text(data.pitanje_7);
+      $(".tekst").text(data.pitanje_5);
       $(".brojac").text("6");
       $(".sledece_pitanje").css("display", "inline");
       $(".izadji_iz_kviza").css("display", "inline");
@@ -542,17 +549,17 @@ function ucitajNovoPitanje() {
       $("#odgovor_drugi").attr("class", "btn-success");
       $("#odgovor_treci").attr("class", "btn-success");
       $("#odgovor_cetvrti").attr("class", "btn-success");
-      $("#odgovor_prvi").html(data.odgovori_7[0]);
-      $("#odgovor_drugi").html(data.odgovori_7[1]);
-      $("#odgovor_treci").html(data.odgovori_7[2]);
-      $("#odgovor_cetvrti").html(data.odgovori_7[3]);
+      $("#odgovor_prvi").html(data.odgovori_5[0]);
+      $("#odgovor_drugi").html(data.odgovori_5[1]);
+      $("#odgovor_treci").html(data.odgovori_5[2]);
+      $("#odgovor_cetvrti").html(data.odgovori_5[3]);
       $("#odgovor_prvi").css("display", "inline");
       $("#odgovor_drugi").css("display", "inline");
       $("#odgovor_treci").css("display", "inline");
       $("#odgovor_cetvrti").css("display", "inline");
-      $("button").removeClass("odgovor_5");
-      $("button").addClass("odgovor_7");
-      $(".odgovor_7").click(function () {
+      $("button").removeClass("odgovor_4");
+      $("button").addClass("odgovor_5");
+      $(".odgovor_5").click(function () {
         if(this.id == 'odgovor_drugi'){
           zaustaviTajmer("zaustavi");
           $("#odgovor_prvi").attr("disabled", "disabled");
@@ -610,7 +617,7 @@ function ucitajNovoPitanje() {
   }
  else if (brojac == 6) {
     $.getJSON('pitanja.json', (data) => {
-      $(".tekst").text(data.pitanje_8);
+      $(".tekst").text(data.pitanje_6);
       $(".brojac").text("7");
       $(".sledece_pitanje").css("display", "inline");
       $(".izadji_iz_kviza").css("display", "inline");
@@ -623,17 +630,17 @@ function ucitajNovoPitanje() {
       $("#odgovor_drugi").attr("class", "btn-success");
       $("#odgovor_treci").attr("class", "btn-success");
       $("#odgovor_cetvrti").attr("class", "btn-success");
-      $("#odgovor_prvi").html(data.odgovori_8[0]);
-      $("#odgovor_drugi").html(data.odgovori_8[1]);
-      $("#odgovor_treci").html(data.odgovori_8[2]);
-      $("#odgovor_cetvrti").html(data.odgovori_8[3]);
+      $("#odgovor_prvi").html(data.odgovori_6[0]);
+      $("#odgovor_drugi").html(data.odgovori_6[1]);
+      $("#odgovor_treci").html(data.odgovori_6[2]);
+      $("#odgovor_cetvrti").html(data.odgovori_6[3]);
       $("#odgovor_prvi").css("display", "inline");
       $("#odgovor_drugi").css("display", "inline");
       $("#odgovor_treci").css("display", "inline");
       $("#odgovor_cetvrti").css("display", "inline");
-      $("button").removeClass("odgovor_7");
-      $("button").addClass("odgovor_8");
-      $(".odgovor_8").click(function () {
+      $("button").removeClass("odgovor_5");
+      $("button").addClass("odgovor_6");
+      $(".odgovor_6").click(function () {
         if(this.id == 'odgovor_prvi'){
           zaustaviTajmer("zaustavi");
           $("#odgovor_prvi").attr("disabled", "disabled");
@@ -692,7 +699,7 @@ function ucitajNovoPitanje() {
   }
  else if (brojac == 7) {
     $.getJSON('pitanja.json', (data) => {
-      $(".tekst").text(data.pitanje_9);
+      $(".tekst").text(data.pitanje_7);
       $(".brojac").text("8");
       $(".sledece_pitanje").css("display", "inline");
       $(".izadji_iz_kviza").css("display", "inline");
@@ -705,17 +712,17 @@ function ucitajNovoPitanje() {
       $("#odgovor_drugi").attr("class", "btn-success");
       $("#odgovor_treci").attr("class", "btn-success");
       $("#odgovor_cetvrti").attr("class", "btn-success");
-      $("#odgovor_prvi").html(data.odgovori_9[0]);
-      $("#odgovor_drugi").html(data.odgovori_9[1]);
-      $("#odgovor_treci").html(data.odgovori_9[2]);
-      $("#odgovor_cetvrti").html(data.odgovori_9[3]);
+      $("#odgovor_prvi").html(data.odgovori_7[0]);
+      $("#odgovor_drugi").html(data.odgovori_7[1]);
+      $("#odgovor_treci").html(data.odgovori_7[2]);
+      $("#odgovor_cetvrti").html(data.odgovori_7[3]);
       $("#odgovor_prvi").css("display", "inline");
       $("#odgovor_drugi").css("display", "inline");
       $("#odgovor_treci").css("display", "inline");
       $("#odgovor_cetvrti").css("display", "inline");
-      $("button").removeClass("odgovor_8");
-      $("button").addClass("odgovor_9");
-      $(".odgovor_9").click(function () {
+      $("button").removeClass("odgovor_6");
+      $("button").addClass("odgovor_7");
+      $(".odgovor_7").click(function () {
         if(this.id == 'odgovor_cetvrti'){
           zaustaviTajmer("zaustavi");
           $("#odgovor_prvi").attr("disabled", "disabled");
@@ -775,14 +782,14 @@ function prikaziOdgovor(){
     if (brojac == 8) {
       zaustaviTajmer("pokreni");
     $.getJSON('pitanja.json', (data) => {
-      $(".tekst").text(data.pitanje_3);
+      $(".tekst").text(data.pitanje_8);
       $(".brojac").text("9");
       $("#potvrdi_odgovor").css("display", "inline");
       $("#odgovor_na_dopunu").css("display", "inline");
       $(".sledece_pitanje").css("display", "inline");
       $(".izadji_iz_kviza").css("display", "inline");
-      $("button").addClass("odgovor_10");
-      $(".odgovor_10").click(function () {
+      $("button").addClass("odgovor_8");
+      $(".odgovor_8").click(function () {
         if (this.id== 'potvrdi_odgovor'){
       zaustaviTajmer("zaustavi");
       $("#potvrdi_odgovor").css("display", "none");
@@ -826,7 +833,7 @@ function prikaziOdgovor(){
  }
  else if (brojac == 9) {
         $.getJSON('pitanja.json', (data) => {
-          $(".tekst").text(data.pitanje_6);
+          $(".tekst").text(data.pitanje_9);
           $(".brojac").text("10");
           $(".sledece_pitanje").css("display", "inline");
           $(".izadji_iz_kviza").css("display", "inline");
@@ -837,9 +844,9 @@ function prikaziOdgovor(){
           $("#odgovor_na_dopunu").val('');
           $("#odgovor_na_dopunu").css("display", "inline");
           $("#potvrdi_odgovor").css("display", "inline");
-          $("button").removeClass("odgovor_10");
-          $("button").addClass("odgovor_11");
-          $(".odgovor_11").click(function () {
+          $("button").removeClass("odgovor_8");
+          $("button").addClass("odgovor_9");
+          $(".odgovor_9").click(function () {
             if(this.id =="potvrdi_odgovor"){
               zaustaviTajmer("zaustavi");
               $("#potvrdi_odgovor").css("display", "none");
@@ -894,9 +901,9 @@ function prikaziOdgovor(){
       $("#odgovor_na_dopunu").val('');
       $("#odgovor_na_dopunu").css("display", "inline");
       $("#potvrdi_odgovor").css("display", "inline");
-      $("button").removeClass("odgovor_11");
-      $("button").addClass("odgovor_12");
-      $(".odgovor_12").click(function () {
+      $("button").removeClass("odgovor_9");
+      $("button").addClass("odgovor_10");
+      $(".odgovor_10").click(function () {
       zaustaviTajmer("zaustavi");
     $("#potvrdi_odgovor").css("display", "none");
     $("#odgovor_na_dopunu").attr("disabled", true);
@@ -945,6 +952,10 @@ function provera(){
     $(".ime_1").text(ime);
     $(".prezime_1").text(prezime);
     $(".poeni_1").text(poeni);
+    $(".ime_1").css("background-color", "black");
+$(".prezime_1").css("background-color", "black");
+$(".poeni_1").css("background-color", "black");
+$(".rd_1").css("background-color", "#080808");
     ucitaj();
     return;
 }
@@ -1007,11 +1018,15 @@ function provera(){
       let poeni1 =  $(".poeni_1").text();
       $(".poeni_2").text(poeni1);
       $(".poeni_1").text(poeni);
+      $(".ime_1").css("background-color", "black");
+$(".prezime_1").css("background-color", "black");
+$(".poeni_1").css("background-color", "black");
+$(".rd_1").css("background-color", "#080808");
       ucitaj();
       return;
      }
     let ime1 = $(".ime_1").text();
-    let proveraRedosleda = pi.localeCompare(ime1);
+    let proveraRedosleda = ime.localeCompare(ime1);
     if(proveraRedosleda < 0){
       let ime9 =  $(".ime_9").text();
       $(".ime_10").text(ime9);
@@ -1071,6 +1086,10 @@ function provera(){
       $(".poeni_2").text(poeni1);
       $(".poeni_1").text(poeni);
       ucitaj();
+      $(".ime_1").css("background-color", "black");
+$(".prezime_1").css("background-color", "black");
+$(".poeni_1").css("background-color", "black");
+$(".rd_1").css("background-color", "#080808");
       return;
     }
     else if(proveraRedosleda==0){
@@ -1134,6 +1153,10 @@ function provera(){
       let poeni1 =  $(".poeni_1").text();
       $(".poeni_2").text(poeni1);
       $(".poeni_1").text(poeni);
+      $(".ime_1").css("background-color", "black");
+$(".prezime_1").css("background-color", "black");
+$(".poeni_1").css("background-color", "black");
+$(".rd_1").css("background-color", "#080808");
       ucitaj();
       return;
       }
@@ -1143,6 +1166,10 @@ function provera(){
     $(".ime_2").text(ime);
     $(".prezime_2").text(prezime);
     $(".poeni_2").text(poeni);
+    $(".ime_2").css("background-color", "black");
+    $(".prezime_2").css("background-color", "black");
+    $(".poeni_2").css("background-color", "black");
+    $(".rd_2").css("background-color", "#080808");
     ucitaj();
     return;
 }
@@ -1199,6 +1226,10 @@ function provera(){
       let poeni2 =  $(".poeni_2").text();
       $(".poeni_3").text(poeni2);
       $(".poeni_2").text(poeni);
+      $(".ime_2").css("background-color", "black");
+      $(".prezime_2").css("background-color", "black");
+      $(".poeni_2").css("background-color", "black");
+      $(".rd_2").css("background-color", "#080808");
       ucitaj();
       return;
      }
@@ -1256,6 +1287,10 @@ function provera(){
       let poeni2 =  $(".poeni_2").text();
       $(".poeni_3").text(poeni2);
       $(".poeni_2").text(poeni);
+      $(".ime_2").css("background-color", "black");
+      $(".prezime_2").css("background-color", "black");
+      $(".poeni_2").css("background-color", "black");
+      $(".rd_2").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -1314,6 +1349,10 @@ function provera(){
       let poeni2 =  $(".poeni_2").text();
       $(".poeni_3").text(poeni2);
       $(".poeni_2").text(poeni);
+      $(".ime_2").css("background-color", "black");
+      $(".prezime_2").css("background-color", "black");
+      $(".poeni_2").css("background-color", "black");
+      $(".rd_2").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1323,6 +1362,10 @@ if ($(".poeni_3").is(':empty')) {
   $(".ime_3").text(ime);
   $(".prezime_3").text(prezime);
   $(".poeni_3").text(poeni);
+  $(".ime_3").css("background-color", "black");
+  $(".prezime_3").css("background-color", "black");
+  $(".poeni_3").css("background-color", "black");
+  $(".rd_3").css("background-color", "#080808");
   ucitaj();
   return;
 }
@@ -1373,6 +1416,10 @@ if ($(".poeni_3").is(':empty')) {
       let poeni3 =  $(".poeni_3").text();
       $(".poeni_4").text(poeni3);
       $(".poeni_3").text(poeni);
+      $(".ime_3").css("background-color", "black");
+      $(".prezime_3").css("background-color", "black");
+      $(".poeni_3").css("background-color", "black");
+      $(".rd_3").css("background-color", "#080808");
      ucitaj();
       return;
      }
@@ -1424,6 +1471,10 @@ if ($(".poeni_3").is(':empty')) {
       let poeni3 =  $(".poeni_3").text();
       $(".poeni_4").text(poeni3);
       $(".poeni_3").text(poeni);
+      $(".ime_3").css("background-color", "black");
+      $(".prezime_3").css("background-color", "black");
+      $(".poeni_3").css("background-color", "black");
+      $(".rd_3").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -1476,6 +1527,10 @@ if ($(".poeni_3").is(':empty')) {
       let poeni3 =  $(".poeni_3").text();
       $(".poeni_4").text(poeni3);
       $(".poeni_3").text(poeni);
+      $(".ime_3").css("background-color", "black");
+      $(".prezime_3").css("background-color", "black");
+      $(".poeni_3").css("background-color", "black");
+      $(".rd_3").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1485,6 +1540,10 @@ if ($(".poeni_4").is(':empty')) {
   $(".ime_4").text(ime);
   $(".prezime_4").text(prezime);
   $(".poeni_4").text(poeni);
+  $(".ime_4").css("background-color", "black");
+  $(".prezime_4").css("background-color", "black");
+  $(".poeni_4").css("background-color", "black");
+  $(".rd_4").css("background-color", "#080808");
   ucitaj();
   return;
 }
@@ -1529,6 +1588,10 @@ if ($(".poeni_4").is(':empty')) {
       let poeni4 =  $(".poeni_4").text();
       $(".poeni_5").text(poeni4);
       $(".poeni_4").text(poeni);
+      $(".ime_4").css("background-color", "black");
+      $(".prezime_4").css("background-color", "black");
+      $(".poeni_4").css("background-color", "black");
+      $(".rd_4").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1574,6 +1637,10 @@ if ($(".poeni_4").is(':empty')) {
       let poeni4 =  $(".poeni_4").text();
       $(".poeni_5").text(poeni4);
       $(".poeni_4").text(poeni);
+      $(".ime_4").css("background-color", "black");
+      $(".prezime_4").css("background-color", "black");
+      $(".poeni_4").css("background-color", "black");
+      $(".rd_4").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -1620,6 +1687,10 @@ if ($(".poeni_4").is(':empty')) {
       let poeni4 =  $(".poeni_4").text();
       $(".poeni_5").text(poeni4);
       $(".poeni_4").text(poeni);
+      $(".ime_4").css("background-color", "black");
+      $(".prezime_4").css("background-color", "black");
+      $(".poeni_4").css("background-color", "black");
+      $(".rd_4").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1630,6 +1701,10 @@ if ($(".poeni_5").is(':empty')) {
   $(".ime_5").text(ime);
   $(".prezime_5").text(prezime);
   $(".poeni_5").text(poeni);
+  $(".ime_5").css("background-color", "black");
+  $(".prezime_5").css("background-color", "black");
+  $(".poeni_5").css("background-color", "black");
+  $(".rd_5").css("background-color", "#080808");
   ucitaj();
   return;
 }
@@ -1668,6 +1743,10 @@ if ($(".poeni_5").is(':empty')) {
       let poeni5 =  $(".poeni_5").text();
       $(".poeni_6").text(poeni5);
       $(".poeni_5").text(poeni);
+      $(".ime_5").css("background-color", "black");
+      $(".prezime_5").css("background-color", "black");
+      $(".poeni_5").css("background-color", "black");
+      $(".rd_5").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1707,6 +1786,10 @@ if ($(".poeni_5").is(':empty')) {
       let poeni5 =  $(".poeni_5").text();
       $(".poeni_6").text(poeni5);
       $(".poeni_5").text(poeni);
+      $(".ime_5").css("background-color", "black");
+      $(".prezime_5").css("background-color", "black");
+      $(".poeni_5").css("background-color", "black");
+      $(".rd_5").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -1747,6 +1830,10 @@ if ($(".poeni_5").is(':empty')) {
     let poeni5 =  $(".poeni_5").text();
     $(".poeni_6").text(poeni5);
     $(".poeni_5").text(poeni);
+    $(".ime_5").css("background-color", "black");
+    $(".prezime_5").css("background-color", "black");
+    $(".poeni_5").css("background-color", "black");
+    $(".rd_5").css("background-color", "#080808");
     ucitaj();
     return;
   }
@@ -1756,6 +1843,10 @@ if ($(".poeni_5").is(':empty')) {
     $(".ime_6").text(ime);
     $(".prezime_6").text(prezime);
     $(".poeni_6").text(poeni);
+    $(".ime_6").css("background-color", "black");
+    $(".prezime_6").css("background-color", "black");
+    $(".poeni_6").css("background-color", "black");
+    $(".rd_6").css("background-color", "#080808");
     ucitaj();
     return;
 }
@@ -1788,6 +1879,10 @@ if ($(".poeni_5").is(':empty')) {
     let poeni6 =  $(".poeni_6").text();
     $(".poeni_7").text(poeni6);
     $(".poeni_6").text(poeni);
+    $(".ime_6").css("background-color", "black");
+    $(".prezime_6").css("background-color", "black");
+    $(".poeni_6").css("background-color", "black");
+    $(".rd_6").css("background-color", "#080808");
     ucitaj();
     return;
    }
@@ -1821,6 +1916,10 @@ if ($(".poeni_5").is(':empty')) {
     let poeni6 =  $(".poeni_6").text();
     $(".poeni_7").text(poeni6);
     $(".poeni_6").text(poeni);
+    $(".ime_6").css("background-color", "black");
+    $(".prezime_6").css("background-color", "black");
+    $(".poeni_6").css("background-color", "black");
+    $(".rd_6").css("background-color", "#080808");
     ucitaj();
     return;
  }
@@ -1855,6 +1954,10 @@ if ($(".poeni_5").is(':empty')) {
     let poeni6 =  $(".poeni_6").text();
     $(".poeni_7").text(poeni6);
     $(".poeni_6").text(poeni);
+    $(".ime_6").css("background-color", "black");
+    $(".prezime_6").css("background-color", "black");
+    $(".poeni_6").css("background-color", "black");
+    $(".rd_6").css("background-color", "#080808");
     ucitaj();
     return;
   }
@@ -1865,6 +1968,10 @@ if ($(".poeni_7").is(':empty')) {
   $(".ime_7").text(ime);
   $(".prezime_7").text(prezime);
   $(".poeni_7").text(poeni);
+  $(".ime_7").css("background-color", "black");
+  $(".prezime_7").css("background-color", "black");
+  $(".poeni_7").css("background-color", "black");
+  $(".rd_7").css("background-color", "#080808");
   ucitaj();
   return;
 }
@@ -1891,6 +1998,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni7 =  $(".poeni_7").text();
       $(".poeni_8").text(poeni7);
       $(".poeni_7").text(poeni);
+      $(".ime_7").css("background-color", "black");
+      $(".prezime_7").css("background-color", "black");
+      $(".poeni_7").css("background-color", "black");
+      $(".rd_7").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1918,6 +2029,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni7 =  $(".poeni_7").text();
       $(".poeni_8").text(poeni7);
       $(".poeni_7").text(poeni);
+      $(".ime_7").css("background-color", "black");
+      $(".prezime_7").css("background-color", "black");
+      $(".poeni_7").css("background-color", "black");
+      $(".rd_7").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -1946,6 +2061,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni7 =  $(".poeni_7").text();
       $(".poeni_8").text(poeni7);
       $(".poeni_7").text(poeni);
+      $(".ime_7").css("background-color", "black");
+      $(".prezime_7").css("background-color", "black");
+      $(".poeni_7").css("background-color", "black");
+      $(".rd_7").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1956,6 +2075,10 @@ if ($(".poeni_7").is(':empty')) {
     $(".ime_8").text(ime);
     $(".prezime_8").text(prezime);
     $(".poeni_8").text(poeni);
+    $(".ime_8").css("background-color", "black");
+    $(".prezime_8").css("background-color", "black");
+    $(".poeni_8").css("background-color", "black");
+    $(".rd_8").css("background-color", "#080808");
     ucitaj();
     return;
 }
@@ -1976,6 +2099,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni8 =  $(".poeni_8").text();
       $(".poeni_9").text(poeni8);
       $(".poeni_8").text(poeni);
+      $(".ime_8").css("background-color", "black");
+      $(".prezime_8").css("background-color", "black");
+      $(".poeni_8").css("background-color", "black");
+      $(".rd_8").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -1997,6 +2124,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni8 =  $(".poeni_8").text();
       $(".poeni_9").text(poeni8);
       $(".poeni_8").text(poeni);
+      $(".ime_8").css("background-color", "black");
+      $(".prezime_8").css("background-color", "black");
+      $(".poeni_8").css("background-color", "black");
+      $(".rd_8").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -2019,6 +2150,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni8 =  $(".poeni_8").text();
       $(".poeni_9").text(poeni8);
       $(".poeni_8").text(poeni);
+      $(".ime_8").css("background-color", "black");
+      $(".prezime_8").css("background-color", "black");
+      $(".poeni_8").css("background-color", "black");
+      $(".rd_8").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -2028,6 +2163,10 @@ if ($(".poeni_7").is(':empty')) {
     $(".ime_9").text(ime);
     $(".prezime_9").text(prezime);
     $(".poeni_9").text(poeni);
+    $(".ime_9").css("background-color", "black");
+    $(".prezime_9").css("background-color", "black");
+    $(".poeni_9").css("background-color", "black");
+    $(".rd_9").css("background-color", "#080808");
     ucitaj();
     return;
 }
@@ -2042,6 +2181,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni9 =  $(".poeni_9").text();
       $(".poeni_10").text(poeni9);
       $(".poeni_9").text(poeni);
+      $(".ime_9").css("background-color", "black");
+      $(".prezime_9").css("background-color", "black");
+      $(".poeni_9").css("background-color", "black");
+      $(".rd_9").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -2057,6 +2200,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni9 =  $(".poeni_9").text();
       $(".poeni_10").text(poeni9);
       $(".poeni_9").text(poeni);
+      $(".ime_9").css("background-color", "black");
+      $(".prezime_9").css("background-color", "black");
+      $(".poeni_9").css("background-color", "black");
+      $(".rd_9").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -2073,6 +2220,10 @@ if ($(".poeni_7").is(':empty')) {
       let poeni9 =  $(".poeni_9").text();
       $(".poeni_10").text(poeni9);
       $(".poeni_9").text(poeni);
+      $(".ime_9").css("background-color", "black");
+      $(".prezime_9").css("background-color", "black");
+      $(".poeni_9").css("background-color", "black");
+      $(".rd_9").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -2082,6 +2233,10 @@ if ($(".poeni_7").is(':empty')) {
     $(".ime_10").text(ime);
     $(".prezime_10").text(prezime);
     $(".poeni_10").text(poeni);
+    $(".ime_10").css("background-color", "black");
+    $(".prezime_10").css("background-color", "black");
+    $(".poeni_10").css("background-color", "black");
+    $(".rd_10").css("background-color", "#080808");
     ucitaj();
     return;
 }
@@ -2090,6 +2245,10 @@ if ($(".poeni_7").is(':empty')) {
       $(".ime_10").text(ime);
       $(".prezime_10").text(prezime);
       $(".poeni_10").text(poeni);
+      $(".ime_10").css("background-color", "black");
+      $(".prezime_10").css("background-color", "black");
+      $(".poeni_10").css("background-color", "black");
+      $(".rd_10").css("background-color", "#080808");
       ucitaj();
       return;
     }
@@ -2099,6 +2258,10 @@ if ($(".poeni_7").is(':empty')) {
       $(".ime_10").text(ime);
       $(".prezime_10").text(prezime);
       $(".poeni_10").text(poeni);
+      $(".ime_10").css("background-color", "black");
+      $(".prezime_10").css("background-color", "black");
+      $(".poeni_10").css("background-color", "black");
+      $(".rd_10").css("background-color", "#080808");
       ucitaj();
       return;
    }
@@ -2109,6 +2272,10 @@ if ($(".poeni_7").is(':empty')) {
         $(".ime_10").text(ime);
         $(".prezime_10").text(prezime);
         $(".poeni_10").text(poeni);
+        $(".ime_10").css("background-color", "black");
+        $(".prezime_10").css("background-color", "black");
+        $(".poeni_10").css("background-color", "black");
+        $(".rd_10").css("background-color", "#080808");
         ucitaj();
         return;
   }
