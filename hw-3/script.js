@@ -139,7 +139,7 @@ function sacuvajPodatke(){
     return;
   }
   else{
-    alert("Uneti podaci nisu validni");
+    alert("Uneti podaci nisu validni, popunite sva polja");
   }
 }
 function zapocniKviz() {
