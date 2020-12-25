@@ -180,14 +180,25 @@ function otvoriNovaPitanja(){
   location.replace("stranica_sa_pitanjima_dopuna.html"); 
 }
 function otvoriMojRezultat(){
-  brojac = $(".brojac").text();
-  if(brojac == 2){
+  poeni1 = localStorage.getItem("poeni");
+  poeni2 = localStorage.getItem("poeni1");
+  if(!poeni1){
+    if(!poeni2){
+      poeni = 0;
+      poeni1 = 0;
+      localStorage.setItem("poeni", poeni);
+      localStorage.setItem("poeni", poeni1);
+      location.replace("rezultat.html"); 
+      return;
+    }
     poeni = 0;
     localStorage.setItem("poeni", poeni);
     location.replace("rezultat.html"); 
+    return;
   }
   else {
     location.replace("rezultat.html"); 
+    return;
   }
 }
 function vratiNaPocetnu(){
