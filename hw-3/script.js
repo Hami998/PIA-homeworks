@@ -2216,7 +2216,7 @@ if(poeni >= $(".poeni_5").text()){
       $(".ime_10").text(ime9);
       $(".ime_9").text(ime);
       let prezime9 =  $(".prezime_9").text();
-      $(".ime_10").text(prezime9);
+      $(".prezime_10").text(prezime9);
       $(".prezime_9").text(prezime);
       let poeni9 =  $(".poeni_9").text();
       $(".poeni_10").text(poeni9);
