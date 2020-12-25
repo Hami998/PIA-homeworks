@@ -1,4 +1,4 @@
-// funkcije za cuvanje podataka
+//funkcije za cuvanje podataka
 function ucitaj(){
   let ime1 =  $(".ime_1").text();
   let prezime1 = $(".prezime_1").text();  
@@ -45,6 +45,51 @@ function ucitaj(){
   localStorage.setItem("rezultati_iz_tabele", JSON.stringify(podaci));
 }
 function postaviPodatke(){
+  if(window.localStorage.length==0){
+  let ime1 =  $(".ime_1").text();
+  let prezime1 = $(".prezime_1").text();  
+  let brojPoena1 = $(".poeni_1").text();
+  let ime2 =  $(".ime_2").text();
+  let prezime2 = $(".prezime_2").text();  
+  let brojPoena2 = $(".poeni_2").text();
+  let ime3 =  $(".ime_3").text();
+  let prezime3 = $(".prezime_3").text();  
+  let brojPoena3 = $(".poeni_3").text();
+  let ime4 =  $(".ime_4").text();
+  let prezime4 = $(".prezime_4").text();  
+  let brojPoena4 = $(".poeni_4").text();
+  let ime5 =  $(".ime_5").text();
+  let prezime5 = $(".prezime_5").text();  
+  let brojPoena5 = $(".poeni_5").text();
+  let ime6 =  $(".ime_6").text();
+  let prezime6 = $(".prezime_6").text();  
+  let brojPoena6 = $(".poeni_6").text();
+  let ime7 =  $(".ime_7").text();
+  let prezime7 = $(".prezime_7").text();  
+  let brojPoena7 = $(".poeni_7").text();
+  let ime8 =  $(".ime_8").text();
+  let prezime8 = $(".prezime_8").text();  
+  let brojPoena8 = $(".poeni_8").text();
+  let ime9 =  $(".ime_9").text();
+  let prezime9 = $(".prezime_9").text();  
+  let brojPoena9 = $(".poeni_9").text();
+  let ime10 =  $(".ime_10").text();
+  let prezime10 = $(".prezime_10").text();  
+  let brojPoena10 = $(".poeni_10").text();
+  let podaci = {
+    "prvi_igrac" : [ime1, prezime1, brojPoena1],
+    "drugi_igrac" : [ime2, prezime2, brojPoena2],
+    "treci_igrac" : [ime3, prezime3, brojPoena3],
+    "cetvrti_igrac" : [ime4, prezime4, brojPoena4],
+    "peti_igrac" : [ime5, prezime5, brojPoena5],
+    "sesti_igrac" : [ime6, prezime6, brojPoena6],
+    "sedmi_igrac" : [ime7, prezime7, brojPoena7],
+    "osmi_igrac" : [ime8, prezime8, brojPoena8],
+    "deveti_igrac" : [ime9, prezime9, brojPoena9],
+    "deseti_igrac" : [ime10, prezime10, brojPoena10]
+  }
+  localStorage.setItem("rezultati_iz_tabele", JSON.stringify(podaci));
+  }
   let tekst = localStorage.getItem("rezultati_iz_tabele");
   let tabelaRezultata = JSON.parse(tekst);
   $(".ime_1").text(tabelaRezultata.prvi_igrac[0]);
@@ -101,48 +146,48 @@ function zapocniKviz() {
   imeIgraca = localStorage.getItem("ime");
   prezimeIgraca = localStorage.getItem("prezime");
   if (imeIgraca && prezimeIgraca) {
-    location.replace("http://127.0.0.1:5501/stranica_sa_pitanjima.html");
+    location.replace("stranica_sa_pitanjima.html");
   }
   else {
-    alert("Potrebno je uneti ime i prezime ");
+    alert("Potrebno je popuniti formu");
   }
 }
 function vratiNazad() {
 let provera = document.getElementById("ime");
   if (!provera.checkValidity()) {
-    location.replace("http://127.0.0.1:5501/glavna_stranica.html");
+    location.replace("index.html");
   }
   else {
-    location.replace("http://127.0.0.1:5501/glavna_stranica.html");
+    location.replace("index.html");
   }
 }
 function vratiForma() {
-  location.replace("http://127.0.0.1:5501/forma.html");
+  location.replace("forma.html");
 }
 function vratiPocetna() {
-  location.replace("http://127.0.0.1:5501/glavna_stranica.html");
+  location.replace("index.html");
 }
 function otvoriPravilaIgre() {
-  location.replace("http://127.0.0.1:5501/pravila_igre.html");
+  location.replace("pravila_igre.html");
 }
 function otvoriFormu() {
-  location.replace("http://127.0.0.1:5501/forma.html");
+  location.replace("forma.html");
 }
 function otvoriRezultate() {
-  location.replace("http://127.0.0.1:5501/tabela.html"); 
+  location.replace("tabela.html"); 
 }
 function otvoriNovaPitanja(){
-  location.replace("http://127.0.0.1:5501/stranica_sa_pitanjima_dopuna.html"); 
+  location.replace("stranica_sa_pitanjima_dopuna.html"); 
 }
 function otvoriMojRezultat(){
-  location.replace("http://127.0.0.1:5501/rezultat.html"); 
+  location.replace("rezultat.html"); 
 }
 function vratiNaPocetnu(){
   localStorage.removeItem("poeni");
   localStorage.removeItem("poeni1");
   localStorage.removeItem("ime");
   localStorage.removeItem("prezime");
-  location.replace("http://127.0.0.1:5501/glavna_stranica.html");
+  location.replace("index.html");
 }
 function prikaziMojRezultat(){
   poeni1 = localStorage.getItem("poeni");
@@ -664,7 +709,7 @@ function ucitajNovoPitanje() {
           localStorage.setItem("poeni", poeni);
           setTimeout(() => {
             ucitajNovoPitanje();
-          }, 500);
+          }, 1000);
           zaustaviTajmer("pokreni");
           return;
         }
