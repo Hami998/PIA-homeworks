@@ -129,7 +129,7 @@ let prezimeIgraca = "";
 function sacuvajPodatke(){
   imeIgraca = $("#ime").val();
   prezimeIgraca = $("#prezime").val();
-  let obrazac = /^[A-Z]?[a-z]*$/;
+  let obrazac = /^[A-Z]{1}[a-z]*$/;
   let proveraIme = obrazac.exec(imeIgraca);
   let proveraPrezime = obrazac.exec(prezimeIgraca);
   if(proveraIme && proveraPrezime){
