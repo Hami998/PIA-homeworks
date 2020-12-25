@@ -348,6 +348,7 @@ function ucitajNovoPitanje() {
       }
     else if(this.id == 'sledeci'){
       zaustaviTajmer("zaustavi")
+      poeni_1 = 0;
       setTimeout(() => {
       ucitajNovoPitanje();
       }, 1000);
@@ -364,6 +365,7 @@ function ucitajNovoPitanje() {
       $("#odgovor_drugi").attr("class", "btn-success");
       $("#odgovor_treci").attr("class", "btn-danger");
       $("#odgovor_cetvrti").attr("class", "btn-danger");
+      poeni_1 = 0;
       setTimeout(() => {
       ucitajNovoPitanje();
       }, 1000);
@@ -424,6 +426,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
           $("#odgovor_cetvrti").attr("disabled", "disabled");
+          poeni_2 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -440,6 +443,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("class", "btn-danger");
           $("#odgovor_treci").attr("class", "btn-danger");
           $("#odgovor_cetvrti").attr("class", "btn-danger");
+          poeni_2 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -500,6 +504,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
           $("#odgovor_cetvrti").attr("disabled", "disabled");
+          poeni_3 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -516,6 +521,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("class", "btn-danger");
           $("#odgovor_treci").attr("class", "btn-success");
           $("#odgovor_cetvrti").attr("class", "btn-danger");
+          poeni_3 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -576,6 +582,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
           $("#odgovor_cetvrti").attr("disabled", "disabled");
+          poeni_4 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -592,6 +599,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("class", "btn-danger");
           $("#odgovor_treci").attr("class", "btn-danger");
           $("#odgovor_cetvrti").attr("class", "btn-success");
+          poeni_4 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -652,6 +660,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
           $("#odgovor_cetvrti").attr("disabled", "disabled");
+          poeni_5 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -668,6 +677,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("class", "btn-success");
           $("#odgovor_treci").attr("class", "btn-danger");
           $("#odgovor_cetvrti").attr("class", "btn-danger");
+          poeni_5 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -728,6 +738,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
           $("#odgovor_cetvrti").attr("disabled", "disabled");
+          poeni_6 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -744,6 +755,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("class", "btn-danger");
           $("#odgovor_treci").attr("class", "btn-danger");
           $("#odgovor_cetvrti").attr("class", "btn-danger");
+          poeni_6 = 0;
           setTimeout(() => {
             ucitajNovoPitanje();
           }, 1000);
@@ -804,6 +816,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("disabled", "disabled");
           $("#odgovor_treci").attr("disabled", "disabled");
           $("#odgovor_cetvrti").attr("disabled", "disabled");
+          poeni_7 = 0;
           setTimeout(() => {
             otvoriNovaPitanja();
           }, 1000);
@@ -820,6 +833,7 @@ function ucitajNovoPitanje() {
           $("#odgovor_drugi").attr("class", "btn-danger");
           $("#odgovor_treci").attr("class", "btn-danger");
           $("#odgovor_cetvrti").attr("class", "btn-success");
+          poeni_7 = 0;
           setTimeout(() => {
           otvoriNovaPitanja();
           }, 1000);
@@ -867,6 +881,7 @@ function prikaziOdgovor(){
             }
           else if(this.id == 'sledeci'){
             zaustaviTajmer("zaustavi");
+            poeni_8 = 0;
             setTimeout(() => {
               prikaziOdgovor();
             }, 1000);
@@ -874,6 +889,7 @@ function prikaziOdgovor(){
             return;
           }
           else {
+            poeni_8 = 0;
             setTimeout(() => {
               prikaziOdgovor();
             }, 1000);
@@ -921,6 +937,7 @@ function prikaziOdgovor(){
               }
               else if(this.id =="sledeci"){
                 zapocniTajmer("zaustavi");
+                poeni_9 = 0;
                 setTimeout(() => {
                   prikaziOdgovor();
                 }, 1000);
@@ -928,6 +945,7 @@ function prikaziOdgovor(){
                 return;
               }
               else{
+                poeni_9 = 0;
                 setTimeout(() => {
                   prikaziOdgovor();
                 }, 1000);
