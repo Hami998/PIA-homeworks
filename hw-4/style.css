@@ -12,14 +12,14 @@ body{
     position:absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /*Centrira div na sredinu stranice*/
+    transform: translate(-50%, -50%);
     font-family: Arial, Helvetica, sans-serif;
 }
 .sign_in{
     margin-right: 10px;
     width: 100px;
 }
-.register{
+.sign_up{
     width: 100px;
 }
 .sign_in_modal_bg{
@@ -123,4 +123,26 @@ body{
 .sign_up_modal_bg_active{
     visibility: visible;
     opacity: 1;
+}
+@media only screen and (max-width: 1100px) {
+    .sign_in_modal{
+        width: 340px;
+    }
+    .sign_up_modal{
+        width: 340px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .buttons{
+        display: flex;
+        direction: column;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .registration{
+        margin-bottom: 15px;
+    }
+    .submit_sign_up{
+        margin-bottom: 15px;
+    }
 }
