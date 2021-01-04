@@ -16,8 +16,23 @@
 </head>
 <body>
     <div class="buttons">
-    <button class="sign_in btn btn-success">Sign in</button>
+    <button class="sign_in btn btn-success" onclick="openSignIn()">Sign in</button>
     <button class="register btn btn-success">Register</button>
+    </div>
+    <div class="sign_in_modal_bg">
+        <div class="sign_in_modal">
+            <div class="title_bg">
+                    <h3 class="title">Sign in</h3>
+            </div>
+            <span class="modal_close" onclick="closeSignIn()">X</span>
+            <label for="name_or_email" class="label">Enter name or email: </label>
+            <input type="text" class="name_or_email input" name="name_or_email" placeholder="Name or email">
+            <label for="password" class="label">Enter password: </label>
+            <input type="password" class="password input" name="password" placeholder="password">
+            <button class="commit btn btn-success">Sign in</button>
+            <p class="text">Don't have an account:</p>
+            <button class="registration btn btn-success">Register</button>
+        </div>
     </div>
 </body>
 </html>
