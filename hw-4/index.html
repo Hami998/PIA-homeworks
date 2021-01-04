@@ -17,22 +17,46 @@
 <body>
     <div class="buttons">
     <button class="sign_in btn btn-success" onclick="openSignIn()">Sign in</button>
-    <button class="register btn btn-success">Register</button>
+    <button class="register btn btn-success" onclick="openSignUp()">Sign Up</button>
     </div>
     <div class="sign_in_modal_bg">
         <div class="sign_in_modal">
             <div class="title_bg">
-                    <h3 class="title">Sign in</h3>
+                <h3 class="title">Sign in</h3>
             </div>
-            <span class="modal_close" onclick="closeSignIn()">X</span>
+            <div class="exit">
+                <span class="modal_close" onclick="closeSignIn()">X</span>
+            </div>
             <label for="name_or_email" class="label">Enter name or email: </label>
             <input type="text" class="name_or_email input" name="name_or_email" placeholder="Name or email">
             <label for="password" class="label">Enter password: </label>
             <input type="password" class="password input" name="password" placeholder="password">
             <button class="commit btn btn-success">Sign in</button>
             <p class="text">Don't have an account:</p>
-            <button class="registration btn btn-success">Register</button>
+            <button class="registration btn btn-success" onclick="openSignUp(); closeSignIn()">Sign Up</button>
         </div>
     </div>
+    <div class="sign_up_modal_bg">
+            <div class="sign_up_modal">
+                <div class="title_bg">
+                    <h3 class="title">Sign Up</h3>
+                </div>
+                <div class="exit">
+                    <span class="modal_close" onclick="closeSignUp()">X</span>
+                </div>
+                <label for="name" class="label">Enter name: </label>
+                <input type="text" class="name input" name="name" placeholder="John">
+                <label for="surname" class="label">Enter surname: </label>
+                <input type="text" class="surname input" name="surname" placeholder="Smith">
+                <label for="email" class="label">Enter email: </label>
+                <input type="text" class="email input" name="email" placeholder="johnsmith@gmail.com">
+                <label for="password" class="label">Enter password: </label>
+                <input type="password" class="password input" name="password" placeholder="">
+                <label for="password_again" class="label">Confirm password: </label>
+                <input type="password_again" class="password input" name="password_again" placeholder="">
+                <button type="submit" class="submit_sign_up btn btn-success">Submit</button>
+            </div>
+    </div>
+
 </body>
 </html>
