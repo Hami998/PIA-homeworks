@@ -28,10 +28,10 @@
                 <span class="modal_close" onclick="closeSignIn()">X</span>
             </div>
             <label for="name_or_email" class="label">Enter name or email: </label>
-            <input type="text" class="name_or_email input" name="name_or_email" placeholder="Name or email">
+            <input type="text" class="name_or_email input" id="name_or_email" name="name_or_email" placeholder="Name or email">
             <label for="password" class="label">Enter password: </label>
-            <input type="password" class="password input" name="password" placeholder="password">
-            <button class="commit btn btn-success">Sign in</button>
+            <input type="password" class="password input" id="password" name="password" placeholder="password">
+            <button class="commit btn btn-success" onclick="checkSignIn()">Sign in</button>
             <p class="text">Don't have an account:</p>
             <button class="registration btn btn-success" onclick="openSignUp(); closeSignIn()">Sign Up</button>
         </div>
@@ -45,16 +45,18 @@
                     <span class="modal_close" onclick="closeSignUp()">X</span>
                 </div>
                 <label for="name" class="label">Enter name: </label>
-                <input type="text" class="name input" name="name" placeholder="John">
+                <input type="text" class="name input" id="name" name="name" placeholder="John">
                 <label for="surname" class="label">Enter surname: </label>
-                <input type="text" class="surname input" name="surname" placeholder="Smith">
+                <input type="text" class="surname input" id="surname" name="surname" placeholder="Smith">
+                <label for="nick" class="label">Enter nick: </label>
+                <input type="text" class="nick input" id="nick" name="nick" placeholder="" maxlength="12">
                 <label for="email" class="label">Enter email: </label>
-                <input type="text" class="email input" name="email" placeholder="johnsmith@gmail.com">
+                <input type="text" class="email input" id="email" name="email" placeholder="johnsmith@gmail.com">
                 <label for="password" class="label">Enter password: </label>
-                <input type="password" class="password input" name="password" placeholder="">
+                <input type="password" class="password input" id="password" name="password" placeholder="">
                 <label for="password_again" class="label">Confirm password: </label>
-                <input type="password_again" class="password input" name="password_again" placeholder="">
-                <button type="submit" class="submit_sign_up btn btn-success">Submit</button>
+                <input type="password_again" class="password input" id="password_again" name="password_again" placeholder="">
+                <button type="submit" class="submit_sign_up btn btn-success" onclick="checkSignUp()">Submit</button>
             </div>
     </div>
 
