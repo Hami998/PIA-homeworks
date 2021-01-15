@@ -4,29 +4,86 @@
     include ("connection_database.php");
 
     if($_REQUEST['REQUEST_METHOD'] = 'POST'){
-        if(isset($_POST['name'])){
+        if(isset($_POST['name']) and isset($_POST['surname']) and isset($_POST['nick']) and isset($_POST['email'])
+        and isset($_POST['password']) and isset($_POST['password_again'])){
             $user_name = $_POST['name'];
-        }
-        if(isset($_POST['surname'])){
             $user_surname = $_POST['surname'];
-        }
-        if(isset($_POST['nick'])){
             $user_nick = $_POST['nick'];
-        }
-        if(isset($_POST['email'])){
             $user_email = $_POST['email'];
-        } 
-        if(isset($_POST['password'])){
             $user_password = $_POST['password'];
-        }  
-        if(isset($_POST['password_again'])){
             $user_password_again = $_POST['password_again'];
-        } 
+            $query_0 = "SELECT name, last_name, e_mail FROM users;";
+            $result = mysqli_query($connected, $query_0);
+            $check = 0;
+            while($row = mysqli_fetch_array($result)){
+                if($user_name  == $row['name'] && $user_surname == $row['last_name']){
+                    echo "User already exist";
+                    $check = 1;
+                    break;
+                }
+               if($user_email == $row['e_mail']){
+                   echo "E-mail address already used";
+                   $check = 1;
+                   break;
+               }
+            }
+            if($check == 0){
             $query = "INSERT INTO users (name, last_name, e_mail, nickname, password) VALUES ('$user_name', '$user_surname', 
             '$user_email', '$user_nick', '$user_password')";
 
-            mysqli_query($connected, $query);
+            mysqli_query($connected, $query);                
+            }
+            else {
+                $check == 0;
+            }
         }
+        // $query_0 = "SELECT e_mail, password FROM users;";
+        // $result = mysqli_query($connected, $query_0);
+        // while($row = mysqli_fetch_array($result)){
+        //    echo $row['e_mail'];
+        //    echo $row['password'];
+        // }
+        // if(isset($_POST['surname'])){
+        //     $user_surname = $_POST['surname'];
+        // }
+        // if(isset($_POST['nick'])){
+        //     $user_nick = $_POST['nick'];
+        // }
+        // if(isset($_POST['email'])){
+        //     $user_email = $_POST['email'];
+        // } 
+        // if(isset($_POST['password'])){
+        //     $user_password = $_POST['password'];
+        // }  
+        // if(isset($_POST['password_again'])){
+        //     $user_password_again = $_POST['password_again'];
+        // } 
+            // $query = "INSERT INTO users (name, last_name, e_mail, nickname, password) VALUES ('$user_name', '$user_surname', 
+            // '$user_email', '$user_nick', '$user_password')";
+
+            // mysqli_query($connected, $query);
+        }
+
+        // if($_REQUEST['REQUEST_METHOD'] = 'POST'){
+        //     // if(isset($_POST['name'])){
+            //     $user_name = $_POST['name'];
+            // }
+            // if(isset($_POST['surname'])){
+            //     $user_surname = $_POST['surname'];
+            // }
+            // if(isset($_POST['nick'])){
+            //     $user_nick = $_POST['nick'];
+            // }
+            // if(isset($_POST['email'])){
+            //     $user_email = $_POST['email'];
+            // } 
+            // if(isset($_POST['password'])){
+            //     $user_password = $_POST['password'];
+            // }  
+            // if(isset($_POST['password_again'])){
+            //     $user_password_again = $_POST['password_again'];
+            // } 
+            // }
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,6 +108,7 @@
     </div>
     <div class="sign_in_modal_bg">
         <div class="sign_in_modal">
+            <form action="" method="post">
             <div class="title_bg">
                 <h3 class="title">Sign in</h3>
             </div>
@@ -62,6 +120,7 @@
             <label for="password" class="label">Enter password: </label>
             <input type="password" class="password input" id="password" name="password" placeholder="password">
             <button class="commit btn btn-success" onclick="checkSignIn()">Sign in</button>
+            </form>
             <p class="text">Don't have an account:</p>
             <button class="registration btn btn-success" onclick="openSignUp(); closeSignIn()">Sign Up</button>
         </div>
