@@ -37,53 +37,31 @@
                 $check == 0;
             }
         }
-        // $query_0 = "SELECT e_mail, password FROM users;";
-        // $result = mysqli_query($connected, $query_0);
-        // while($row = mysqli_fetch_array($result)){
-        //    echo $row['e_mail'];
-        //    echo $row['password'];
-        // }
-        // if(isset($_POST['surname'])){
-        //     $user_surname = $_POST['surname'];
-        // }
-        // if(isset($_POST['nick'])){
-        //     $user_nick = $_POST['nick'];
-        // }
-        // if(isset($_POST['email'])){
-        //     $user_email = $_POST['email'];
-        // } 
-        // if(isset($_POST['password'])){
-        //     $user_password = $_POST['password'];
-        // }  
-        // if(isset($_POST['password_again'])){
-        //     $user_password_again = $_POST['password_again'];
-        // } 
-            // $query = "INSERT INTO users (name, last_name, e_mail, nickname, password) VALUES ('$user_name', '$user_surname', 
-            // '$user_email', '$user_nick', '$user_password')";
-
-            // mysqli_query($connected, $query);
+            else if(isset($_POST['name_or_email']) and isset($_POST['password'])){
+                $user_name_or_email = $_POST['name_or_email'];
+                $user_password = $_POST['password'];
+                $query_2 = "SELECT name, last_name, e_mail, password FROM users;";
+                $result = mysqli_query($connected, $query_2);
+                $ckeck_1 = 0;
+                while($row = mysqli_fetch_array($result)){
+                    $row_name = $row['name'];
+                    $row_last_name = $row['last_name'];
+                    $row_full_name = $row_name." ".$row_last_name;
+                    if($user_name_or_email == $row_full_name or $user_name_or_email == $row['e_mail']){
+                        if($user_password == $row['password']){
+                            echo "User is in sistem";
+                            $ckeck_1 = 1;
+                        }
+                    }
+                }
+                if($ckeck_1 == 0){
+                    echo "Maybe you didn't write your name or e-mail correctly. Try again";
+                }
+                else{
+                    $ckeck_1 = 0;
+                }
+            }
         }
-
-        // if($_REQUEST['REQUEST_METHOD'] = 'POST'){
-        //     // if(isset($_POST['name'])){
-            //     $user_name = $_POST['name'];
-            // }
-            // if(isset($_POST['surname'])){
-            //     $user_surname = $_POST['surname'];
-            // }
-            // if(isset($_POST['nick'])){
-            //     $user_nick = $_POST['nick'];
-            // }
-            // if(isset($_POST['email'])){
-            //     $user_email = $_POST['email'];
-            // } 
-            // if(isset($_POST['password'])){
-            //     $user_password = $_POST['password'];
-            // }  
-            // if(isset($_POST['password_again'])){
-            //     $user_password_again = $_POST['password_again'];
-            // } 
-            // }
 ?>
 <!DOCTYPE html>
 <html>
