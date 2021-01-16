@@ -38,10 +38,33 @@ body{
 .col_1{
     display: column;
     flex-basis: 80%;
+    align-self: center;
 }
 .col_2{
     display: column;
     flex-basis: 20%;
+}
+.col_3{
+    display: column;
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+.col_4{
+    display: column;
+    flex-basis: 50%;
+    color: white;
+    text-align: center;
+}
+.col_5{
+    display: column;
+    flex-basis: 50%;
+    color: white;
+    text-align: center;
+}
+.col_6{
+    display: column;
+    flex-basis: 100%;
 }
 input{
     padding: 10px;
