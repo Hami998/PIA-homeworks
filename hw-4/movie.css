@@ -1,0 +1,74 @@
+*{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.movie_title{
+    margin-top: 5px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: yellow;
+    text-shadow: 3px 3px red;
+    background: rgb(0,0,0,0.8);
+    width: 80%;
+    border-radius: 20px 20px 0px 0px;
+}
+.container{
+    height: 100vw;
+    background: rgb(255,255,255, 0.7);
+    width: 80%;
+    margin-bottom: 25px;
+}
+.basic_informations{
+    display: flex;
+    flex-direction: row;
+}
+.col_info{
+    margin: 0;
+    display: column;
+    flex-basis: 80%;
+    text-align: justify;
+    font-family: 'Courier New', Courier, monospace;
+    word-spacing: 0.5px;
+}
+.col_image{
+    display: column;
+    flex-basis: 20%;
+    background: black;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.col_image_image{
+    display: row;
+    flex-basis: 80%;
+}
+.col_image_rating{
+    display: row;
+    flex-basis: 20%;
+}
+.actors{
+    display: column;
+    flex-basis: 100%;
+    margin-top: 10px;
+}
+.actor{
+    background: rgb(255,255,255, 0.7);
+    color:rgb(0,0,0, 1);
+    width: 80%;
+    margin-left: 0px;
+    margin-bottom: 7.5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.actor:hover{
+    cursor: default;
+    background: rgb(255,255,255, 1);
+}
+h4{
+    margin-bottom: 0px;
+    margin-left: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    word-spacing: 0.5px;
+}
