@@ -39,28 +39,28 @@
                     <h3 class="title_movies">Search for the genre you like ...</h3>
                     </div>
                     <div class="col col_4">
-                    <input type="checkbox" id="action_movie" name="action_movie" value="action_movie">
+                    <input type="checkbox" id="action_movie" name="action_movie" value="Action">
                     <label for="action_movie"> Action movie</label><br>
-                    <input type="checkbox" id="drama_movie" name="drama_movie" value="drama_movie">
+                    <input type="checkbox" id="drama_movie" name="drama_movie" value="Drama">
                     <label for="drama_movie"> Drama movie</label><br>
-                    <input type="checkbox" id="horror_movie" name="horror_movie" value="horror_movie">
+                    <input type="checkbox" id="horror_movie" name="horror_movie" value="Horror">
                     <label for="horror_movie"> Horror movie</label><br>
-                    <input type="checkbox" id="comedy_movie" name="comedy_movie" value="comedy_movie">
+                    <input type="checkbox" id="comedy_movie" name="comedy_movie" value="Comedy">
                     <label for="comedy_movie"> Comedy movie</label><br>
-                    <input type="checkbox" id="sf_movie" name="sf_movie" value="sf_movie">
+                    <input type="checkbox" id="sf_movie" name="sf_movie" value="Scince fiction">
                     <label for="sf_movie"> Science fiction movie</label><br>
                     </div>
                     <div class="col col_5">
-                    <input type="checkbox" id="action_movie" name="action_movie" value="action_movie">
-                    <label for="action_movie"> Action movie</label><br>
-                    <input type="checkbox" id="drama_movie" name="drama_movie" value="drama_movie">
-                    <label for="drama_movie"> Drama movie</label><br>
-                    <input type="checkbox" id="horror_movie" name="horror_movie" value="horror_movie">
-                    <label for="horror_movie"> Horror movie</label><br>
-                    <input type="checkbox" id="comedy_movie" name="comedy_movie" value="comedy_movie">
-                    <label for="comedy_movie"> Comedy movie</label><br>
-                    <input type="checkbox" id="sf_movie" name="sf_movie" value="sf_movie">
-                    <label for="sf_movie"> Science fiction movie</label><br>
+                    <input type="checkbox" id="romance_movie" name="romance_movie" value="Romance">
+                    <label for="romance_movie"> Romance movie</label><br>
+                    <input type="checkbox" id="thriller_movie" name="thriller_movie" value="Thriller">
+                    <label for="thriller_movie"> Thriller movie</label><br>
+                    <input type="checkbox" id="animation_movie" name="animation_movie" value="Animation">
+                    <label for="animation_movie"> Animation movie</label><br>
+                    <input type="checkbox" id="mistery_movie" name="mistery_movie" value="Mistery">
+                    <label for="mistery_movie"> Mistery movie</label><br>
+                    <input type="checkbox" id="documentary_movie" name="documentary_movie" value="Documentary">
+                    <label for="documentary_movie"> Documentary movie</label><br>
                     </div>
                     <div class="col col_6">
                     <button type="submit" class="submit_movie btn btn-success">Search</button>

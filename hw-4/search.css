@@ -54,17 +54,18 @@ body{
     display: column;
     flex-basis: 50%;
     color: white;
-    text-align: center;
+    text-align: left;
 }
 .col_5{
     display: column;
     flex-basis: 50%;
     color: white;
-    text-align: center;
+    text-align: left;
 }
 .col_6{
     display: column;
     flex-basis: 100%;
+    text-align: center;
 }
 input{
     padding: 10px;
@@ -84,24 +85,4 @@ input{
     margin-top: 15px;
     height: 45px;
     border-radius: 25%;
-}
-.list{
-    width: 375px;
-    background: white;
-    /* display: none; */
-    position: relative;
-    top: 380px;
-    left: 440px;
-    font-size: 18px;
-}
-.list_list{
-    list-style: none;
-}
-.list_dot{
-    text-align: left;
-    border-bottom: solid 1px black;
-}
-.list_dot:hover{
-    background-color:#DCDCDC;
-    cursor: pointer;
 }

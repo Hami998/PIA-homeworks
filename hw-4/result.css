@@ -1,0 +1,19 @@
+.list_item{ 
+    width: 500px;
+    background: #FFFAF0;
+    position: relative;
+    top: 15px;
+    left: 440px;
+    font-size: 20px;
+    color: #2F4F4F;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: solid 2px #000000;
+    border-bottom: solid 2px #000000;
+}
+.list_item:hover{
+    background-color:#DCDCDC;
+    cursor: pointer;
+}

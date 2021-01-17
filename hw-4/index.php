@@ -37,6 +37,7 @@
                 $check == 0;
             }
         }
+            //log in
             else if(isset($_POST['name_or_email']) and isset($_POST['password'])){
                 $user_name_or_email = $_POST['name_or_email'];
                 $user_password = $_POST['password'];

@@ -7,6 +7,12 @@ function closeSignIn() {
 }
 function openSignUp() {
     $(".sign_up_modal_bg").addClass("sign_up_modal_bg_active");
+    $("#name").val("");
+    $("#surname").val("");
+    $("#nick").val("");
+    $("#email").val("");
+    $("#password").val("");
+    $("#password_again").val("");
 }
 function closeSignUp() {
 $(".sign_up_modal_bg").removeClass("sign_up_modal_bg_active");
