@@ -34,17 +34,8 @@
 .col_image{
     display: column;
     flex-basis: 20%;
-    background: black;
     margin-right: 0px;
     margin-left: 0px;
-}
-.col_image_image{
-    display: row;
-    flex-basis: 80%;
-}
-.col_image_rating{
-    display: row;
-    flex-basis: 20%;
 }
 .actors{
     display: column;

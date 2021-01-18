@@ -3,10 +3,25 @@
     $_SESSION;
     include ("connection_database.php");
     $id = $_GET['id'];
+    $id_1 = 114709;
+    $link = "";
     $query_5 = "SELECT imdb_id, title, year, data_published, genre, duration, director, writer, production_company,
     actors, description, avg_votes, votes FROM movie_list;";
     $result = mysqli_query($connected, $query_5);
-    while($row = mysqli_fetch_array($result)){   
+    $query_6 = "SELECT imdbID, poster FROM movie_poster;";
+    $result_1 = mysqli_query($connected, $query_6);
+    while($row = mysqli_fetch_array($result)){  
+        $row_1 = mysqli_fetch_array($result_1);
+        while($row_1 = mysqli_fetch_array($result_1)){
+            if ($row_1['imdbID'] == $id_1)
+            {
+                $link = $row_1['poster'];
+                break;
+            }
+            else{
+                continue;
+            }
+        } 
         if($id ===  $row['imdb_id']){
             $title = $row['title'];
             $year = $row['year'];
@@ -34,13 +49,8 @@
             echo "Description of the movie: <br>";
             echo $description;
             echo "</div>";
-            echo "<div class=\"col_image\">";
-            echo "<div class=\"col_image_image\">";
-            echo "Some text also";
-            echo "</div>";
-            echo "<div class=\"col_image_rating\">";
-            echo "Some text";
-            echo "</div>";
+            echo "<div class=\"col_image\" style=\"background:none;\">";
+            echo "<img src=\" " . $link . "\" >";
             echo "</div>";
             echo "</div>";
             $array_actors = (explode(", ",$actors));
