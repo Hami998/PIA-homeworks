@@ -1,7 +1,20 @@
-<?PHP
+<?php
     session_start();
     $_SESSION;
     include ("connection_database.php");
+    include ("functions.php");
+
+    $user_connection = check_login($connected);
+        if(empty($_POST['movie_name']) and empty($_POST['action_movie']) and empty($_POST['drama_movie'])
+        and empty($_POST['horror_movie']) and empty($_POST['comedy_movie']) and empty($_POST['sf_movie'])
+        and empty($_POST['romance_movie']) and empty($_POST['thriller_movie']) and empty($_POST['animation_movie'])
+        and empty($_POST['mistery_movie']) and empty($_POST['documentary_movie'])){
+            $query_3 = "SELECT title FROM movie_list;";
+            $result = mysqli_query($connected, $query_3);
+            while($row = mysqli_fetch_array($result)){
+                    echo " <div class=\"list_item\">" .  $row['title'] . "</div>";                    
+            }
+        }
         if(empty($_POST['movie_name']) and empty($_POST['action_movie']) and empty($_POST['drama_movie'])
         and empty($_POST['horror_movie']) and empty($_POST['comedy_movie']) and empty($_POST['sf_movie'])
         and empty($_POST['romance_movie']) and empty($_POST['thriller_movie']) and empty($_POST['animation_movie'])
@@ -220,9 +233,15 @@
                 $string_result_10 = -1;
                }
                if($checked_number === $checked_genre){
-                   
+                if ($_SESSION['admin'] == 1){      
+                    echo "<div class='list_item'><a class=\"link\" href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a> </div>
+                     <button class=\"delete_button\"><a class=\"link\" href=\"functions.php?title=" . $row['title'] . "\">Delate</button>";
+                }   
+                else{
+                    echo "<div class='list_item'><a href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a></div>";
+                }
                 // echo "<div class='list_item'><a href=\"movie.php?id=$row['imdb_id']\">$row['title']</a></div>";
-                echo "<div class='list_item'><a href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a></div>";
+
                }
            }
            echo "</form>";
@@ -239,7 +258,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="search.css">
-        <link rel="stylesheet" href="result.css">
+        <link rel="stylesheet" href="result.css?v=1.1">
+        <link rel="stylesheet" href="result_1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="script_search.js" ></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

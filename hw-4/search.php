@@ -2,6 +2,13 @@
     session_start();
     $_SESSION;
     include ("connection_database.php");
+    include ("functions.php");
+
+    $user_connection = check_login($connected);
+    if($_SESSION['admin'] == 1){
+        echo "<form action=\"result.php\"><button type=\"submit\" class=\"submit_movie submit_all btn btn-success\"> 
+        See all movies </form></button>";
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +21,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="search.css">
+        <link rel="stylesheet" href="search_admin.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="script_search.js" ></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
