@@ -52,6 +52,9 @@
                         if($user_password == $row['password']){
                             echo "User is in sistem";
                             $ckeck_1 = 1;
+                            $_SESSION['log-in'] = true;
+                            $_SESSION['user'] = $row_full_name;
+                            header("Location: search.php");
                         }
                     }
                 }
