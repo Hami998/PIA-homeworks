@@ -9,22 +9,35 @@
         and empty($_POST['horror_movie']) and empty($_POST['comedy_movie']) and empty($_POST['sf_movie'])
         and empty($_POST['romance_movie']) and empty($_POST['thriller_movie']) and empty($_POST['animation_movie'])
         and empty($_POST['mistery_movie']) and empty($_POST['documentary_movie'])){
-            $query_3 = "SELECT title FROM movie_list;";
+            $query_3 = "SELECT imdb_id, title FROM movie_list;";
             $result = mysqli_query($connected, $query_3);
+            $movie_list = "";
             while($row = mysqli_fetch_array($result)){
-                    echo " <div class=\"list_item\">" .  $row['title'] . "</div>";                    
+                if ($_SESSION['admin'] == 1){      
+                    $movie_list .= "<div class='list_item'><a class=\"link\" href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a> </div>
+                     <button class=\"delete_button\"><a class=\"link\" href=\"functions.php?title=" . $row['title'] . "\">Delate</button>";
+                }   
+                else{
+                    $movie_list .= "<div class='list_item'><a href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a></div>";
+                }           
             }
         }
-        if(empty($_POST['movie_name']) and empty($_POST['action_movie']) and empty($_POST['drama_movie'])
-        and empty($_POST['horror_movie']) and empty($_POST['comedy_movie']) and empty($_POST['sf_movie'])
-        and empty($_POST['romance_movie']) and empty($_POST['thriller_movie']) and empty($_POST['animation_movie'])
-        and empty($_POST['mistery_movie']) and empty($_POST['documentary_movie'])){
-            $query_3 = "SELECT title FROM movie_list;";
-            $result = mysqli_query($connected, $query_3);
-            while($row = mysqli_fetch_array($result)){
-                    echo " <div class=\"list_item\">" .  $row['title'] . "</div>";                    
-                }
-        }
+        // if(empty($_POST['movie_name']) and empty($_POST['action_movie']) and empty($_POST['drama_movie'])
+        // and empty($_POST['horror_movie']) and empty($_POST['comedy_movie']) and empty($_POST['sf_movie'])
+        // and empty($_POST['romance_movie']) and empty($_POST['thriller_movie']) and empty($_POST['animation_movie'])
+        // and empty($_POST['mistery_movie']) and empty($_POST['documentary_movie'])){
+        //     $query_3 = "SELECT imdb_id, title FROM movie_list;";
+        //     $result = mysqli_query($connected, $query_3);
+        //     while($row = mysqli_fetch_array($result)){
+        //         if ($_SESSION['admin'] == 1){      
+        //             $movie_list = "<div class='list_item'><a class=\"link\" href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a> </div>
+        //              <button class=\"delete_button\"><a class=\"link\" href=\"functions.php?title=" . $row['title'] . "\">Delate</button>";
+        //         }   
+        //         else{
+        //             $movie_list = "<div class='list_item'><a href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a></div>";
+        //         }                   
+        //         }
+        // }
         else if(isset($_POST['movie_name']) and empty($_POST['action_movie']) and empty($_POST['drama_movie'])
         and empty($_POST['horror_movie']) and empty($_POST['comedy_movie']) and empty($_POST['sf_movie'])
         and empty($_POST['romance_movie']) and empty($_POST['thriller_movie']) and empty($_POST['animation_movie'])
@@ -266,5 +279,6 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+    <?php  echo $movie_list;  ?>
 </body>
 </html>
