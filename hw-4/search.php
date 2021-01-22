@@ -6,8 +6,13 @@
 
     $user_connection = check_login($connected);
     if($_SESSION['admin'] == 1){
-        echo "<form action=\"result.php\"><button type=\"submit\" class=\"submit_movie submit_all btn btn-success\"> 
-        See all movies </form></button>";
+        echo "<button type=\"submit\" class=\"submit_movie submit_all btn btn-success\"> 
+        <a href=\"result.php\" style=\"color:white;text-decoration:none\">See all movies</a></button>";
+    }
+    if($_SESSION['admin'] == 1 or $_SESSION['admin'] == 0){
+        $delete = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
+        style=\"position:relative;top:0px;left:0px\"> 
+    <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
     }
 ?>
 <!DOCTYPE html>
@@ -28,6 +33,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+<?php  echo $delete;  ?>
     <div class="search_box" id="search_box">
         <form action="result.php" class="search" id="search" method="post">
                 <div class="title_bg">

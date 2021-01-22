@@ -2,7 +2,6 @@
     session_start();
     $_SESSION;
     include ("connection_database.php");
-
     if($_REQUEST['REQUEST_METHOD'] = 'POST'){
         if(isset($_POST['name']) and isset($_POST['surname']) and isset($_POST['nick']) and isset($_POST['email'])
         and isset($_POST['password']) and isset($_POST['password_again'])){
@@ -41,19 +40,30 @@
             else if(isset($_POST['name_or_email']) and isset($_POST['password'])){
                 $user_name_or_email = $_POST['name_or_email'];
                 $user_password = $_POST['password'];
-                $query_2 = "SELECT name, last_name, e_mail, password FROM users;";
+                $query_2 = "SELECT reg_or_ad, name, last_name, e_mail, password FROM users;";
                 $result = mysqli_query($connected, $query_2);
                 $ckeck_1 = 0;
                 while($row = mysqli_fetch_array($result)){
                     $row_name = $row['name'];
                     $row_last_name = $row['last_name'];
                     $row_full_name = $row_name." ".$row_last_name;
+                    $admin = $row['reg_or_ad'];
                     if($user_name_or_email == $row_full_name or $user_name_or_email == $row['e_mail']){
                         if($user_password == $row['password']){
+                            $user_active = 1;
+                            $email = $row['e_mail'];
+                            $query_3 = "UPDATE users SET active='1' WHERE e_mail='$email'";
+                            $result = mysqli_query($connected, $query_3);
                             echo "User is in sistem";
                             $ckeck_1 = 1;
-                            $_SESSION['log-in'] = true;
                             $_SESSION['user'] = $row_full_name;
+                            $_SESSION['user_email'] = $row['e_mail'];
+                            if($admin == 1){
+                            $_SESSION['admin'] = $admin;   
+                            }
+                            else{
+                            $_SESSION['admin'] = $admin; 
+                            }
                             header("Location: search.php");
                         }
                     }

@@ -3,9 +3,11 @@
     $_SESSION;
     include ("connection_database.php");
     include ("functions.php");
-
     $user_connection = check_login($connected);
     $id = $_GET['id'];
+    $delete = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
+    style=\"position:absolute;top:0px;left:0px;width:100px\"> 
+    <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
     $id_1 = 114709;
     $link = "";
     $query_5 = "SELECT imdb_id, title, year, data_published, genre, duration, director, writer, production_company,
@@ -89,5 +91,6 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+<?php  echo $delete;  ?>
 </body>
 </html>

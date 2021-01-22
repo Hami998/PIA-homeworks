@@ -3,7 +3,9 @@
     $_SESSION;
     include ("connection_database.php");
     include ("functions.php");
-
+    $delete = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
+    style=\"position:relative;top:0px;left:0px\"> 
+<a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
     $user_connection = check_login($connected);
         if(empty($_POST['movie_name']) and empty($_POST['action_movie']) and empty($_POST['drama_movie'])
         and empty($_POST['horror_movie']) and empty($_POST['comedy_movie']) and empty($_POST['sf_movie'])
@@ -14,8 +16,11 @@
             $movie_list = "";
             while($row = mysqli_fetch_array($result)){
                 if ($_SESSION['admin'] == 1){      
-                    $movie_list .= "<div class='list_item'><a class=\"link\" href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a> </div>
-                     <button class=\"delete_button\"><a class=\"link\" href=\"functions.php?title=" . $row['title'] . "\">Delate</button>";
+                    $movie_list .= "<div class='list_item'><a class=\"link\" style=\"color:black;text-decoration:none\"
+                    href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a> </div>
+                     <button class=\"delete_button\">
+                     <a class=\"link\" style=\"color:white;text-decoration:none\" 
+                     href=\"functions.php?title=" . $row['title'] . "\">Delate</button>";
                 }   
                 else{
                     $movie_list .= "<div class='list_item'><a href=\"movie.php?id=" . $row['imdb_id'] . "\">" . $row['title'] . "</a></div>";
@@ -279,6 +284,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-    <?php  echo $movie_list;  ?>
+    <?php  echo  $delete;  ?>
+    <?php  echo  $movie_list;  ?>
 </body>
 </html>
