@@ -1,8 +1,7 @@
 <?PHP
-    session_start();
-    $_SESSION;
     include ("connection_database.php");
     include ("functions.php");
+    $_SESSION;
     $user_connection = check_login($connected);
     $id = $_GET['id'];
     $delete = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
@@ -18,7 +17,8 @@
     while($row = mysqli_fetch_array($result)){  
         $row_1 = mysqli_fetch_array($result_1);
         while($row_1 = mysqli_fetch_array($result_1)){
-            if ($row_1['imdbID'] == $id_1)
+            // if ($row_1['imdbID'] == $id_1)
+            if (('tt' . $row_1['imdbID']) == $id)
             {
                 $link = $row_1['poster'];
                 break;
@@ -27,7 +27,7 @@
                 continue;
             }
         } 
-        if($id ===  $row['imdb_id']){
+        if($id === $row['imdb_id']){
             $title = $row['title'];
             $year = $row['year'];
             $data_published = $row['data_published'];
@@ -58,9 +58,32 @@
             echo "<img src=\" " . $link . "\" >";
             echo "</div>";
             echo "</div>";
-            echo "<div class=\"rating\"> Rating of the movie: <button class=\"votes\" disabled>" . $avg_votes ."</button><br>";
+            echo "<div class=\"rating\" style=\"display:flex;flex-direction:row;\">
+            <div class=\"left\" style=\"display:column;flex-basis:80%;margin-left:0px;margin-bottom:10px;\">
+            Rating of the movie: <button class=\"votes\" disabled>" . $avg_votes . "</button></br>";
             echo "Number of voters: ";
-            echo $votes . " </div> ";
+            echo $votes . " <br> ";
+            echo "<div class=\"choose\">
+            <ul class=\"list\">
+            <li>Rate the movie</li>
+              <ul>
+                  <li class=\"list_item_5\"><a href=\"functions.php?rating=1&title_1=" . $title . "\"> 1 star </a></li>
+                  <li class=\"list_item_4\"><a href=\"functions.php?rating=2&title_1=" . $title . "\"> 2 star </a></li>
+                  <li class=\"list_item_3\"><a href=\"functions.php?rating=3&title_1=" . $title . "\"> 3 star </a></li>
+                  <li class=\"list_item_2\"><a href=\"functions.php?rating=4&title_1=" . $title . "\"> 4 star </a></li>
+                  <li class=\"list_item_1\"><a href=\"functions.php?rating=5&title_1=" . $title . "\"> 5 star </a></li>
+                  <li class=\"list_item_1\"><a href=\"functions.php?rating=6&title_1=" . $title . "\"> 6 star </a></li>
+                  <li class=\"list_item_1\"><a href=\"functions.php?rating=7&title_1=" . $title . "\"> 7 star </a></li>
+                  <li class=\"list_item_1\"><a href=\"functions.php?rating=8&title_1=" . $title . "\"> 8 star </a></li>
+                  <li class=\"list_item_1\"><a href=\"functions.php?rating=9&title_1=" . $title . "\"> 9 star </a></li>
+                  <li class=\"list_item_1\"><a href=\"functions.php?rating=10&title_1=" . $title . "\"> 10 star </a></li>
+              </ul>
+            </ul>
+            </div>";
+            echo "</div>";
+            echo " </div> ";
+            echo "<div class=\"right\" style=\"display:column;flex-basis:20%;\">";
+            echo "</div>";
             $array_actors = (explode(", ",$actors));
             echo "<div class=\"actors\">";
             echo "<h4>Cast overview: </h4><br>";
@@ -83,12 +106,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="search.css">
-        <link rel="stylesheet" href="movie.css">
+        <link rel="stylesheet" href="movie.css" type="text/css"<?php echo time(); ?>>
         <link rel="stylesheet" href="movie_1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="script_search.js" ></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <style media="screen">
+            .choose{
+                margin-left:-60px;
+                margin-top:-35px;
+            }
+            .choose ul li{
+                background: #262626;
+                width: 170px;
+                border: 1px solid #fff;
+                height: 35px;
+                line-height: 10px;
+                text-align: center;
+                float: left;
+                color: #fff;
+                font-size: 14px;
+                position: relative;
+                top: 20px;
+                left: -25px;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px;
+                cursor: pointer;
+                list-style:none;
+                }
+                .choose ul li:hover{
+                background: #2F4F4F;
+                }
+                .choose ul ul{
+                display: none;
+                }
+                .choose ul:hover > ul{
+                display: block;
+                }
+                .choose ul li  > a {
+                    text-decoration: none;
+                    color: white;
+                }
+        </style>
 </head>
 <body>
 <?php  echo $delete;  ?>
