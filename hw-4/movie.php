@@ -4,7 +4,7 @@
     $_SESSION;
     $user_connection = check_login($connected);
     $id = $_GET['id'];
-    $delete = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
+    $logoff = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
     style=\"position:absolute;top:0px;left:0px;width:100px\"> 
     <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
     $id_1 = 114709;
@@ -40,6 +40,12 @@
             $description = $row['description'];
             $avg_votes = $row['avg_votes'];
             $votes = $row['votes'];
+            if($_SESSION['admin'] == 1){
+                $delete_movie = "<button type=\"submit\" class=\"submit_movie admin_btn submit_all btn btn-success\"> 
+                <a href=\"result.php?title=". $title ."\">Delete</a></button>";
+                $edit_movie = "<button type=\"submit\" class=\"submit_movie admin_btn submit_all btn btn-success\"> 
+                <a href=\"New_Movie.php\">Edit</a></button>";
+            }
             echo "<div class=\"movie_title\"> <h1>" . $title . "</h1> </div>" ;      
             echo "<div class=\"container\">";
             echo "<div class=\"basic_informations\">";
@@ -106,7 +112,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="search.css">
-        <link rel="stylesheet" href="movie.css" type="text/css"<?php echo time(); ?>>
+        <link rel="stylesheet" href="movie.css">
         <link rel="stylesheet" href="movie_1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="script_search.js" ></script>
@@ -151,6 +157,10 @@
         </style>
 </head>
 <body>
-<?php  echo $delete;  ?>
+            <?php  echo $logoff;  ?>
+            <div class="admin_buttons">
+                <?php  echo $delete_movie;  ?>
+                <?php  echo $edit_movie;  ?>
+            </div>
 </body>
 </html>

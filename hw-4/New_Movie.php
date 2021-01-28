@@ -22,14 +22,13 @@
     $rating = $_POST['rating'];
     $voters = $_POST['voters'];
     $actors = $_POST['actors'];
-    // $img = $_POST['img'];
+    $img = $_POST['img'];
     $query = "SELECT imdb_id FROM movie_list;";
     $result = mysqli_query($connected, $query);
     $lastValueImdb = "";
     while($row = mysqli_fetch_array($result)){  
         $lastValueImdb = $row['imdb_id'];
     }
-    //echo $lastValueImdb;
     $newLastElement = intval(str_replace("tt","",$lastValueImdb));
     $newLastElement++;
     $lastValueImdb = "tt".strval($newLastElement);
@@ -41,19 +40,11 @@
     '$production_com', '$actors', '$description', '$rating', '$voters')";
 
     $result = mysqli_query($connected, $query);
-    // echo $title;
-    // echo $year;
-    // echo $date_of_publishing;
-    // echo $duration;
-    // echo $director;
-    // echo $genre;
-    // echo $writer;
-    // echo $production_com;
-    // echo $description;
-    // echo $rating;
-    // echo $voters;
-    // echo $actors;
-    // echo $img;
+
+    $query_1 = "INSERT INTO movie_poster(imdbID, title, poster)
+    VALUES ('$newLastElement', '$title', '$img')";
+    $result_1 = mysqli_query($connected, $query_1);
+    header("location: movie.php?id=" . $lastValueImdb);
     } else {
     }
     }    

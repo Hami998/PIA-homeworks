@@ -9,7 +9,6 @@ function check_login($connected){
     while($row = mysqli_fetch_array($result_1)){ 
         if($email === $row['e_mail']){
             $active_status =  $row['active'];
-          //  echo $active_status;
         }
     }
     if ($active_status == 1) {
@@ -41,7 +40,9 @@ if(isset($_GET['rating'])){
 if(isset($_GET['title'])){
     $title = $_GET['title'];
     $query = "DELETE FROM movie_list WHERE title='$title'";
+    $query_1 = "DELETE FROM movie_poster WHERE title='$title'";
     $result = mysqli_query($connected, $query);
+    $result_1 = mysqli_query($connected, $query_1);
     if($result){
         echo"Delated from database";
     }
