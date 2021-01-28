@@ -4,11 +4,57 @@
     $_SESSION;
     $user_connection = check_login($connected);
     if ($_SERVER['REQUEST_METHOD'] = 'POST') {
-    if (isset($_POST['title'])) {
+    if(isset($_POST['title'])
+    and isset($_POST['year']) and isset($_POST['date_of_publishing']) and isset($_POST['genre']) 
+    and isset($_POST['duration']) and isset($_POST['director']) and isset($_POST['writer'])
+    and isset($_POST['production_com']) and isset($_POST['description']) 
+    and isset($_POST['rating']) and isset($_POST['voters']) and isset($_POST['actors']) and isset($_POST['img'])
+    ){
     $title = $_POST['title'];
-    echo $title;
+    $year = $_POST['year'];
+    $date_of_publishing = $_POST['date_of_publishing'];
+    $genre = $_POST['genre'];
+    $duration = $_POST['duration'];
+    $director = $_POST['director'];
+    $writer = $_POST['writer'];
+    $production_com = $_POST['production_com'];
+    $description = $_POST['description'];
+    $rating = $_POST['rating'];
+    $voters = $_POST['voters'];
+    $actors = $_POST['actors'];
+    // $img = $_POST['img'];
+    $query = "SELECT imdb_id FROM movie_list;";
+    $result = mysqli_query($connected, $query);
+    $lastValueImdb = "";
+    while($row = mysqli_fetch_array($result)){  
+        $lastValueImdb = $row['imdb_id'];
+    }
+    //echo $lastValueImdb;
+    $newLastElement = intval(str_replace("tt","",$lastValueImdb));
+    $newLastElement++;
+    $lastValueImdb = "tt".strval($newLastElement);
+    echo $lastValueImdb;
+    $emptyString = "";
+    $query = "INSERT INTO movie_list(imdb_id, title, year, data_published, genre, duration, director,
+    writer, production_company, actors, description, avg_votes, votes)
+    VALUES ('$lastValueImdb', '$title', '$year', '$date_of_publishing', '$genre', '$duration', '$director', '$writer',
+    '$production_com', '$actors', '$description', '$rating', '$voters')";
+
+    $result = mysqli_query($connected, $query);
+    // echo $title;
+    // echo $year;
+    // echo $date_of_publishing;
+    // echo $duration;
+    // echo $director;
+    // echo $genre;
+    // echo $writer;
+    // echo $production_com;
+    // echo $description;
+    // echo $rating;
+    // echo $voters;
+    // echo $actors;
+    // echo $img;
     } else {
-    echo "11111111111111111111111111111111111111111111111111111111111111111111111";
     }
     }    
 ?>
