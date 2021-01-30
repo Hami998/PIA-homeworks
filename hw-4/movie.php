@@ -9,10 +9,11 @@
     <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
     $id_1 = 114709;
     $link = "";
+    $add = 0;
     $query_5 = "SELECT imdb_id, title, year, data_published, genre, duration, director, writer, production_company,
     actors, description, avg_votes, votes FROM movie_list;";
     $result = mysqli_query($connected, $query_5);
-    $query_6 = "SELECT imdbID, poster FROM movie_poster;";
+    $query_6 = "SELECT imdbID, poster, added FROM movie_poster;";
     $result_1 = mysqli_query($connected, $query_6);
     while($row = mysqli_fetch_array($result)){  
         $row_1 = mysqli_fetch_array($result_1);
@@ -21,6 +22,7 @@
             if (('tt' . $row_1['imdbID']) == $id)
             {
                 $link = $row_1['poster'];
+                $add = $row_1['added'];
                 break;
             }
             else{
@@ -61,7 +63,13 @@
             echo $description ." <br>";
             echo "</div>";
             echo "<div class=\"col_image\" style=\"background:none;\">";
-            echo "<img src=\" " . $link . "\" >";
+            if($add === "0"){
+                echo "<img src=\"" . $link . "\" >";
+            }
+            else{
+                echo "<img src=\"movie_images/" . $link . "\" height=\"275\" width=\"175\">";
+            }
+            // echo "<img src=\"" . $link . "\" >";
             echo "</div>";
             echo "</div>";
             echo "<div class=\"rating\" style=\"display:flex;flex-direction:row;\">

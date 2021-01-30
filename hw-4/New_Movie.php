@@ -4,12 +4,13 @@
     $_SESSION;
     $user_connection = check_login($connected);
     if ($_SERVER['REQUEST_METHOD'] = 'POST') {
-    if(isset($_POST['title'])
-    and isset($_POST['year']) and isset($_POST['date_of_publishing']) and isset($_POST['genre']) 
-    and isset($_POST['duration']) and isset($_POST['director']) and isset($_POST['writer'])
-    and isset($_POST['production_com']) and isset($_POST['description']) 
-    and isset($_POST['rating']) and isset($_POST['voters']) and isset($_POST['actors']) and isset($_POST['img'])
-    ){
+    // if(isset($_POST['title'])
+    // and isset($_POST['year']) and isset($_POST['date_of_publishing']) and isset($_POST['genre']) 
+    // and isset($_POST['duration']) and isset($_POST['director']) and isset($_POST['writer'])
+    // and isset($_POST['production_com']) and isset($_POST['description']) 
+    // and isset($_POST['rating']) and isset($_POST['voters']) and isset($_POST['actors']) and isset($_POST['img'])
+    // ){
+    if(isset($_POST['submit'])){
     $title = $_POST['title'];
     $year = $_POST['year'];
     $date_of_publishing = $_POST['date_of_publishing'];
@@ -22,7 +23,8 @@
     $rating = $_POST['rating'];
     $voters = $_POST['voters'];
     $actors = $_POST['actors'];
-    $img = $_POST['img'];
+    // $img = $_POST['img'];
+    $imgName = $_FILES['file']['name'];
     $query = "SELECT imdb_id FROM movie_list;";
     $result = mysqli_query($connected, $query);
     $lastValueImdb = "";
@@ -41,9 +43,14 @@
 
     $result = mysqli_query($connected, $query);
 
-    $query_1 = "INSERT INTO movie_poster(imdbID, title, poster)
-    VALUES ('$newLastElement', '$title', '$img')";
+    //  $query_1 = "INSERT INTO movie_poster(imdbID, title, poster)
+    //  VALUES ('$newLastElement', '$title', '$img')";
+    $add = 1;
+    $query_1 = "INSERT INTO movie_poster(imdbID, title, poster, added) VALUES ('$newLastElement', '$title',
+     '$imgName', $add)";
     $result_1 = mysqli_query($connected, $query_1);
+    $fileDestination = "movie_images/" . $imgName;
+    move_uploaded_file($_FILES['file']['tmp_name'], $fileDestination);
     header("location: movie.php?id=" . $lastValueImdb);
     } else {
     }
@@ -70,7 +77,7 @@
 <body>
             <div class="movie_title"> <h1></h1> </div>
             <div class="container">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
             <div class="basic_informations">
             <div class="col_info_1">
             <label for="title" class="label">Title: </label>
@@ -120,12 +127,13 @@
             name="actors"></textarea>
             <br>
             <label for="img" class="label">Img link: </label>
-            <input type="text" class="img field" id="img" 
-            name="img">
+            <!-- <input type="text" class="img field" id="img" 
+            name="img"> -->
+            <input type="file" name="file">
             <br>
             </div>
             </div>
-            <button type="submit" class="preview_movie btn btn-success" onclick="addMovie()">
+            <button type="submit" name="submit" class="preview_movie btn btn-success" onclick="addMovie()">
             Preview</button>
             </form>
             </div>    
