@@ -119,6 +119,14 @@ h4{
         font-family: 'Courier New', Courier, monospace;
         word-spacing: 0.5px;
     }
+    .col_info_2{
+        margin: 0;
+        display: column;
+        flex-basis: 100%;
+        text-align: justify;
+        font-family: 'Courier New', Courier, monospace;
+        word-spacing: 0.5px;
+    } 
     .field {
         height: 50px;
         width: 300px;
