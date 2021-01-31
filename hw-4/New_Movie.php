@@ -3,6 +3,9 @@
     include ("functions1.php");
     $_SESSION;
     $user_connection = check_login($connected);
+    if($_SESSION['admin'] == 0){
+        header("Location: index.php");
+    }
     if ($_SERVER['REQUEST_METHOD'] = 'POST') {
     if(isset($_POST['submit'])){
     $title = $_POST['title'];
@@ -30,67 +33,62 @@
     $lastValueImdb = "tt".strval($newLastElement);
     $emptyString = "";
     $check=0; //proveravam da li su svi uneti podaci ispravni
-    echo $check;
     if(!empty($genre)){
-        $check_1 = 0;
         $array_of_genre = explode(",", $genre);
         foreach($array_of_genre as $genre_1){
             if(is_numeric($genre_1)){
-                $check_1++;
+                header("Location: new_movie.php?error=3");
+                exit();
             }
-        }
-        if($check_1 > 0){
-            $check++;
-            echo "Genre";
         }
     }
     if(!empty($year)){
         if(!(is_numeric($year))){
-            $check++;
-            echo "Year";
+            header("Location: new_movie.php?error=4");
+            exit();
         }
     }
     if(!empty($date_of_publishing)){
         $array_of_date = explode(".", $date_of_publishing);
         if(!(checkdate(intval($array_of_date[0]) , intval($array_of_date[1]) , intval($array_of_date[2])))){
-            $check++;
-            echo "Datum";
+            header("Location: new_movie.php?error=5");
+            exit();
         }
     }
     if(!empty($duration)){
         if(!(is_numeric($duration))){
-            $check++;
-            echo "Duration";
+            header("Location: new_movie.php?error=6");
+            exit();
         }
     }
     if(!empty($director)){
         if(is_numeric($director)){
-            $check++; 
-            echo "Director";
+            header("Location: new_movie.php?error=7");
+            exit();
         }
     }
     if(!empty($writer)){
         if(is_numeric($writer)){
-            $check++; 
-            echo "Writer";
+            header("Location: new_movie.php?error=8");
+            exit();
         }
     }
     if(!empty($production_com)){
         if(is_numeric($production_com)){
-            $check++; 
-            echo "Production comany";
+            header("Location: new_movie.php?error=9");
+            exit();
         }
     }
     if(!empty($rating)){
         if(!(is_numeric($rating) && $rating <= 10 && $rating > 0)){
-            $check++; 
-            echo "rating";
+            header("Location: new_movie.php?error=10");
+            exit();
         }
     }
     if(!empty($voters)){
         if(!(is_numeric($voters) && $voters >= 0)){
-            $check++; 
-            echo "voters";
+            header("Location: new_movie.php?error=11");
+            exit(); 
         }
     }
     if(!empty($actors)){
@@ -105,23 +103,16 @@
             }
         }
         if($check_2 > 0){
-            $check++; 
-            echo "glumci";
+            header("Location: new_movie.php?error=12");
+            exit(); 
         }
     }
     if(empty($title) || empty($year) || empty($date_of_publishing) || empty($genre) || empty($duration) ||
        empty($director) || empty($writer) || empty($production_com) || empty($description) || empty($rating) ||
        empty($voters) || empty($actors) || empty($imgName)){
-        echo "You should enter all data";
+        header("Location: new_movie.php?error=1");
+        exit();
     }
-    else if($check > 0){
-        echo"Broj pogresnog imputa";
-        echo $check;
-        $check=0;
-        echo "You should enter all data correctly";
-        echo $check;
-    }
-
     else{
         $query = "INSERT INTO movie_list_new(imdb_id, title, year, date_published, genre, duration, director,
         writer, production_company, actors, description, avg_vote, votes)
@@ -159,6 +150,54 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+
+            <?php 
+            if(empty( $_GET["error"])){
+                echo "";
+            }
+            if(isset($_GET["error"])){
+                $error_code = $_GET["error"];
+            }
+            else{
+                $error_code = "";
+            }
+            if($error_code === "1"){
+                echo "<p class=\"error_text\">You should fill all the fields</p>";
+            }
+            if($error_code === "2"){
+                echo "<p class=\"error_text\">You should fill all the fields corectlly</p>";
+            }
+            if($error_code === "3"){
+                echo "<p class=\"error_text\">Genre shouldn't include numbers </p>";
+            }
+            if($error_code === "4"){
+                echo "<p class=\"error_text\">Year should be a number</p>";
+            }
+            if($error_code === "5"){
+                echo "<p class=\"error_text\">Date should be: dd.mm.YYYY </p>";
+            }
+            if($error_code === "6"){
+                echo "<p class=\"error_text\">Duration should be a number</p>";
+            }
+            if($error_code === "7"){
+                echo "<p class=\"error_text\">Name of the director is nor right</p>";
+            }
+            if($error_code === "8"){
+                echo "<p class=\"error_text\">Name of the writer is nor right</p>";
+            }
+            if($error_code === "9"){
+                echo "<p class=\"error_text\">Name of the production company is nor right </p>";
+            }
+            if($error_code === "10"){
+                echo "<p class=\"error_text\">Rating is a number between 1 and 10</p>";
+            }
+            if($error_code === "11"){
+                echo "<p class=\"error_text\">Number of votes should be number greater then 0</p>";
+            }
+            if($error_code === "12"){
+                echo "<p class=\"error_text\">Actors should be list of actors separated by ,</p>";
+            }
+            ?>
             <div class="movie_title"> <h1></h1> </div>
             <div class="container">
             <form action="" method="post" enctype="multipart/form-data">
@@ -195,11 +234,11 @@
             name="production_com">
             <br>
             <label for="description" class="label">Description: </label>
-            <textarea type="text" class="description textarea" id="description" 
+            <textarea type="text" class="description textarea field" id="description" 
             name="description"></textarea>
             <br>
             <label for="rating" class="label">Rating: </label>
-            <input type="text" class="rating field" id="rating" 
+            <input type="text" class="field" id="rating" 
             name="rating">
             <br>
             <label for="voters" class="label">Number of voters: </label>
@@ -207,7 +246,7 @@
             name="voters">
             <br>
             <label for="actors" class="label">List of actors: </label>
-            <textarea type="text" class="actors textarea" id="actors" 
+            <textarea type="text" class="textarea field" id="actors" 
             name="actors"></textarea>
             <br>
             <label for="file" class="label">Img link: </label>

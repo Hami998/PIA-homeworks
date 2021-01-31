@@ -157,10 +157,12 @@ h4{
 } 
 .field {
     height: 50px;
-    width: 300px;
+    width: 80%;
     margin-top: 10px;
     outline: none;
     border-radius: 10px;
+    margin-left:10%;
+    margin-right: 10%;
     text-align: left;
     padding-left: 15px;
 }
@@ -172,14 +174,15 @@ h4{
     margin-top: 5px;
 }
 .textarea{
-    width: 300px;
     height: 100px;
 }
 .preview_movie{
-    width: 100px;
+    width: 150px;
     height: 40px;
     margin-top: 25px;
     margin-bottom: 5px;
+    position:relative;
+    left: 35%;
 }
 .admin_buttons{
     width: 100px;
@@ -193,6 +196,12 @@ a{
 .adm_btn_l{
     margin-left:37%;
     margin-right: 20px;
+}
+.error_text{
+    color:yellow;
+    position: relative;
+    top: 0;
+    left: 20%;
 }
 @media only screen and (max-width: 1100px) {
     .basic_informations{
@@ -308,5 +317,11 @@ a{
     .adm_btn_l{
         margin-left:20%;
         margin-right: 20px;
+    }
+    .error_text{
+        color:yellow;
+        position: relative;
+        top: 50px;
+        left: 10%;
     }
 }
