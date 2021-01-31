@@ -4,6 +4,7 @@
     $_SESSION;
     $user_connection = check_login($connected);
     $id = $_GET['movie_id'];
+    $id_1 = $id;
     if($_SESSION['admin'] == 0){
         header("location: index.php");
     }
@@ -43,7 +44,8 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo 'alert(Genre is not well written!!)';
+                header("Location: edit_movie.php?error=1&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($year)){
@@ -52,7 +54,8 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo 'alert(Year is supposed to be a number!!)';
+                header("Location: edit_movie.php?error=2&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($date_of_publishing)){
@@ -67,7 +70,8 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo "alert(Date is in wrong format, try dd.mm.yyy)";
+                header("Location: edit_movie.php?error=3&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($duration)){
@@ -76,7 +80,8 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo "alert(Duration should be only number)";
+                header("Location: edit_movie.php?error=4&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($director)){
@@ -85,7 +90,8 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo "alert(You didnn't write director name correctly)"; 
+                header("Location: edit_movie.php?error=5&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($writer)){
@@ -94,14 +100,14 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo "alert(You didnn't write writer name correctly)"; 
+                header("Location: edit_movie.php?error=6&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($production_com)){
             if(is_numeric($production_com)){
-                echo "alert(You didnn't write production company name correctly)"; 
-                $query = "UPDATE movie_list_new SET prodction_company='$production_com' WHERE imdb_id='$id'";
-                $result = mysqli_query($connected, $query);
+                header("Location: edit_movie.php?error=7&movie_id=". $id_1);
+                exit();
             }
             else{
                 $query = "UPDATE movie_list_new SET production_company='$production_com' WHERE imdb_id='$id'";
@@ -114,7 +120,8 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo "alert(Rating should be number between 0 and 10)"; 
+                header("Location: edit_movie.php?error=8&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($voters)){
@@ -123,7 +130,8 @@
                 $result = mysqli_query($connected, $query);
             }
             else{
-                echo "alert(Voters is a number greater or equal to 0)"; 
+                header("Location: edit_movie.php?error=9&movie_id=". $id_1);
+                exit();
             }
         }
         $check = 0;
@@ -140,6 +148,10 @@
             if($check == 0){
                 $query = "UPDATE movie_list_new SET actors='$actors' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
+            }
+            else{
+                header("Location: edit_movie.php?error=10&movie_id=". $id_1);
+                exit();
             }
         }
         if(!empty($imgName_1)){
@@ -210,51 +222,54 @@
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="search.css">
         <link rel="stylesheet" href="movie.css">
-        <link rel="stylesheet" href="movie_1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="script_search.js" ></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <style media="screen">
-            .choose{
-                margin-left:-60px;
-                margin-top:-35px;
-            }
-            .choose ul li{
-                background: #262626;
-                width: 170px;
-                border: 1px solid #fff;
-                height: 35px;
-                line-height: 10px;
-                text-align: center;
-                float: left;
-                color: #fff;
-                font-size: 14px;
-                position: relative;
-                top: 20px;
-                left: -25px;
-                font-family: Arial, Helvetica, sans-serif;
-                padding: 10px;
-                cursor: pointer;
-                list-style:none;
-                }
-                .choose ul li:hover{
-                background: #2F4F4F;
-                }
-                .choose ul ul{
-                display: none;
-                }
-                .choose ul:hover > ul{
-                display: block;
-                }
-                .choose ul li  > a {
-                    text-decoration: none;
-                    color: white;
-                }
-        </style>
 </head>
 <body>
             <?php  echo $logoff;  ?>
+            <?php 
+            if(empty( $_GET["error"])){
+                echo "";
+            }
+            if(isset($_GET["error"])){
+                $error_code = $_GET["error"];
+            }
+            else{
+                $error_code = "";
+            }
+            if($error_code === "1"){
+                echo "<p class=\"error_text\">Genre is not written corectly</p>";
+            }
+            if($error_code === "2"){
+                echo "<p class=\"error_text\">Year is supposed to be a number</p>";
+            }
+            if($error_code === "3"){
+                echo "<p class=\"error_text\">Date should be in format dd.mm.YYYY</p>";
+            }
+            if($error_code === "4"){
+                echo "<p class=\"error_text\">Duration should be number</p>";
+            }
+            if($error_code === "5"){
+                echo "<p class=\"error_text\">Name of the director is not written correctly</p>";
+            }
+            if($error_code === "6"){
+                echo "<p class=\"error_text\">Name of the writer is not written correctly</p>";
+            }
+            if($error_code === "7"){
+                echo "<p class=\"error_text\">Name of the production company is not written correctly</p>";
+            }
+            if($error_code === "8"){
+                echo "<p class=\"error_text\">Rating is number between 1 and 10</p>";
+            }
+            if($error_code === "9"){
+                echo "<p class=\"error_text\">Number of voters is number greater than 0</p>";
+            }
+            if($error_code === "10"){
+                echo "<p class=\"error_text\">List of actors should be separated with comma</p>";
+            }
+            ?>
             <div class="movie_title"> <h1></h1> </div>
             <div class="container">
             <form action="" method="post" enctype="multipart/form-data">
@@ -291,8 +306,8 @@
             name="production_com" placeholder="<?php echo $production_company?>">
             <br>
             <label for="description" class="label">Description: </label>
-            <textarea type="text" class="description textarea" id="description" 
-            name="description"></textarea>
+            <textarea type="text" class="textarea field" id="description" 
+            name="description"  placeholder="<?php echo $description?>"></textarea>
             <br>
             <label for="voters" class="label">Number of voters: </label>
             <input type="text" class="voters field" id="voters" 
@@ -303,8 +318,8 @@
             name="rating" placeholder="<?php echo $avg_votes?>">
             <br>
             <label for="actors" class="label">List of actors: </label>
-            <textarea type="text" class="actors textarea" id="actors" 
-            name="actors"></textarea>
+            <textarea type="text" class="textarea field" id="actors" 
+            name="actors"  placeholder="<?php echo $actors?>"></textarea>
             <br>
             <label for="file" class="label">Img link: </label>
             <input type="file" name="file">
