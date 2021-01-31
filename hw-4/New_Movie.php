@@ -18,18 +18,17 @@
     $voters = $_POST['voters'];
     $actors = $_POST['actors'];
     $imgName = $_FILES['file']['name'];
-    $query = "SELECT imdb_id FROM movie_list;";
+    $query = "SELECT imdb_id FROM movie_list_new;";
     $result = mysqli_query($connected, $query);
     $lastValueImdb = "";
     while($row = mysqli_fetch_array($result)){  
         $lastValueImdb = $row['imdb_id'];
     }
+    echo  $lastValueImdb ;
     $newLastElement = intval(str_replace("tt","",$lastValueImdb));
     $newLastElement++;
     $lastValueImdb = "tt".strval($newLastElement);
-    echo $lastValueImdb;
     $emptyString = "";
-    //
     $check=0; //proveravam da li su svi uneti podaci ispravni
     echo $check;
     if(!empty($genre)){
@@ -124,8 +123,8 @@
     }
 
     else{
-        $query = "INSERT INTO movie_list(imdb_id, title, year, data_published, genre, duration, director,
-        writer, production_company, actors, description, avg_votes, votes)
+        $query = "INSERT INTO movie_list_new(imdb_id, title, year, date_published, genre, duration, director,
+        writer, production_company, actors, description, avg_vote, votes)
         VALUES ('$lastValueImdb', '$title', '$year', '$date_of_publishing', '$genre', '$duration', '$director', '$writer',
         '$production_com', '$actors', '$description', '$rating', '$voters')";
     

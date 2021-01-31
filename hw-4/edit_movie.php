@@ -23,11 +23,11 @@
         $actors = $_POST['actors'];
         $imgName_1 = $_FILES['file']['name'];
         if(!empty($title)){
-            $query = "UPDATE movie_list SET title='$title' WHERE imdb_id='$id'";
+            $query = "UPDATE movie_list_new SET title='$title' WHERE imdb_id='$id'";
             $result = mysqli_query($connected, $query);
         }
         if(!empty($description)){
-            $query = "UPDATE movie_list SET description='$description' WHERE imdb_id='$id'";
+            $query = "UPDATE movie_list_new SET description='$description' WHERE imdb_id='$id'";
             $result = mysqli_query($connected, $query);
         }
         if(!empty($genre)){
@@ -39,7 +39,7 @@
                 }
             }
             if($check == 0){
-                $query = "UPDATE movie_list SET genre='$genre' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET genre='$genre' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -48,7 +48,7 @@
         }
         if(!empty($year)){
             if(is_numeric($year)){
-                $query = "UPDATE movie_list SET year='$year' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET year='$year' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -59,11 +59,11 @@
             $array_of_date = explode(".", $date_of_publishing);
             $array_of_date_1 = explode("-", $date_of_publishing);
             if(checkdate ( intval($array_of_date[0]) , intval($array_of_date[1]) , intval($array_of_date[2]))){
-                $query = "UPDATE movie_list SET data_published='$date_of_publishing' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET date_published='$date_of_publishing' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else if(checkdate ( intval($array_of_date_1[2]) , intval($array_of_date_1[1]) , intval($array_of_date_1[0]))) {
-                $query = "UPDATE movie_list SET data_published='$date_of_publishing' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET date_published='$date_of_publishing' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -72,7 +72,7 @@
         }
         if(!empty($duration)){
             if(is_numeric($duration)){
-                $query = "UPDATE movie_list SET duration='$duration' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET duration='$duration' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -81,7 +81,7 @@
         }
         if(!empty($director)){
             if(!(is_numeric($director))){
-                $query = "UPDATE movie_list SET director='$director' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET director='$director' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -90,7 +90,7 @@
         }
         if(!empty($writer)){
             if(!(is_numeric($writer))){
-                $query = "UPDATE movie_list SET writer='$writer' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET writer='$writer' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -100,17 +100,17 @@
         if(!empty($production_com)){
             if(is_numeric($production_com)){
                 echo "alert(You didnn't write production company name correctly)"; 
-                $query = "UPDATE movie_list SET prodction_company='$production_com' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET prodction_company='$production_com' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
-                $query = "UPDATE movie_list SET production_company='$production_com' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET production_company='$production_com' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
         }
         if(!empty($rating)){
             if(is_numeric($rating) && $rating <= 10 && $rating > 0){
-                $query = "UPDATE movie_list SET avg_votes='$rating' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET avg_vote='$rating' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -119,7 +119,7 @@
         }
         if(!empty($voters)){
             if(is_numeric($voters) && $voters >= 0){
-                $query = "UPDATE movie_list SET votes='$voters' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET votes='$voters' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
             else{
@@ -138,7 +138,7 @@
                 }
             }
             if($check == 0){
-                $query = "UPDATE movie_list SET actors='$actors' WHERE imdb_id='$id'";
+                $query = "UPDATE movie_list_new SET actors='$actors' WHERE imdb_id='$id'";
                 $result = mysqli_query($connected, $query);
             }
         }
@@ -160,8 +160,8 @@
     <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
     $link = "";
     $add = 0;
-    $query_5 = "SELECT imdb_id, title, year, data_published, genre, duration, director, writer, production_company,
-    actors, description, avg_votes, votes FROM movie_list;";
+    $query_5 = "SELECT imdb_id, title, year, date_published, genre, duration, director, writer, production_company,
+    actors, description, avg_vote, votes FROM movie_list_new;";
     $result = mysqli_query($connected, $query_5);
     $query_6 = "SELECT imdbID, poster, added FROM movie_poster;";
     $result_1 = mysqli_query($connected, $query_6);
@@ -181,7 +181,7 @@
         if($id === $row['imdb_id']){
             $title = $row['title'];
             $year = $row['year'];
-            $data_published = $row['data_published'];
+            $data_published = $row['date_published'];
             $genre = $row['genre'];
             $duration = $row['duration'];
             $director = $row['director'];
@@ -189,7 +189,7 @@
             $production_company = $row['production_company'];
             $actors = $row['actors'];
             $description = $row['description'];
-            $avg_votes = $row['avg_votes'];
+            $avg_votes = $row['avg_vote'];
             $votes = $row['votes'];
             if($_SESSION['admin'] == 1){
                 $delete_movie = "<button type=\"submit\" class=\"submit_movie admin_btn submit_all btn btn-success\"> 

@@ -7,18 +7,17 @@
     $logoff = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
     style=\"position:absolute;top:0px;left:0px;width:100px\"> 
     <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
-    $id_1 = 114709;
     $link = "";
     $add = 0;
-    $query_5 = "SELECT imdb_id, title, year, data_published, genre, duration, director, writer, production_company,
-    actors, description, avg_votes, votes FROM movie_list;";
+    $query_5 = "SELECT imdb_id, title, year, date_published, genre, duration, director, writer, production_company,
+    actors, description, avg_vote, votes FROM movie_list_new;";
     $result = mysqli_query($connected, $query_5);
     $query_6 = "SELECT imdbID, poster, added FROM movie_poster;";
     $result_1 = mysqli_query($connected, $query_6);
+
     while($row = mysqli_fetch_array($result)){  
         $row_1 = mysqli_fetch_array($result_1);
         while($row_1 = mysqli_fetch_array($result_1)){
-            // if ($row_1['imdbID'] == $id_1)
             if (('tt' . $row_1['imdbID']) == $id)
             {
                 $link = $row_1['poster'];
@@ -32,7 +31,7 @@
         if($id === $row['imdb_id']){
             $title = $row['title'];
             $year = $row['year'];
-            $data_published = $row['data_published'];
+            $data_published = $row['date_published'];
             $genre = $row['genre'];
             $duration = $row['duration'];
             $director = $row['director'];
@@ -40,13 +39,13 @@
             $production_company = $row['production_company'];
             $actors = $row['actors'];
             $description = $row['description'];
-            $avg_votes = $row['avg_votes'];
+            $avg_votes = $row['avg_vote'];
             $votes = $row['votes'];
             if($_SESSION['admin'] == 1){
                 $delete_movie = "<button type=\"submit\" class=\"submit_movie admin_btn submit_all btn btn-success\"> 
                 <a href=\"result.php?title=". $title ."\">Delete</a></button>";
                 $edit_movie = "<button type=\"submit\" class=\"submit_movie admin_btn submit_all btn btn-success\"> 
-                <a href=\"New_Movie.php\">Edit</a></button>";
+                <a href=\"edit_movie.php?movie_id=" . $id . "\">Edit</a></button>";
             }
             echo "<div class=\"movie_title\"> <h1>" . $title . "</h1> </div>" ;      
             echo "<div class=\"container\">";
