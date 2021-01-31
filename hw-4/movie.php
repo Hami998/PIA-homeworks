@@ -7,6 +7,7 @@
     $logoff = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
     style=\"position:absolute;top:0px;left:0px;width:100px\"> 
     <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
+    $nick = $_SESSION['nickname'];
     $link = "";
     $add = 0;
     $query_5 = "SELECT imdb_id, title, year, date_published, genre, duration, director, writer, production_company,
@@ -47,6 +48,8 @@
                 <a href=\"result.php?title=". $title ."\">Delete</a></button>";
                 $edit_movie = "<button type=\"submit\" class=\"adm_btn_r  admin_buttons btn btn-success\"> 
                 <a href=\"edit_movie.php?movie_id=" . $id . "\">Edit</a></button>";
+                $search_movie = "<button type=\"submit\" class=\"adm_btn_r  admin_buttons btn btn-success\"> 
+                <a href=\"search.php\">Search</a></button>";
             }
             echo "<div class=\"movie_title\"> <h1>" . $title . "</h1> </div>" ;      
             echo "<div class=\"container\">";
@@ -76,7 +79,7 @@
             Rating of the movie: <button class=\"votes\" disabled>" . $avg_votes . "</button></br>";
             echo "Number of voters: ";
             echo $votes . " <br> ";
-            
+            echo "Your nickname is: ". $nick ."<br>";
             $user_email = $_SESSION['user_email'];
             $user_fullname = $_SESSION['user'];
             $my_rating = "";
@@ -145,10 +148,13 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-            <?php  echo $logoff;  ?>
+            <?php  echo $logoff;
+            ?>
+
             <?php if($_SESSION['admin'] == 1){
             echo $delete_movie; 
             echo $edit_movie;
+            echo $search_movie;
             }
             ?>
 </body>

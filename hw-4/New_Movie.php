@@ -6,6 +6,8 @@
     if($_SESSION['admin'] == 0){
         header("Location: index.php");
     }
+    $nick = $_SESSION['nickname'];
+    $text = "Your nick is: ". $nick;
     if ($_SERVER['REQUEST_METHOD'] = 'POST') {
     if(isset($_POST['submit'])){
     $title = $_POST['title'];
@@ -143,7 +145,6 @@
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="search.css">
         <link rel="stylesheet" href="movie.css">
-        <link rel="stylesheet" href="movie_1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="script.js" ></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -203,6 +204,7 @@
             <form action="" method="post" enctype="multipart/form-data">
             <div class="basic_informations">
             <div class="col_info_1">
+            <p class=""><?php echo $text;?></p>
             <label for="title" class="label">Title: </label>
                   <input type="text" class="title field" id="title" name="title" placeholder="movie title...">
                   <br>

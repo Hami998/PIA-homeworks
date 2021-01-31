@@ -4,15 +4,19 @@
     $_SESSION;
     $user_connection = check_login($connected);
     if($_SESSION['admin'] == 1){
-        $see_all_movies = "<button type=\"submit\" class=\"submit_movie submit_all admin_btn_l btn btn-success\"> 
+        $see_all_movies = "<button type=\"submit\" class=\"submit_movie submit_all admin_btn_l btn_addd btn btn-success\"> 
         <a href=\"result.php\"\">See all movies</a></button>";
-        $add_new_movie = "<button type=\"submit\" class=\"submit_movie  submit_all admin_btn_r btn btn-success\"> 
+        $add_new_movie = "<button type=\"submit\" class=\"submit_movie  submit_all admin_btn_r  btn_addd btn btn-success\"> 
         <a href=\"new_movie.php\"\">Add new movie</a></button>";
     }
+    $nick = $_SESSION['nickname'];
     if($_SESSION['admin'] == 1 or $_SESSION['admin'] == 0){
         $log_off = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
         style=\"position:relative;top:0px;left:0px\"> 
     <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
+        $nickname = "<button type=\"button\" class=\"submit_log_off btn btn-success\" 
+        style=\"position:relative;top:0px;left:0px\" disabled> ". $nick ."
+        </button>";
     }
 ?>
 <!DOCTYPE html>
@@ -26,7 +30,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="search.css">
-        <link rel="stylesheet" href="search_admin.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="script_search.js" ></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -79,6 +82,9 @@
                 </div>
         </form>
     </div>
+    <?php
+    echo $nickname;
+    ?>
     <?php if($_SESSION['admin'] == 1){
         echo $see_all_movies;
         echo $add_new_movie;

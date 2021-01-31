@@ -4,7 +4,8 @@
     $_SESSION;
     $user_connection = check_login($connected);
     $id = $_GET['movie_id'];
-    $id_1 = $id;
+    $nick = $_SESSION['nickname'];
+    $text = "Your nick is: ". $nick;
     if($_SESSION['admin'] == 0){
         header("location: index.php");
     }
@@ -275,6 +276,7 @@
             <form action="" method="post" enctype="multipart/form-data">
             <div class="basic_informations">
             <div class="col_info_2">
+            <p class=""><?php echo $text;?></p>
             <label for="title" class="label">Title: </label>
                   <input type="text" class="title field" id="title" name="title" placeholder="<?php echo $title?>">
                   <br>
