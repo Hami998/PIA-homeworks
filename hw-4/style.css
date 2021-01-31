@@ -52,10 +52,20 @@ body{
     border-radius: 8px;
 }
 .registration{
+    margin-top: 0px;
     margin-bottom: 10px;
+}
+.forma{
+    height: 100%;
+    text-align: center;
+}
+.forma_1{
+    height: 80%;
+    text-align: center;
 }
 .input{
     border: none;
+    width: 100%;
     background: #E6E6FA;
     padding: 8px;
     border-radius: 6px;
@@ -70,19 +80,21 @@ body{
     margin-top: 5px;
 }
 .label{
+    width: 100%;
     margin-top: 7px;
     font-family: sans-serif;
     font-weight: 550;
     font-size: 16px;
 }
 .text{
-    margin-top: 7px;
+    margin-top: 3px;
     font-family: sans-serif;
     font-weight: 550;
     font-size: 16px;
 }
 .commit{
     margin-top: 5px;
+    width: 50%;
 }
 .modal_close{
     position: absolute;
@@ -117,8 +129,9 @@ body{
     border-radius: 8px;
 }
 .submit_sign_up{
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
+    width: 50%;
 }
 .sign_up_modal_bg_active{
     visibility: visible;
@@ -140,6 +153,9 @@ body{
         display: flex;
         direction: column;
     }
+    .text{
+        margin-top:5px;
+    }
 }
 @media only screen and (max-width: 360px) {
     .registration{
@@ -147,5 +163,8 @@ body{
     }
     .submit_sign_up{
         margin-bottom: 15px;
+    }
+    .text{
+        margin-top:5px;
     }
 }
