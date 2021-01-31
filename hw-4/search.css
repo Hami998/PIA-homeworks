@@ -92,7 +92,7 @@ a {
 .submit_all{
     position: relative;
     top: 520px;
-    left: 400px;
+    left: 320px;
 }
 .admin_btn_l > a{
     color: white;
@@ -150,7 +150,11 @@ a {
     .submit_all{
         position: relative;
         top: 520px;
-        left: -40px;
+        left: -60px;
         margin-bottom: 10px;
+    }
+    .admin_btn_r{
+        margin-left: 40%;
+        margin-right: 0px;
     }
 }

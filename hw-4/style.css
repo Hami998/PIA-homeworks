@@ -153,6 +153,20 @@ body{
     .sign_up_modal{
         width: 340px;
     }
+    .error_text{
+        color: yellow;
+        position: relative;
+        top: 350px;
+        left: 270px;
+    }
+}
+@media only screen and (max-width: 850px) {
+    .error_text{
+        color: yellow;
+        position: relative;
+        top: 350px;
+        left: 180px;
+    }
 }
 @media only screen and (max-width: 600px) {
     .buttons{
@@ -161,6 +175,12 @@ body{
     }
     .text{
         margin-top:5px;
+    }
+    .error_text{
+        color: yellow;
+        position: relative;
+        top: 350px;
+        left: 90px;
     }
 }
 @media only screen and (max-width: 360px) {
@@ -172,5 +192,11 @@ body{
     }
     .text{
         margin-top:5px;
+    }
+    .error_text{
+        color: yellow;
+        position: relative;
+        top: 350px;
+        left: 25px;
     }
 }

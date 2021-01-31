@@ -18,19 +18,5 @@ function check_login($connected){
          header("Location: index.php");
      }
 }
-    // if(isset($_POST['title'])){
-    //     $title = "";
-    //     $title = $_POST['title'];
-    //     echo $title;
-    // }
-    // if(isset($_POST['title'])and isset($_POST['year']) and isset($_POST['date_of_publishing']) and isset($_POST['genre']) 
-    // and isset($_POST['duration']) and isset($_POST['director']) and isset($_POST['writer'])
-    // and isset($_POST['production_com']) and isset($_POST['description']) 
-    // and isset($_POST['rating']) and isset($_POST['voters']) and isset($_POST['actors']) and isset($_POST['img']))
-    // {
-    //     echo "Sve je dobro proslo";
-    // }
-    // else {
-    //     echo "Nije uspesno proslo";
-    // }
+
 ?>

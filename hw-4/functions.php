@@ -54,7 +54,7 @@ if(isset($_GET['rating'])){
             $new_votes = $row_1['votes'] + 1;
             $new_avg_votes = $row_1['avg_vote'] + ($rating/$new_votes);
             $new_avg_votes_rounded = number_format($new_avg_votes, 2);
-            $query_3 = ("UPDATE movie_list_new SET avg_votes=$new_avg_votes_rounded, votes=$new_votes WHERE title='$title';");
+            $query_3 = ("UPDATE movie_list_new SET avg_vote=$new_avg_votes_rounded, votes=$new_votes WHERE title='$title';");
             mysqli_query($connected, $query_3);  
             header("Location: movie.php?id=". $row['imdb_id']);
         } 

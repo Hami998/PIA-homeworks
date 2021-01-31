@@ -90,8 +90,14 @@
             }
             $query = "INSERT INTO users (name, last_name, e_mail, nickname, password) VALUES ('$user_name', '$user_surname', 
             '$user_email', '$user_nick', '$user_password')";
-
-            mysqli_query($connected, $query);                
+            mysqli_query($connected, $query);
+            header("Location: index.php?error=22");
+            exit();
+            $_SESSION['user'] = $user_name ." ".$user_surname;
+            $_SESSION['nickname'] = $user_nick;
+            $_SESSION['user_email'] = $user_email;
+            $_SESSION['admin'] = 0; 
+            header("Location: search.php");             
         }
             //log in
             else if(isset($_POST['commit']))
@@ -106,15 +112,16 @@
                     header("Location: index.php?error=20");
                     exit();
                 }
-                $query_2 = "SELECT reg_or_ad, name, last_name, e_mail, password FROM users;";
+                $query_2 = "SELECT reg_or_ad, name, last_name, e_mail, nickname, password FROM users;";
                 $result = mysqli_query($connected, $query_2);
                 $ckeck_1 = 0;
                 while($row = mysqli_fetch_array($result)){
                     $row_name = $row['name'];
                     $row_last_name = $row['last_name'];
                     $row_full_name = $row_name." ".$row_last_name;
+                    $row_email = $row['e_mail'];
                     $admin = $row['reg_or_ad'];
-                    if($user_name_or_email == $row_full_name or $user_name_or_email == $row['e_mail']){
+                    if($user_name_or_email == $row_full_name or $user_name_or_email == $row_email){
                         if($user_password == $row['password']){
                             $user_active = 1;
                             $email = $row['e_mail'];
@@ -123,6 +130,7 @@
                             echo "User is in sistem";
                             $ckeck_1 = 1;
                             $_SESSION['user'] = $row_full_name;
+                            $_SESSION['nickname'] = $row['nickname'];
                             $_SESSION['user_email'] = $row['e_mail'];
                             if($admin == 1){
                             $_SESSION['admin'] = $admin;   
@@ -238,6 +246,9 @@
             }
             else if($error_code === "21"){
                 echo "<p class=\"error_text\">You didn't enter name, email or password correctly</p>";
+            }
+            else if($error_code === "22"){
+                echo "<p class=\"error_text\">You are successfully registered, now sign in :)</p>";
             }
     ?>
     <div class="sign_in_modal_bg">
