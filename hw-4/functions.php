@@ -38,13 +38,13 @@ if(isset($_GET['rating'])){
         $query = "INSERT INTO movie_rating (e_mail, title, rating) VALUES ('$e_mail', '$title', 
         '$rating')";
         mysqli_query($connected, $query);   
-        $query_2=("SELECT avg_votes, votes FROM movie_list WHERE title='$title'");
+        $query_2=("SELECT avg_vote, votes FROM movie_list_new WHERE title='$title'");
         $result = mysqli_query($connected, $query_2); 
         $row_1 = mysqli_fetch_array($result);
         $new_votes = $row_1['votes'] + 1;
-        $new_avg_votes = $row_1['avg_votes'] + ($rating/$new_votes);
+        $new_avg_votes = $row_1['avg_vote'] + ($rating/$new_votes);
         $new_avg_votes_rounded = number_format($new_avg_votes, 2);
-        $query_3 = ("UPDATE movie_list SET avg_votes=$new_avg_votes_rounded, votes=$new_votes WHERE title='$title';");
+        $query_3 = ("UPDATE movie_list_new SET avg_votes=$new_avg_votes_rounded, votes=$new_votes WHERE title='$title';");
         mysqli_query($connected, $query_3);  
         header("Location: movie.php?id=". $row['imdb_id']);
     } 
@@ -55,7 +55,7 @@ if(isset($_GET['rating'])){
 }
 if(isset($_GET['title'])){
     $title = $_GET['title'];
-    $query = "DELETE FROM movie_list WHERE title='$title'";
+    $query = "DELETE FROM movie_list_new WHERE title='$title'";
     $query_1 = "DELETE FROM movie_poster WHERE title='$title'";
     $result = mysqli_query($connected, $query);
     $result_1 = mysqli_query($connected, $query_1);
