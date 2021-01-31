@@ -100,7 +100,7 @@
     </div>
     <div class="sign_in_modal_bg">
         <div class="sign_in_modal">
-            <form action="" method="post">
+            <form action="" method="post" class="forma_1">
             <div class="title_bg">
                 <h3 class="title">Sign in</h3>
             </div>
@@ -119,7 +119,7 @@
     </div>
     <div class="sign_up_modal_bg">
             <div class="sign_up_modal">
-            <form action="" method="post">
+            <form action="" method="post" class="forma" id="forma">
             <div class="title_bg">
                     <h3 class="title">Sign Up</h3>
                 </div>
