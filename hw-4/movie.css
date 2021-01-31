@@ -14,7 +14,7 @@
     border-radius: 20px 20px 0px 0px;
 }
 .container{
-    height: 100vw;
+    height: auto;
     background: rgb(255,255,255, 0.7);
     width: 80%;
     margin-bottom: 25px;
@@ -32,14 +32,30 @@
     word-spacing: 0.5px;
 }
 .rating{
-    margin-left:10px;
+    margin-left:10%;
     text-align: justify;
     font-family: 'Courier New', Courier, monospace;
     word-spacing: 0.5px;
+    display:flex;
+    flex-direction:row;
 }
 .votes{
     margin-left:10px;
-    width: 200px;
+    width: 100px;
+    border: none;
+    outline: white;
+    background-color: #4169E1;
+    color: white;
+    border-radius: 6px;
+}
+.votes:hover{
+    background-color: #000080;
+}
+.left{
+    display:column;
+    flex-basis:80%;
+    margin-left:0px;
+    margin-bottom:10px;
 }
 .col_image{
     display: column;
@@ -51,6 +67,7 @@
     display: column;
     flex-basis: 100%;
     margin-top: 10px;
+    margin-bottom: 5%;
 }
 .actor{
     background: rgb(255,255,255, 0.7);
@@ -76,6 +93,17 @@ h4{
 .user_vote{
     font-family: 'Courier New', Courier, monospace;
 }
+.remove_vote{
+    width: 200px;
+}
+.remove_vote > a{
+    color: white;
+    text-decoration: none;
+}
+.remove_vote > a:hover{
+    color: white;
+    text-decoration: none;
+}
 .choose{
     margin-left:-60px;
     margin-top:-35px;
@@ -98,66 +126,187 @@ h4{
     cursor: pointer;
     list-style:none;
     }
-    .choose ul li:hover{
+.choose ul li:hover{
     background: #2F4F4F;
-    }
-    .choose ul ul{
+}
+.choose ul ul{
     display: none;
-    }
-    .choose ul:hover > ul{
+}
+.choose ul:hover > ul{
     display: block;
+}
+.choose ul li  > a {
+    text-decoration: none;
+    color: white;
+}
+.col_info_1{
+    margin: 0;
+    display: column;
+    flex-basis: 75%;
+    text-align: justify;
+    font-family: 'Courier New', Courier, monospace;
+    word-spacing: 0.5px;
+}
+.col_info_2{
+    margin: 0;
+    display: column;
+    flex-basis: 100%;
+    text-align: justify;
+    font-family: 'Courier New', Courier, monospace;
+    word-spacing: 0.5px;
+} 
+.field {
+    height: 50px;
+    width: 300px;
+    margin-top: 10px;
+    outline: none;
+    border-radius: 10px;
+    text-align: left;
+    padding-left: 15px;
+}
+.label{
+    text-align: justify;
+    font-family: 'Courier New', Courier, monospace;
+    text-align:left;
+    margin-left: none;
+    margin-top: 5px;
+}
+.textarea{
+    width: 300px;
+    height: 100px;
+}
+.preview_movie{
+    width: 100px;
+    height: 40px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+.admin_buttons{
+    width: 100px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+.adm_btn_l{
+    margin-left:37%;
+    margin-right: 20px;
+}
+@media only screen and (max-width: 1100px) {
+    .basic_informations{
+        display: flex;
+        flex-direction: column;
     }
-    .choose ul li  > a {
-        text-decoration: none;
-        color: white;
-    }
-    .col_info_1{
-        margin: 0;
-        display: column;
-        flex-basis: 75%;
-        text-align: justify;
-        font-family: 'Courier New', Courier, monospace;
-        word-spacing: 0.5px;
-    }
-    .col_info_2{
-        margin: 0;
-        display: column;
+    .col_info{
+        margin-top:10px;
+        margin-left:5%;
+        display: row;
         flex-basis: 100%;
         text-align: justify;
         font-family: 'Courier New', Courier, monospace;
         word-spacing: 0.5px;
-    } 
-    .field {
-        height: 50px;
-        width: 300px;
-        margin-top: 10px;
-        outline: none;
-        border-radius: 10px;
-        text-align: left;
-        padding-left: 15px;
     }
-    .label{
+    .col_image{
+        margin-top:10px;
+        margin-bottom: 15px;
+        text-align: center;
+        display: row;
+        flex-basis: 50%;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .rating{
         text-align: justify;
         font-family: 'Courier New', Courier, monospace;
-        text-align:left;
-        margin-left: none;
-        margin-top: 5px;
+        word-spacing: 0.5px;
+        display:flex;
+        flex-direction:column;
     }
-    .textarea{
-        width: 300px;
-        height: 100px;
+    .left{
+        display:row;
+        flex-basis:100%;
+        margin-left:5%;
+        text-align: justify;
+        margin-bottom:20px;
+        margin-top: 10px;
     }
-    .preview_movie{
-        width: 100px;
-        height: 40px;
-        margin-top: 25px;
-        margin-bottom: 5px;
+    .actors{
+        margin-left:20%;
+        margin-bottom: 10px;
     }
-    .admin_buttons{
-        width: 150px;
-        height: 50px;
+}
+@media only screen and (max-width: 600px) {
+    *{
+        margin-left: 0%;
+        margin-right: 0%;
     }
-    a{
-        color:white;
-        text-decoration: none;
+    .movie_title{
+        margin-top: 15%;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: yellow;
+        text-shadow: 3px 3px red;
+        background: rgb(0,0,0,0.8);
+        width:100%;
+        text-align: center;
+        align-self: center;
+        border-radius: 20px 20px 0px 0px;
     }
+    .container{
+        height: auto;
+        background: rgb(255,255,255, 0.7);
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .basic_informations{
+        display: flex;
+        flex-direction: column;
+    }
+    .col_info{
+        margin-top:10px;
+        margin-left:10%;
+        display: row;
+        flex-basis: 100%;
+        text-align: justify;
+        font-family: 'Courier New', Courier, monospace;
+        word-spacing: 0.5px;
+    }
+    .col_image{
+        margin-top:10px;
+        margin-bottom: 15px;
+        text-align: center;
+        display: row;
+        flex-basis: 50%;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .rating{
+        text-align: justify;
+        font-family: 'Courier New', Courier, monospace;
+        word-spacing: 0.5px;
+        display:flex;
+        flex-direction:column;
+    }
+    .left{
+        display:row;
+        flex-basis:100%;
+        margin-left:5%;
+        text-align: justify;
+        margin-bottom:20px;
+        margin-top: 10px;
+    }
+    .actors{
+        margin-left:15%;
+        margin-bottom: 10px;
+    }
+    .choose{
+        margin-left:10%;
+    }
+    .adm_btn_l{
+        margin-left:20%;
+        margin-right: 20px;
+    }
+}

@@ -41,10 +41,11 @@
             $description = $row['description'];
             $avg_votes = $row['avg_vote'];
             $votes = $row['votes'];
+
             if($_SESSION['admin'] == 1){
-                $delete_movie = "<button type=\"submit\" class=\"submit_movie admin_btn submit_all btn btn-success\"> 
+                $delete_movie = "<button type=\"submit\" class=\"adm_btn_l  admin_buttons btn btn-success\"> 
                 <a href=\"result.php?title=". $title ."\">Delete</a></button>";
-                $edit_movie = "<button type=\"submit\" class=\"submit_movie admin_btn submit_all btn btn-success\"> 
+                $edit_movie = "<button type=\"submit\" class=\"adm_btn_r  admin_buttons btn btn-success\"> 
                 <a href=\"edit_movie.php?movie_id=" . $id . "\">Edit</a></button>";
             }
             echo "<div class=\"movie_title\"> <h1>" . $title . "</h1> </div>" ;      
@@ -68,14 +69,32 @@
             else{
                 echo "<img src=\"movie_images/" . $link . "\" height=\"275\" width=\"175\">";
             }
-            // echo "<img src=\"" . $link . "\" >";
             echo "</div>";
             echo "</div>";
-            echo "<div class=\"rating\" style=\"display:flex;flex-direction:row;\">
-            <div class=\"left\" style=\"display:column;flex-basis:80%;margin-left:0px;margin-bottom:10px;\">
+            echo "<div class=\"rating\"\">
+            <div class=\"left\"\">
             Rating of the movie: <button class=\"votes\" disabled>" . $avg_votes . "</button></br>";
             echo "Number of voters: ";
             echo $votes . " <br> ";
+            
+            $user_email = $_SESSION['user_email'];
+            $user_fullname = $_SESSION['user'];
+            $my_rating = "";
+            $display_my_rating = "";
+            $query = "SELECT e_mail, title, rating FROM movie_rating;";
+            $result = mysqli_query($connected, $query);
+            while($row_1 = mysqli_fetch_array($result)){
+                if($user_email == $row_1['e_mail'] && $title == $row_1['title']){
+                    $my_rating = $row_1['rating'];
+                }
+            }
+            if(strlen($my_rating) > 0){
+               $display_my_rating = $user_fullname .", your vote is: ". $my_rating;
+            }
+
+            echo $display_my_rating . " <br> ";
+            echo "<button class=\"remove_vote btn btn-success\"><a href=\"functions.php?rating=11&title_1=" . $title .
+             "\">Remove vote</a></button>";
             echo "<div class=\"choose\">
             <ul class=\"list\">
             <li>Rate the movie</li>
@@ -92,7 +111,7 @@
                   <li class=\"list_item_1\"><a href=\"functions.php?rating=10&title_1=" . $title . "\"> 10 star </a></li>
               </ul>
             </ul>
-            </div>";
+            </div><br>";
             echo "</div>";
             echo " </div> ";
             echo "<div class=\"right\" style=\"display:column;flex-basis:20%;\">";
@@ -125,49 +144,13 @@
         <script type="text/javascript" src="script_search.js" ></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <style media="screen">
-            .choose{
-                margin-left:-60px;
-                margin-top:-35px;
-            }
-            .choose ul li{
-                background: #262626;
-                width: 170px;
-                border: 1px solid #fff;
-                height: 35px;
-                line-height: 10px;
-                text-align: center;
-                float: left;
-                color: #fff;
-                font-size: 14px;
-                position: relative;
-                top: 20px;
-                left: -25px;
-                font-family: Arial, Helvetica, sans-serif;
-                padding: 10px;
-                cursor: pointer;
-                list-style:none;
-                }
-                .choose ul li:hover{
-                background: #2F4F4F;
-                }
-                .choose ul ul{
-                display: none;
-                }
-                .choose ul:hover > ul{
-                display: block;
-                }
-                .choose ul li  > a {
-                    text-decoration: none;
-                    color: white;
-                }
-        </style>
 </head>
 <body>
             <?php  echo $logoff;  ?>
-            <div class="admin_buttons">
-                <?php  echo $delete_movie;  ?>
-                <?php  echo $edit_movie;  ?>
-            </div>
+            <?php if($_SESSION['admin'] == 1){
+            echo $delete_movie; 
+            echo $edit_movie;
+            }
+            ?>
 </body>
 </html>
