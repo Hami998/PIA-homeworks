@@ -1,16 +1,16 @@
 <?PHP
-    session_start();
-    $_SESSION;
     include ("connection_database.php");
     include ("functions.php");
-
+    $_SESSION;
     $user_connection = check_login($connected);
     if($_SESSION['admin'] == 1){
-        echo "<button type=\"submit\" class=\"submit_movie submit_all btn btn-success\"> 
+        $see_all_movies = "<button type=\"submit\" class=\"submit_movie admin_btn_l submit_all btn btn-success\"> 
         <a href=\"result.php\" style=\"color:white;text-decoration:none\">See all movies</a></button>";
+        $add_new_movie = "<button type=\"submit\" class=\"submit_movie admin_btn_r submit_all btn btn-success\"> 
+        <a href=\"New_Movie.php\" style=\"color:white;text-decoration:none\">Add new movie</a></button>";
     }
     if($_SESSION['admin'] == 1 or $_SESSION['admin'] == 0){
-        $delete = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
+        $log_off = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
         style=\"position:relative;top:0px;left:0px\"> 
     <a href=\"functions.php?log_off=1\" style=\"color:white;text-decoration:none\">Log off</a></button>";
     }
@@ -33,7 +33,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-<?php  echo $delete;  ?>
+<?php  echo $log_off;  ?>
     <div class="search_box" id="search_box">
         <form action="result.php" class="search" id="search" method="post">
                 <div class="title_bg">
@@ -82,5 +82,9 @@
                 </div>
         </form>
     </div>
+    <?php if($_SESSION['admin'] == 1){
+        echo $see_all_movies;
+        echo $add_new_movie;
+    } ?>
 </body>
 </html>
