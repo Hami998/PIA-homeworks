@@ -1,9 +1,9 @@
-.list_item{ 
-    width: 500px;
+.list_item{
+    margin-top:5px;
     background: #FFFAF0;
-    position: relative;
-    top: 15px;
-    left: 440px;
+    width:50%;
+    margin-left:25%;
+    margin-right: 25%;
     font-size: 20px;
     color: #2F4F4F;
     font-family: 'Courier New', Courier, monospace;
@@ -17,22 +17,54 @@
     background-color:#DCDCDC;
     cursor: pointer;
 }
+.link_1{
+    color:black;
+    text-decoration:none;
+}
+.link_1:hover{
+    color:black;
+    text-decoration:none;
+}
 .delete_button{
-    width: 100px;
+    margin-left:45%;
+    margin-right:45%;
+    margin-top: 0px;
+    margin-bottom: 5px;
     border: none;
     outline: none;
     border-radius: 10px;
     color: white;
-    position: relative;
-    left: 650px;
     text-align: center;
     align-content: center;
     margin-top: 20px;
     background: green;
+    text-decoration: none;
 }
 .delete_button:hover{
     cursor: pointer;
 }
-a {
+a{
+    color: white;
+}
+a:hover{
+    color: white;
     text-decoration: none;
+}
+.submit_log_off{
+    position:relative;
+    top:0px;
+    left:0px;
+}
+.submit_return{
+    position:relative;
+    top:10%;
+    left:45%;
+}
+@media only screen and (max-width: 780px) {
+    .list_item{ 
+        margin-top:5px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
