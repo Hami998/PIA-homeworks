@@ -3,8 +3,8 @@
     $_SESSION;
     include ("connection_database.php");
     if($_REQUEST['REQUEST_METHOD'] = 'POST'){
-        if(isset($_POST['name']) and isset($_POST['surname']) and isset($_POST['nick']) and isset($_POST['email'])
-        and isset($_POST['password']) and isset($_POST['password_again'])){
+        if(empty($_POST['name']) || empty($_POST['surname']) || empty($_POST['nick']) || empty($_POST['email'])
+        || empty($_POST['password']) || empty($_POST['password_again'])){
             $user_name = $_POST['name'];
             $user_surname = $_POST['surname'];
             $user_nick = $_POST['nick'];
