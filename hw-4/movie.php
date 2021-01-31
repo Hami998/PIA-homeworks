@@ -51,6 +51,10 @@
                 $search_movie = "<button type=\"submit\" class=\"adm_btn_r  admin_buttons btn btn-success\"> 
                 <a href=\"search.php\">Search</a></button>";
             }
+            else{
+                $search_movie = "<button type=\"submit\" class=\"btn_search btn btn-success\"> 
+                <a href=\"search.php\">Search</a></button>";
+            }
             echo "<div class=\"movie_title\"> <h1>" . $title . "</h1> </div>" ;      
             echo "<div class=\"container\">";
             echo "<div class=\"basic_informations\">";
@@ -155,6 +159,9 @@
             echo $delete_movie; 
             echo $edit_movie;
             echo $search_movie;
+            }
+            else{
+                echo $search_movie;
             }
             ?>
 </body>

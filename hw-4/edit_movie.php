@@ -6,6 +6,8 @@
     $id = $_GET['movie_id'];
     $nick = $_SESSION['nickname'];
     $text = "Your nick is: ". $nick;
+    $return_movie = "<button type=\"submit\" class=\"btn_search btn btn-success\"> 
+    <a href=\"movie.php?id=". $id ."\">Return</a></button>";
     if($_SESSION['admin'] == 0){
         header("location: index.php");
     }
@@ -332,5 +334,6 @@
             Save</button>
             </form>
             </div>    
+            <?php echo $return_movie;?>
 </body>
 </html>

@@ -8,6 +8,8 @@
     }
     $nick = $_SESSION['nickname'];
     $text = "Your nick is: ". $nick;
+    $search_movie = "<button type=\"submit\" class=\"btn_search btn btn-success\"> 
+    <a href=\"search.php\">Search</a></button>";
     if ($_SERVER['REQUEST_METHOD'] = 'POST') {
     if(isset($_POST['submit'])){
     $title = $_POST['title'];
@@ -181,13 +183,13 @@
                 echo "<p class=\"error_text\">Duration should be a number</p>";
             }
             if($error_code === "7"){
-                echo "<p class=\"error_text\">Name of the director is nor right</p>";
+                echo "<p class=\"error_text\">Name of the director is not right</p>";
             }
             if($error_code === "8"){
-                echo "<p class=\"error_text\">Name of the writer is nor right</p>";
+                echo "<p class=\"error_text\">Name of the writer is not right</p>";
             }
             if($error_code === "9"){
-                echo "<p class=\"error_text\">Name of the production company is nor right </p>";
+                echo "<p class=\"error_text\">Name of the production company is not right </p>";
             }
             if($error_code === "10"){
                 echo "<p class=\"error_text\">Rating is a number between 1 and 10</p>";
@@ -263,5 +265,7 @@
             <button type="submit" class="submit_log_off btn btn-success" 
             style="position:absolute;top:0px;left:0px;width:100px"> 
             <a href="functions.php?log_off=1" style="color:white;text-decoration:none">Log off</a></button>  
+
+            <?php echo $search_movie;?>
 </body>
 </html>
