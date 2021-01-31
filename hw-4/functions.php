@@ -24,18 +24,34 @@ if(isset($_GET['rating'])){
     $query_1=("SELECT imdb_id FROM movie_list WHERE title='$title'");
     $result = mysqli_query($connected, $query_1); 
     $row = mysqli_fetch_array($result);  
-    $query = "INSERT INTO movie_rating (e_mail, title, rating) VALUES ('$e_mail', '$title', 
-            '$rating')";
-    mysqli_query($connected, $query);   
-    $query_2=("SELECT avg_votes, votes FROM movie_list WHERE title='$title'");
-    $result = mysqli_query($connected, $query_2); 
-    $row_1 = mysqli_fetch_array($result);
-    $new_votes = $row_1['votes'] + 1;
-    $new_avg_votes = $row_1['avg_votes'] + ($rating/$new_votes);
-    $new_avg_votes_rounded = number_format($new_avg_votes, 2);
-    $query_3 = ("UPDATE movie_list SET avg_votes=$new_avg_votes_rounded, votes=$new_votes WHERE title='$title';");
-    mysqli_query($connected, $query_3);   
-    header("Location: movie.php?id=". $row['imdb_id']);
+    $query = "SELECT e_mail, rating FROM movie_rating WHERE title='$title'";
+    $result = mysqli_query($connected, $query);
+    $repeat = 0; // proverava da li je korisnik glasao opet za isti film 
+    while($row_1 = mysqli_fetch_array($result)){
+        if($e_mail === $row_1['e_mail']){
+            $query = "UPDATE movie_rating SET rating='$rating' WHERE e_mail='$e_mail' AND title='$title'";
+            $result = mysqli_query($connected, $query);
+            $repeat++;
+        }
+    }
+    if($repeat==0){
+        $query = "INSERT INTO movie_rating (e_mail, title, rating) VALUES ('$e_mail', '$title', 
+        '$rating')";
+        mysqli_query($connected, $query);   
+        $query_2=("SELECT avg_votes, votes FROM movie_list WHERE title='$title'");
+        $result = mysqli_query($connected, $query_2); 
+        $row_1 = mysqli_fetch_array($result);
+        $new_votes = $row_1['votes'] + 1;
+        $new_avg_votes = $row_1['avg_votes'] + ($rating/$new_votes);
+        $new_avg_votes_rounded = number_format($new_avg_votes, 2);
+        $query_3 = ("UPDATE movie_list SET avg_votes=$new_avg_votes_rounded, votes=$new_votes WHERE title='$title';");
+        mysqli_query($connected, $query_3);  
+        header("Location: movie.php?id=". $row['imdb_id']);
+    } 
+    else{
+        $repeat = 0;
+        header("Location: movie.php?id=". $row['imdb_id']);
+    }
 }
 if(isset($_GET['title'])){
     $title = $_GET['title'];
