@@ -31,6 +31,7 @@
     $emptyString = "";
     //
     $check=0; //proveravam da li su svi uneti podaci ispravni
+    echo $check;
     if(!empty($genre)){
         $check_1 = 0;
         $array_of_genre = explode(",", $genre);
@@ -39,70 +40,74 @@
                 $check_1++;
             }
         }
-        if($check_1 == 0){
-        }
-        else{
+        if($check_1 > 0){
             $check++;
+            echo "Genre";
         }
     }
     if(!empty($year)){
         if(!(is_numeric($year))){
             $check++;
+            echo "Year";
         }
     }
     if(!empty($date_of_publishing)){
         $array_of_date = explode(".", $date_of_publishing);
-        $array_of_date_1 = explode("-", $date_of_publishing);
         if(!(checkdate(intval($array_of_date[0]) , intval($array_of_date[1]) , intval($array_of_date[2])))){
             $check++;
-        }
-        else if(!(checkdate ( intval($array_of_date_1[2]) , intval($array_of_date_1[1]) , intval($array_of_date_1[0])))){
-            $check++;
+            echo "Datum";
         }
     }
     if(!empty($duration)){
         if(!(is_numeric($duration))){
             $check++;
+            echo "Duration";
         }
     }
     if(!empty($director)){
         if(is_numeric($director)){
             $check++; 
+            echo "Director";
         }
     }
     if(!empty($writer)){
         if(is_numeric($writer)){
             $check++; 
+            echo "Writer";
         }
     }
     if(!empty($production_com)){
         if(is_numeric($production_com)){
             $check++; 
+            echo "Production comany";
         }
     }
     if(!empty($rating)){
         if(!(is_numeric($rating) && $rating <= 10 && $rating > 0)){
             $check++; 
+            echo "rating";
         }
     }
     if(!empty($voters)){
         if(!(is_numeric($voters) && $voters >= 0)){
             $check++; 
+            echo "voters";
         }
     }
     if(!empty($actors)){
-        $check_1=0;
+        $check_2=0;
         $array_of_actors = explode(".", $actors);  
         foreach($array_of_actors as $actor){
             if(!(is_numeric($actor))){
                 continue;
             }
             else{
-                $check_1++;
+                $check_2++;
             }
         }
-        if($check > 0){
+        if($check_2 > 0){
             $check++; 
+            echo "glumci";
         }
     }
     if(empty($title) || empty($year) || empty($date_of_publishing) || empty($genre) || empty($duration) ||
@@ -111,7 +116,11 @@
         echo "You should enter all data";
     }
     else if($check > 0){
+        echo"Broj pogresnog imputa";
+        echo $check;
+        $check=0;
         echo "You should enter all data correctly";
+        echo $check;
     }
 
     else{
