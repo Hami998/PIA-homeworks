@@ -3,14 +3,80 @@
     $_SESSION;
     include ("connection_database.php");
     if($_REQUEST['REQUEST_METHOD'] = 'POST'){
-        if(empty($_POST['name']) || empty($_POST['surname']) || empty($_POST['nick']) || empty($_POST['email'])
-        || empty($_POST['password']) || empty($_POST['password_again'])){
-            $user_name = $_POST['name'];
-            $user_surname = $_POST['surname'];
+        if(isset( $_POST['submit']))
+        // (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['nick']) && isset($_POST['email'])
+        // && isset($_POST['password']) && isset($_POST['password_again']))
+        {
+            $user_name = ucfirst(strtolower($_POST['name']));
+            $user_surname = ucfirst(strtolower($_POST['surname']));
             $user_nick = $_POST['nick'];
             $user_email = $_POST['email'];
             $user_password = $_POST['password'];
             $user_password_again = $_POST['password_again'];
+            if(empty($user_name)){
+                header("Location: index.php?error=1");
+                exit();
+            }
+            if(empty($user_surname)){
+                header("Location: index.php?error=2");
+                exit();
+            }
+            if(empty($user_nick)){
+                header("Location: index.php?error=3");
+                exit();
+            }
+            if(empty($user_email)){
+                header("Location: index.php?error=4");
+                exit();
+            }
+            if(empty($user_password)){
+                header("Location: index.php?error=5");
+                exit();
+            }
+            if(empty($user_password_again)){
+                header("Location: index.php?error=6");
+                exit();
+            }
+            if(!(preg_match ("/^[A-Z]{1}[a-z]*$/", $user_name))){
+                header("Location: index.php?error=7");
+                exit();
+            }
+            if(!(preg_match ("/^[A-Z]{1}[a-z]*$/", $user_surname))){
+                header("Location: index.php?error=8");
+                exit();
+            }
+            if(strlen($user_nick) > 12){
+                header("Location: index.php?error=9");
+                exit();
+            }
+            if(!(preg_match ("/^[a-zA-Z0-9]*$/", $user_nick))){
+                header("Location: index.php?error=10");
+                exit();
+            }
+            if(!(preg_match ("/^[a-zA-Z]{1}[a-zA-Z0-9]*@gmail.com$/", $user_email))){
+                header("Location: index.php?error=11");
+                exit();
+            }
+            if(!(preg_match ("/^[a-zA-Z0-9]*$/", $user_password))){
+                header("Location: index.php?error=12");
+                exit();
+            }
+            if(!(preg_match ("/[A-Z]/", $user_password))){
+                header("Location: index.php?error=13");
+                exit();
+            }
+            if(!(preg_match ("/[a-z]/", $user_password))){
+                header("Location: index.php?error=14");
+                exit();
+            }
+            if(!(preg_match ("/[0-9]/", $user_password))){
+                header("Location: index.php?error=15");
+                exit();
+            }
+            if(!($user_password === $user_password_again)){
+                header("Location: index.php?error=16");
+                exit();
+            }
             $query_0 = "SELECT name, last_name, e_mail FROM users;";
             $result = mysqli_query($connected, $query_0);
             $check = 0;
@@ -98,6 +164,66 @@
     <button class="sign_in btn btn-success" onclick="openSignIn()">Sign in</button>
     <button class="sign_up btn btn-success" onclick="openSignUp()">Sign Up</button>
     </div>
+    <?php
+            if(empty( $_GET["error"])){
+                echo "";
+            }
+            if(isset($_GET["error"])){
+                $error_code = $_GET["error"];
+            }
+            else{
+                $error_code = "";
+            }
+            if($error_code === "1"){
+                echo "<p class=\"error_text\">Name field is empty</p>";
+            }
+            else if($error_code === "2"){
+                echo "<p class=\"error_text\">Last name field is empty</p>";
+            }
+            else if($error_code === "3"){
+                echo "<p class=\"error_text\">Nick field is empty</p>";
+            }
+            else if($error_code === "4"){
+                echo "<p class=\"error_text\">E mail field is empty</p>";
+            }
+            else if($error_code === "5"){
+                echo "<p class=\"error_text\">Password field is empty</p>";
+            }
+            else if($error_code === "6"){
+                echo "<p class=\"error_text\">Password field is empty</p>";
+            }
+            else if($error_code === "7"){
+                echo "<p class=\"error_text\">You didn't wrote your name correctly</p>";
+            }
+            else if($error_code === "8"){
+                echo "<p class=\"error_text\">You didn't wrote your last name correctly</p>";
+            }
+            else if($error_code === "9"){
+                echo "<p class=\"error_text\">Nick should be name shorter than 12 letters</p>";
+            }
+            else if($error_code === "10"){
+                echo "<p class=\"error_text\">Nick should include only letters and numbers, without spaces</p>";
+            }
+            else if($error_code === "11"){
+                echo "<p class=\"error_text\">You should enter your email in format johnsmith990@gmail.com</p>";
+            }
+            else if($error_code === "12"){
+                echo "<p class=\"error_text\">You should enter password,
+                it should contain capital and small letters and numbers</p>";
+            }
+            else if($error_code === "13"){
+                echo "<p class=\"error_text\">Password is weak, it should contain capital letters</p>";
+            }
+            else if($error_code === "14"){
+                echo "<p class=\"error_text\">Password is weak, it should contain small letters</p>";
+            }
+            else if($error_code === "15"){
+                echo "<p class=\"error_text\">Password is weak, it should contain numbers</p>";
+            }
+            else if($error_code === "16"){
+                echo "<p class=\"error_text\">Password doesn't matchs</p>";
+            }
+    ?>
     <div class="sign_in_modal_bg">
         <div class="sign_in_modal">
             <form action="" method="post" class="forma_1">
@@ -138,10 +264,9 @@
                 <input type="password" class="password input" id="password_1" name="password" placeholder="">
                 <label for="password_again" class="label">Confirm password: </label>
                 <input type="password" class="password password_again input" id="password_again" name="password_again" placeholder="">
-                <button type="submit" class="submit_sign_up btn btn-success" onclick="checkSignUp()">Submit</button>
+                <button type="submit" name="submit" class="submit_sign_up btn btn-success">Submit</button>
             </form>
             </div>
     </div>
-
 </body>
 </html>
