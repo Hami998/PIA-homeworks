@@ -86,3 +86,71 @@ input{
     height: 45px;
     border-radius: 25%;
 }
+a {
+    text-decoration: none;
+}
+.submit_all{
+    position: relative;
+    top: 520px;
+    left: 400px;
+}
+.admin_btn_l > a{
+    color: white;
+    text-decoration: none;
+}
+.admin_btn_l{
+    margin-right: 3rem;
+    margin-left: 2rem;
+}
+.admin_btn_r > a{
+    color: white;
+    text-decoration: none;
+}
+@media only screen and (max-width: 1200px) {
+    .submit_all{
+        position: relative;
+        top: 520px;
+        left: 270px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .submit_all{
+        position: relative;
+        top: 520px;
+        left: 120px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .search_box{
+        width: 350px;
+    }
+    .title_movies{
+        font-size: 18px;
+    }
+    .submit_movie{
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+    .submit_all{
+        position: relative;
+        top: 520px;
+        left: 10px;
+        margin-bottom: 10px;
+    }
+    .admin_btn_l{
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+    .admin_btn_r{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-width: 370px) {
+    .submit_all{
+        position: relative;
+        top: 520px;
+        left: -40px;
+        margin-bottom: 10px;
+    }
+}

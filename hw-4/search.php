@@ -4,10 +4,10 @@
     $_SESSION;
     $user_connection = check_login($connected);
     if($_SESSION['admin'] == 1){
-        $see_all_movies = "<button type=\"submit\" class=\"submit_movie admin_btn_l submit_all btn btn-success\"> 
-        <a href=\"result.php\" style=\"color:white;text-decoration:none\">See all movies</a></button>";
-        $add_new_movie = "<button type=\"submit\" class=\"submit_movie admin_btn_r submit_all btn btn-success\"> 
-        <a href=\"New_Movie.php\" style=\"color:white;text-decoration:none\">Add new movie</a></button>";
+        $see_all_movies = "<button type=\"submit\" class=\"submit_movie submit_all admin_btn_l btn btn-success\"> 
+        <a href=\"result.php\"\">See all movies</a></button>";
+        $add_new_movie = "<button type=\"submit\" class=\"submit_movie  submit_all admin_btn_r btn btn-success\"> 
+        <a href=\"new_movie.php\"\">Add new movie</a></button>";
     }
     if($_SESSION['admin'] == 1 or $_SESSION['admin'] == 0){
         $log_off = "<button type=\"submit\" class=\"submit_log_off btn btn-success\" 
@@ -75,9 +75,6 @@
                     <label for="mistery_movie"> Mistery movie</label><br>
                     <input type="checkbox" id="documentary_movie" name="documentary_movie" value="Documentary">
                     <label for="documentary_movie"> Documentary movie</label><br>
-                    </div>
-                    <div class="col col_6">
-                    <button type="submit" class="submit_movie btn btn-success">Search</button>
                     </div>
                 </div>
         </form>
