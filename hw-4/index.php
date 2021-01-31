@@ -4,8 +4,6 @@
     include ("connection_database.php");
     if($_REQUEST['REQUEST_METHOD'] = 'POST'){
         if(isset( $_POST['submit']))
-        // (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['nick']) && isset($_POST['email'])
-        // && isset($_POST['password']) && isset($_POST['password_again']))
         {
             $user_name = ucfirst(strtolower($_POST['name']));
             $user_surname = ucfirst(strtolower($_POST['surname']));
@@ -82,30 +80,32 @@
             $check = 0;
             while($row = mysqli_fetch_array($result)){
                 if($user_name  == $row['name'] && $user_surname == $row['last_name']){
-                    echo "User already exist";
-                    $check = 1;
-                    break;
+                    header("Location: index.php?error=17");
+                    exit();
                 }
                if($user_email == $row['e_mail']){
-                   echo "E-mail address already used";
-                   $check = 1;
-                   break;
+                header("Location: index.php?error=18");
+                exit();
                }
             }
-            if($check == 0){
             $query = "INSERT INTO users (name, last_name, e_mail, nickname, password) VALUES ('$user_name', '$user_surname', 
             '$user_email', '$user_nick', '$user_password')";
 
             mysqli_query($connected, $query);                
-            }
-            else {
-                $check == 0;
-            }
         }
             //log in
-            else if(isset($_POST['name_or_email']) and isset($_POST['password'])){
+            else if(isset($_POST['commit']))
+            {
                 $user_name_or_email = $_POST['name_or_email'];
                 $user_password = $_POST['password'];
+                if(empty($user_name_or_email)){
+                    header("Location: index.php?error=19");
+                    exit();
+                }
+                if(empty($user_password)){
+                    header("Location: index.php?error=20");
+                    exit();
+                }
                 $query_2 = "SELECT reg_or_ad, name, last_name, e_mail, password FROM users;";
                 $result = mysqli_query($connected, $query_2);
                 $ckeck_1 = 0;
@@ -135,7 +135,8 @@
                     }
                 }
                 if($ckeck_1 == 0){
-                    echo "Maybe you didn't write your name or e-mail correctly. Try again";
+                    header("Location: index.php?error=21");
+                    exit();
                 }
                 else{
                     $ckeck_1 = 0;
@@ -223,6 +224,21 @@
             else if($error_code === "16"){
                 echo "<p class=\"error_text\">Password doesn't matchs</p>";
             }
+            else if($error_code === "17"){
+                echo "<p class=\"error_text\">User already exist</p>";
+            }
+            else if($error_code === "18"){
+                echo "<p class=\"error_text\">E mail already exist</p>";
+            }
+            else if($error_code === "19"){
+                echo "<p class=\"error_text\">You should enter name or e mail</p>";
+            }
+            else if($error_code === "20"){
+                echo "<p class=\"error_text\">You should enter a password</p>";
+            }
+            else if($error_code === "21"){
+                echo "<p class=\"error_text\">You didn't enter name, email or password correctly</p>";
+            }
     ?>
     <div class="sign_in_modal_bg">
         <div class="sign_in_modal">
@@ -237,7 +253,7 @@
             <input type="text" class="name_or_email input" id="name_or_email" name="name_or_email" placeholder="Name or email">
             <label for="password" class="label">Enter password: </label>
             <input type="password" class="password input" id="password" name="password" placeholder="password">
-            <button class="commit btn btn-success" onclick="checkSignIn()">Sign in</button>
+            <button class="commit btn btn-success" name="commit">Sign in</button>
             </form>
             <p class="text">Don't have an account:</p>
             <button class="registration btn btn-success" onclick="openSignUp(); closeSignIn()">Sign Up</button>
