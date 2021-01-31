@@ -27,6 +27,14 @@
         $actors = $_POST['actors'];
         $imgName_1 = $_FILES['file']['name'];
         if(!empty($title)){
+            $query = "SELECT title FROM movie_list_new";
+            $result = mysqli_query($connected, $query);
+            while($row = mysqli_fetch_array($result)){ 
+            if ($title == $row['title']){
+                header("Location: new_movie.php?error=11");
+                exit();
+            }
+            }
             $query = "UPDATE movie_list_new SET title='$title' WHERE imdb_id='$id'";
             $result = mysqli_query($connected, $query);
         }
@@ -271,6 +279,9 @@
             }
             if($error_code === "10"){
                 echo "<p class=\"error_text\">List of actors should be separated with comma</p>";
+            }
+            if($error_code === "11"){
+                echo "<p class=\"error_text\">Movie title already exist in database</p>";
             }
             ?>
             <div class="movie_title"> <h1></h1> </div>

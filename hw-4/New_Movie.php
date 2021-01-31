@@ -37,6 +37,16 @@
     $lastValueImdb = "tt".strval($newLastElement);
     $emptyString = "";
     $check=0; //proveravam da li su svi uneti podaci ispravni
+    if(!empty($title)){
+        $query = "SELECT title FROM movie_list_new";
+        $result = mysqli_query($connected, $query);
+        while($row = mysqli_fetch_array($result)){ 
+            if ($title == $row['title']){
+                header("Location: new_movie.php?error=13");
+                exit();
+            }
+        }
+    }
     if(!empty($genre)){
         $array_of_genre = explode(",", $genre);
         foreach($array_of_genre as $genre_1){
@@ -199,6 +209,9 @@
             }
             if($error_code === "12"){
                 echo "<p class=\"error_text\">Actors should be list of actors separated by ,</p>";
+            }
+            if($error_code === "13"){
+                echo "<p class=\"error_text\">Movie already in database</p>";
             }
             ?>
             <div class="movie_title"> <h1></h1> </div>
