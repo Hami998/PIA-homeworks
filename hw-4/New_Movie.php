@@ -4,12 +4,6 @@
     $_SESSION;
     $user_connection = check_login($connected);
     if ($_SERVER['REQUEST_METHOD'] = 'POST') {
-    // if(isset($_POST['title'])
-    // and isset($_POST['year']) and isset($_POST['date_of_publishing']) and isset($_POST['genre']) 
-    // and isset($_POST['duration']) and isset($_POST['director']) and isset($_POST['writer'])
-    // and isset($_POST['production_com']) and isset($_POST['description']) 
-    // and isset($_POST['rating']) and isset($_POST['voters']) and isset($_POST['actors']) and isset($_POST['img'])
-    // ){
     if(isset($_POST['submit'])){
     $title = $_POST['title'];
     $year = $_POST['year'];
@@ -23,7 +17,6 @@
     $rating = $_POST['rating'];
     $voters = $_POST['voters'];
     $actors = $_POST['actors'];
-    // $img = $_POST['img'];
     $imgName = $_FILES['file']['name'];
     $query = "SELECT imdb_id FROM movie_list;";
     $result = mysqli_query($connected, $query);
@@ -36,23 +29,106 @@
     $lastValueImdb = "tt".strval($newLastElement);
     echo $lastValueImdb;
     $emptyString = "";
-    $query = "INSERT INTO movie_list(imdb_id, title, year, data_published, genre, duration, director,
-    writer, production_company, actors, description, avg_votes, votes)
-    VALUES ('$lastValueImdb', '$title', '$year', '$date_of_publishing', '$genre', '$duration', '$director', '$writer',
-    '$production_com', '$actors', '$description', '$rating', '$voters')";
+    //
+    $check=0; //proveravam da li su svi uneti podaci ispravni
+    if(!empty($genre)){
+        $check_1 = 0;
+        $array_of_genre = explode(",", $genre);
+        foreach($array_of_genre as $genre_1){
+            if(is_numeric($genre_1)){
+                $check_1++;
+            }
+        }
+        if($check_1 == 0){
+        }
+        else{
+            $check++;
+        }
+    }
+    if(!empty($year)){
+        if(!(is_numeric($year))){
+            $check++;
+        }
+    }
+    if(!empty($date_of_publishing)){
+        $array_of_date = explode(".", $date_of_publishing);
+        $array_of_date_1 = explode("-", $date_of_publishing);
+        if(!(checkdate(intval($array_of_date[0]) , intval($array_of_date[1]) , intval($array_of_date[2])))){
+            $check++;
+        }
+        else if(!(checkdate ( intval($array_of_date_1[2]) , intval($array_of_date_1[1]) , intval($array_of_date_1[0])))){
+            $check++;
+        }
+    }
+    if(!empty($duration)){
+        if(!(is_numeric($duration))){
+            $check++;
+        }
+    }
+    if(!empty($director)){
+        if(is_numeric($director)){
+            $check++; 
+        }
+    }
+    if(!empty($writer)){
+        if(is_numeric($writer)){
+            $check++; 
+        }
+    }
+    if(!empty($production_com)){
+        if(is_numeric($production_com)){
+            $check++; 
+        }
+    }
+    if(!empty($rating)){
+        if(!(is_numeric($rating) && $rating <= 10 && $rating > 0)){
+            $check++; 
+        }
+    }
+    if(!empty($voters)){
+        if(!(is_numeric($voters) && $voters >= 0)){
+            $check++; 
+        }
+    }
+    if(!empty($actors)){
+        $check_1=0;
+        $array_of_actors = explode(".", $actors);  
+        foreach($array_of_actors as $actor){
+            if(!(is_numeric($actor))){
+                continue;
+            }
+            else{
+                $check_1++;
+            }
+        }
+        if($check > 0){
+            $check++; 
+        }
+    }
+    if(empty($title) || empty($year) || empty($date_of_publishing) || empty($genre) || empty($duration) ||
+       empty($director) || empty($writer) || empty($production_com) || empty($description) || empty($rating) ||
+       empty($voters) || empty($actors) || empty($imgName)){
+        echo "You should enter all data";
+    }
+    else if($check > 0){
+        echo "You should enter all data correctly";
+    }
 
-    $result = mysqli_query($connected, $query);
-
-    //  $query_1 = "INSERT INTO movie_poster(imdbID, title, poster)
-    //  VALUES ('$newLastElement', '$title', '$img')";
-    $add = 1;
-    $query_1 = "INSERT INTO movie_poster(imdbID, title, poster, added) VALUES ('$newLastElement', '$title',
-     '$imgName', $add)";
-    $result_1 = mysqli_query($connected, $query_1);
-    $fileDestination = "movie_images/" . $imgName;
-    move_uploaded_file($_FILES['file']['tmp_name'], $fileDestination);
-    header("location: movie.php?id=" . $lastValueImdb);
-    } else {
+    else{
+        $query = "INSERT INTO movie_list(imdb_id, title, year, data_published, genre, duration, director,
+        writer, production_company, actors, description, avg_votes, votes)
+        VALUES ('$lastValueImdb', '$title', '$year', '$date_of_publishing', '$genre', '$duration', '$director', '$writer',
+        '$production_com', '$actors', '$description', '$rating', '$voters')";
+    
+        $result = mysqli_query($connected, $query);
+        $add = 1;
+        $query_1 = "INSERT INTO movie_poster(imdbID, title, poster, added) VALUES ('$newLastElement', '$title',
+         '$imgName', $add)";
+        $result_1 = mysqli_query($connected, $query_1);
+        $fileDestination = "movie_images/" . $imgName;
+        move_uploaded_file($_FILES['file']['tmp_name'], $fileDestination);
+        header("location: movie.php?id=" . $lastValueImdb);
+    }
     }
     }    
 ?>
@@ -126,15 +202,13 @@
             <textarea type="text" class="actors textarea" id="actors" 
             name="actors"></textarea>
             <br>
-            <label for="img" class="label">Img link: </label>
-            <!-- <input type="text" class="img field" id="img" 
-            name="img"> -->
+            <label for="file" class="label">Img link: </label>
             <input type="file" name="file">
             <br>
             </div>
             </div>
-            <button type="submit" name="submit" class="preview_movie btn btn-success" onclick="addMovie()">
-            Preview</button>
+            <button type="submit" name="submit" class="preview_movie btn btn-success">
+            Add Movie</button>
             </form>
             </div>    
             <button type="submit" class="submit_log_off btn btn-success" 
